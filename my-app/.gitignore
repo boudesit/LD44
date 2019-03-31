@@ -44,3 +44,6 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+#Specific no-commit phaser
+/src/phaser.d.ts
