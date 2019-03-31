@@ -1,0 +1,19 @@
+{
+  "name": "ld-44",
+  "version": "1.0.0",
+  "description": "I like to code it code it ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/boudesit/LD44.git"
+  },
+  "author": "dev-for-pizza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/boudesit/LD44/issues"
+  },
+  "homepage": "https://github.com/boudesit/LD44#readme"
+}
