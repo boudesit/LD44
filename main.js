@@ -59,8 +59,16 @@ var AppComponent = /** @class */ (function () {
             width: 640,
             height: 480,
             scene: {
+                preload: function () {
+                    this.load.image("background", 'assets/background.png');
+                },
                 create: function () {
-                    this.cameras.main.startFollow(this.add.text(0, 0, 'It\'s the first screen of the game funny got').setOrigin(0.5), false);
+                    // this.cameras.main.startFollow(this.add.text(0, 0, 'It\'s the first screen of the game funny got').setOrigin(0.5), false);
+                    var backgroundImage = this.add.sprite(0, 0, "background");
+                    backgroundImage.setPosition(320, 240);
+                    backgroundImage.setScale(0.8);
+                },
+                update: function () {
                 }
             }
         };
