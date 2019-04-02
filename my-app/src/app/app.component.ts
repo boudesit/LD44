@@ -1,29 +1,35 @@
+import {environment} from '../environments/environment';
 import { Component } from '@angular/core';
 
-import {environment} from '../environments/environment';
+const gameConfig: GameConfig = {
+  title: environment.title,
+  version: environment.version,
+  type: Phaser.AUTO,
+  width: 1024,
+  height: 576,
+  parent :"div-phaser" ,
+  scene: {
+    create: function () {
+      this.cameras.main.startFollow(this.add.text(0, 0, 'It\'s the first screen of the game').setOrigin(0.5), false);
+    }
+  }
+};
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html'
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+
+export class AppComponent extends Phaser.Game {
   public game: Phaser.Game;
 
-
-  public readonly gameConfig: GameConfig = {
-    title: environment.title,
-    version: environment.version,
-    type: Phaser.AUTO,
-    width: 640,
-    height: 480,
-    scene: {
-      create: function () {
-        this.cameras.main.startFollow(this.add.text(0, 0, 'It\'s the first screen of the game').setOrigin(0.5), false);
-      }
-    }
-};
-
-  public onGameReady(game: Phaser.Game): void {
-    this.game = game;
+  constructor() {
+    super(gameConfig);
   }
+
+  NgOnInit() {
+    this.game = new Phaser.Game;
+  }
+
 }
