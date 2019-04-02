@@ -10,7 +10,7 @@
     "e2e": "ng e2e",
     "get-phaser-typings": "curl -o src/phaser.d.ts https://raw.githubusercontent.com/photonstorm/phaser3-docs/master/typescript/phaser.d.ts",
     "angular-cli-ghpages": "angular-cli-ghpages",
-    "deploy": "npm run angular-cli-ghpages -- --dir dist/my-app"
+    "deploy": "npm run angular-cli-ghpages  --dir dist/my-app"
   },
   "private": true,
   "dependencies": {
