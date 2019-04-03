@@ -1,18 +1,19 @@
 import {environment} from '../environments/environment';
 import { Component } from '@angular/core';
 
+import { BootScene } from "./scenes/boot-scene";
+import { PreloadScene } from './scenes/preload-scene';
+import { MainMenuScene } from './scenes/main-menu-scene';
+
 const gameConfig: GameConfig = {
   title: environment.title,
   version: environment.version,
   type: Phaser.AUTO,
   width: 1024,
   height: 576,
-  parent :"div-phaser" ,
-  scene: {
-    create: function () {
-      this.cameras.main.startFollow(this.add.text(0, 0, 'It\'s the first screen of the game').setOrigin(0.5), false);
-    }
-  }
+  parent :"div-phaser",
+  scene: 
+    [BootScene, PreloadScene, MainMenuScene]
 };
 
 @Component({
