@@ -4,6 +4,8 @@ import { Component } from '@angular/core';
 import { BootScene } from "./scenes/boot-scene";
 import { PreloadScene } from './scenes/preload-scene';
 import { MainMenuScene } from './scenes/main-menu-scene';
+import { HudScene } from './scenes/hud-scene';
+import { OptionScene } from './scenes/options-scene';
 
 const gameConfig: GameConfig = {
   title: environment.title,
@@ -13,7 +15,7 @@ const gameConfig: GameConfig = {
   height: 576,
   parent :"div-phaser",
   scene: 
-    [BootScene, PreloadScene, MainMenuScene]
+    [BootScene, PreloadScene, MainMenuScene, HudScene, OptionScene]
 };
 
 @Component({

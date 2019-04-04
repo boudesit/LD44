@@ -1,4 +1,4 @@
-import {ROOT_ASSETS} from "../const/root.const"
+import {ROOT_CONST} from "../const/root.const"
 
 export class PreloadScene extends Phaser.Scene {
 
@@ -17,11 +17,10 @@ export class PreloadScene extends Phaser.Scene {
 
         //TODO: It's just a test remove this after
         for (var i = 0; i < 100; i++) {
-            this.load.image("loading"+i, ROOT_ASSETS + "assets/logo/logo.png");
+            this.load.image("loading"+i, ROOT_CONST.ROOT_ASSETS + "assets/logo/logo.png");
         }
 
-        this.load.on('progress', (value) => {
-            console.log(_this.loadingBar.x +" "+ _this.loadingBar.y);
+        this.load.on('progress', (value : number) => {
             _this.loadingBar.setCrop(0, 0,525 * value, 900);
         });
     }
@@ -34,6 +33,5 @@ export class PreloadScene extends Phaser.Scene {
         }, 2000);
     }
 
-    update() : void {
-    }
+    update() : void { }
 }

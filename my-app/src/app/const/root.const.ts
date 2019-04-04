@@ -1,1 +1,4 @@
-export let ROOT_ASSETS = "../../";
+export let ROOT_CONST = {
+
+    ROOT_ASSETS : "../../"
+}

@@ -1,4 +1,10 @@
+import { Menu } from '../objects/menu';
+
 export class MainMenuScene extends Phaser.Scene {
+
+    launchMenu : Menu;
+    optionMenu : Menu;
+
 
     constructor(){
         super({
@@ -6,11 +12,19 @@ export class MainMenuScene extends Phaser.Scene {
         })
     }
 
-    create() {
-        this.cameras.main.startFollow(this.add.text(0, 0, 'It\'s the first screen of the game').setOrigin(0.5), false);
+    create() : void {
+
+        this.launchMenu = new Menu(this, 500, 250, "Start game", "HudScene");
+        this.launchMenu.getMenuText().setInteractive();
+
+        this.optionMenu = new Menu(this, 500, 270, "options", "OptionScene");
+        this.optionMenu.getMenuText().setInteractive();
     }
 
-    update() {
+    update() : void {
 
     }
+
+
+
 }
