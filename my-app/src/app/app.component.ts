@@ -11,8 +11,8 @@ const gameConfig: GameConfig = {
   title: environment.title,
   version: environment.version,
   type: Phaser.AUTO,
-  width: 1024,
-  height: 576,
+  width: localStorage.getItem("resolution_width") ? +localStorage.getItem("resolution_width") : 1024,
+  height: localStorage.getItem("resolution_height") ? +localStorage.getItem("resolution_height") : 576,
   parent :"div-phaser",
   scene: 
     [BootScene, PreloadScene, MainMenuScene, HudScene, OptionScene]
