@@ -1,10 +1,15 @@
 import { Menu } from '../objects/menu';
 
+import screenfull, { Screenfull } from 'screenfull';
+
+
 export class MainMenuScene extends Phaser.Scene {
 
     launchMenu : Menu;
     optionMenu : Menu;
     fullscreenMenu : Menu;
+
+    canvas : HTMLCanvasElement;
 
 
     constructor(){
@@ -16,13 +21,14 @@ export class MainMenuScene extends Phaser.Scene {
     create() : void {
         let _this = this;
 
-        var canvas = this.sys.game.canvas;
-        var fullscreen = this.sys.game.device.fullscreen;
-      
-        if (!fullscreen.available) {
+        this.canvas = document.getElementsByTagName("canvas").item(0);
+
+        
+
+        if (!document.fullscreenEnabled) {
           return;
         }
-
+        
         this.launchMenu = new Menu(this, this.game.config.width as number / 2, this.game.config.height as number / 2, "Start game", "HudScene");
         this.launchMenu.getMenuText().setInteractive();
 
@@ -30,25 +36,34 @@ export class MainMenuScene extends Phaser.Scene {
         this.optionMenu.getMenuText().setInteractive();
 
         this.fullscreenMenu = new Menu(this, 20, 20, "fullscreen", null);
-        this.fullscreenMenu.getMenuText().setInteractive();
+
+        this.canvas.onfullscreenchange = (event) => {
+            console.log("FULLSCREEN CHANGE");
+            console.log(event);
+
+            event.stopPropagation();
+
+            return null;
+        }
+
+        this.canvas.onfullscreenerror = (event) => {
+            console.log("FULLSCREEN ERROR");
+
+            console.log(event);
+
+        }
 
         this.fullscreenMenu.getMenuText().on("pointerdown", () => {
-            if(document.fullscreen) {
+                if((<Screenfull>screenfull).enabled) {
+                    (<Screenfull>screenfull).toggle(_this.canvas);
+                }
 
-                console.log("jesuisla");
-                canvas[fullscreen.cancel]();
-            } else {
+        });
 
-                console.log("oulà");
-                // canvas.requestFullscreen();
-                canvas[fullscreen.request]();
-            }
-        })
-    }
-
-    update() : void {
 
     }
+
+    update() : void {  }
 
 
 
