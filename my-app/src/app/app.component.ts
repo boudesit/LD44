@@ -27,12 +27,16 @@ const gameConfig: GameConfig = {
 export class AppComponent extends Phaser.Game {
   public game: Phaser.Game;
 
+  startBtn : any;
+  stopBtn : any;
+
+
   constructor() {
     super(gameConfig);
   }
 
   NgOnInit() {
-    this.game = new Phaser.Game;
+    this.game = new Phaser.Game;    
+  
   }
-
 }

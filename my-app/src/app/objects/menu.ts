@@ -28,9 +28,12 @@ export class Menu  {
             _this.menu.setStyle({color : "grey"});
         });
 
-        this.menu.on('pointerdown', function(){
-            scene.scene.start(sceneToLoad);
-        });
+        if(sceneToLoad) {
+            
+            this.menu.on('pointerdown', function(){
+                scene.scene.start(sceneToLoad);
+            });
+        }
 
     }
 }
