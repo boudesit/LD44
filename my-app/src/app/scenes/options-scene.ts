@@ -28,6 +28,8 @@ export class OptionScene extends Phaser.Scene {
 
             localStorage.setItem("resolution_width", _this.carousel.getContentToSave().width);
             localStorage.setItem("resolution_height", _this.carousel.getContentToSave().height);
+            localStorage.setItem("resolution_ratio", _this.carousel.getContentToSave().ratio);
+
 
             // fs.writeFileSync('configuration/custom-config.json', this.carousel.getContentToSave); 
         });

@@ -15,7 +15,7 @@ export class PreloadScene extends Phaser.Scene {
         let _this=this;
         this.loadingBar =  this.add.image(this.game.config.width as number / 2, this.game.config.height as number / 2, "loading");
 
-        this.load.json("options","../../configuration/env-config.json");
+        this.load.json("options","configuration/env-config.json");
 
 
 

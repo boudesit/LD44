@@ -2,15 +2,20 @@
     "resolutions" : [
         {   
             "width" : 1024, 
-            "height" : 576
+            "height" : 576,
+            "ratio" : 1.875
+
         },
         {   
             "width" : 1280, 
-            "height" : 720
+            "height" : 720,
+            "ratio" : 1.500
         },
         {   
             "width" : 1920, 
-            "height" : 1080
+            "height" : 1080,
+            "ratio" : 1.000
+
         }
     ]
 }
