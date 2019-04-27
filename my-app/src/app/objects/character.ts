@@ -1,4 +1,4 @@
-import {Effect} from './effect';
+import { Effect } from './effect';
 
 export class Character {
 
@@ -7,6 +7,10 @@ export class Character {
   currentHealth: number;
   currentAttack: number;
   currentArmor: number;
+
+  nextAttackEffects: Effect[];
+
+  isStuned: boolean;
 
   effects: Effect[];
 
@@ -42,6 +46,22 @@ export class Character {
 
   setCurrentArmor(currentArmor: number) {
     this.currentArmor = currentArmor;
+  }
+
+  getNextAttackEffects() {
+    return this.nextAttackEffects;
+  }
+
+  setNextAttackEffects(nextAttackEffects: Effect[]) {
+    this.nextAttackEffects = nextAttackEffects;
+  }
+
+  getIsStuned() {
+    return this.isStuned;
+  }
+
+  setIsStuned(isStuned: boolean) {
+    this.isStuned = isStuned;
   }
 
   getEffects() {

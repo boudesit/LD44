@@ -11,8 +11,6 @@ export class Player extends Character {
   maxActionPoint: number;
   currentActionPoint: number;
 
-  nextAttackEffects: Effect[];
-
   constructor(jsonObject: any) {
     super();
 
@@ -64,11 +62,4 @@ export class Player extends Character {
     this.currentActionPoint = currentActionPoint;
   }
 
-  getNextAttackEffects() {
-    return this.nextAttackEffects;
-  }
-
-  setNextAttackEffects(nextAttackEffects: Effect[]) {
-    this.nextAttackEffects = nextAttackEffects;
-  }
 }
