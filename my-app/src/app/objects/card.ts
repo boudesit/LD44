@@ -1,4 +1,6 @@
 import { Effect } from './effect';
+import { CardService } from '../services/card.service'
+import { Player } from './player';
 
 export class Card {
 
@@ -15,7 +17,7 @@ export class Card {
     spriteUrl : string;
 
 
-    constructor(jsonObj : any) {
+    constructor(jsonObj : any, public _cardService : CardService) {
 
         this.id = jsonObj.id;
         this.title = jsonObj.title;
@@ -28,5 +30,9 @@ export class Card {
         this.score = jsonObj.score;
         this.merchantCost = jsonObj.merchantCost;
         this.spriteUrl = jsonObj.spriteUrl;
+    }
+
+    isPlayed(player : Player) {
+        this._cardService.isPlayed(player, this);
     }
 }
