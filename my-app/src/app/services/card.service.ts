@@ -1,6 +1,5 @@
 import { Player } from '../objects/player';
 import { Card } from '../objects/card';
-import { PlayState } from '@angular/core/src/render3/interfaces/player';
 
 export class CardService {
 
@@ -11,4 +10,19 @@ export class CardService {
         player.setEffects(player.getEffects().concat(card.effects));
         player.setCurrentAction(player.getCurrentAction() - card.cost);
     }
+
+    createDeck(cards : Array<Card>) : Card[] {
+        let deck = new Array<Card>();
+
+        deck.push(cards[0]);
+        deck.push(cards[0]);
+        deck.push(cards[1]);
+        deck.push(cards[1]);
+        deck.push(cards[1]);
+        deck.push(cards[1]);
+
+
+        return deck;
+    }
 }
+
