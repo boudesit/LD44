@@ -1,0 +1,19 @@
+{
+    
+  "events": [
+    {
+      "id": "1",
+      "type": "Merchant",
+      "description": "Wellcome Merchant",
+      "text":"blabla"
+
+    },
+    {
+        "id": "2",
+        "type": "Hell",
+        "description": "Wellcome to hell",
+        "text":"blabla"
+    }
+]   
+   
+}
