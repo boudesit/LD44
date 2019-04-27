@@ -9,18 +9,26 @@ export class HudScene extends Phaser.Scene {
     cards : Card[];
     deck : Card[];
 
+    ratio : number;
+    width : number;
+    height : number;
+
     _cardService = new CardService();
 
 
     constructor() {
-        
-
         super({
             key : "HudScene"
         })
+        
+        this.ratio = Number(localStorage.getItem("resolution_ratio"));
+
     }
     
     create() : void {
+        
+        this.width = this.game.config.width as number;
+        this.height = this.game.config.height as number;
 
         this.player = new Player(this.cache.json.get("player"));
        
@@ -37,15 +45,19 @@ export class HudScene extends Phaser.Scene {
     
         this.cameras.main.startFollow(this.add.text(0, 0, 'the deck is ' + this.deck.toString()).setOrigin(0.5), false);
 
-        /*********BACGROUND *************/
+        this.createBackground();
+    }
+
+    private createBackground() {
+
         var bgAnimation = this.anims.create({
             key: 'run',
-            frames: [{key :'background', frame : 8}],
-            frameRate: 8
+            frames: [{ key: 'background', frame: 8 }],
+            frameRate: 8,
         });
-    
-        var sprite = this.add.sprite(50, 300, 'background').setScale(4);
-    
+
+        var sprite = this.add.sprite(0 / this.ratio, 0 / this.ratio, 'background');
+        sprite.setDisplaySize(this.width, this.height);
         sprite.play('run');
     }
 
