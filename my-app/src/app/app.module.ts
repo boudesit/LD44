@@ -11,7 +11,7 @@ import { PhaserModule } from 'phaser-component-library';
   ],
   imports: [
     BrowserModule,
-    PhaserModule
+    PhaserModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -19,6 +19,7 @@ export class MainMenuScene extends Phaser.Scene {
     }
 
     create() : void {
+
         let _this = this;
 
         this.canvas = document.getElementsByTagName("canvas").item(0);
