@@ -9,27 +9,13 @@
       "attack": 1,
       "armor": 0,
       "heal": 0,
-      "score": 10,
-      "merchantCost": 1,
+      "score": 0,
+      "merchantCost": 0,
       "spriteUrl": ""
     },
     {
       "id": "2",
-      "title": "Basic armor",
-      "description": "Give you a small armor.",
-      "cost": 1,
-      "effects": [
-      ],
-      "attack": 0,
-      "armor": 1,
-      "heal": 0,
-      "score": 10,
-      "merchantCost": 1,
-      "spriteUrl": ""
-    },
-    {
-      "id": "3",
-      "title": "Basic heal",
+      "title": "Basic life",
       "description": "Heal you.",
       "cost": 1,
       "effects": [
@@ -37,38 +23,266 @@
       "attack": 0,
       "armor": 0,
       "heal": 1,
-      "score": 10,
-      "merchantCost": 1,
+      "score": 0,
+      "merchantCost": 0,
+      "spriteUrl": ""
+    },
+    {
+      "id": "3",
+      "title": "Basic armor",
+      "description": "Give you small armor",
+      "cost": 1,
+      "effects": [
+      ],
+      "attack": 0,
+      "armor": 1,
+      "heal": 0,
+      "score": 0,
+      "merchantCost": 0,
       "spriteUrl": ""
     },
     {
       "id": "4",
-      "title": "Poison",
-      "description": "Give a poison effect to the enemy.",
+      "title": "Attack ++",
+      "description": "Attack the enemy.",
       "cost": 1,
       "effects": [
-        "POISON"
       ],
-      "attack": 0,
+      "attack": 2,
       "armor": 0,
       "heal": 0,
-      "score": 10,
-      "merchantCost": 1,
+      "score": 0,
+      "merchantCost": 0,
       "spriteUrl": ""
     },
     {
       "id": "5",
-      "title": "Stun",
-      "description": "Stun the enemy.",
+      "title": "Life ++",
+      "description": "Heal you.",
       "cost": 1,
       "effects": [
-        "STUN"
       ],
       "attack": 0,
       "armor": 0,
+      "heal": 2,
+      "score": 0,
+      "merchantCost": 0,
+      "spriteUrl": ""
+    },
+    {
+      "id": "6",
+      "title": "Armor ++",
+      "description": "Give you small armor",
+      "cost": 1,
+      "effects": [
+      ],
+      "attack": 0,
+      "armor": 2,
       "heal": 0,
-      "score": 10,
-      "merchantCost": 1,
+      "score": 0,
+      "merchantCost": 0,
+      "spriteUrl": ""
+    },
+    {
+      "id": "7",
+      "title": "Attack +++",
+      "description": "Attack the enemy.",
+      "cost": 2,
+      "effects": [
+      ],
+      "attack": 3,
+      "armor": 0,
+      "heal": 0,
+      "score": 0,
+      "merchantCost": 0,
+      "spriteUrl": ""
+    },
+    {
+      "id": "8",
+      "title": "Life +++",
+      "description": "Heal you.",
+      "cost": 2,
+      "effects": [
+      ],
+      "attack": 0,
+      "armor": 0,
+      "heal": 3,
+      "score": 0,
+      "merchantCost": 0,
+      "spriteUrl": ""
+    },
+    {
+      "id": "9",
+      "title": "Armor +++",
+      "description": "Give you small armor",
+      "cost": 2,
+      "effects": [
+      ],
+      "attack": 0,
+      "armor": 3,
+      "heal": 0,
+      "score": 0,
+      "merchantCost": 0,
+      "spriteUrl": ""
+    },
+    {
+      "id": "10",
+      "title": "Attack + life +",
+      "description": "Attack the enemy.",
+      "cost": 2,
+      "effects": [
+      ],
+      "attack": 1,
+      "armor": 0,
+      "heal": 1,
+      "score": 0,
+      "merchantCost": 0,
+      "spriteUrl": ""
+    },
+    {
+      "id": "11",
+      "title": "Attack + armor +",
+      "description": "Heal you.",
+      "cost": 2,
+      "effects": [
+      ],
+      "attack": 1,
+      "armor": 1,
+      "heal": 0,
+      "score": 0,
+      "merchantCost": 0,
+      "spriteUrl": ""
+    },
+    {
+      "id": "12",
+      "title": "Life + armor +",
+      "description": "Give you small armor",
+      "cost": 2,
+      "effects": [
+      ],
+      "attack": 0,
+      "armor": 1,
+      "heal": 1,
+      "score": 0,
+      "merchantCost": 0,
+      "spriteUrl": ""
+    },
+    {
+      "id": "13",
+      "title": "like + armor ++",
+      "description": "Attack the enemy.",
+      "cost": 3,
+      "effects": [
+      ],
+      "attack": 0,
+      "armor": 2,
+      "heal": 1,
+      "score": 0,
+      "merchantCost": 0,
+      "spriteUrl": ""
+    },
+    {
+      "id": "14",
+      "title": "Atack + Life ++  armor +",
+      "description": "Heal you.",
+      "cost": 3,
+      "effects": [
+      ],
+      "attack": 1,
+      "armor": 1,
+      "heal": 2,
+      "score": 0,
+      "merchantCost": 0,
+      "spriteUrl": ""
+    },
+    {
+      "id": "15",
+      "title": "Attack ++  life + Armor ++",
+      "description": "Give you small armor",
+      "cost": 3,
+      "effects": [
+      ],
+      "attack": 2,
+      "armor": 2,
+      "heal": 1,
+      "score": 0,
+      "merchantCost": 0,
+      "spriteUrl": ""
+    },
+    {
+      "id": "16",
+      "title": "Attack ++++",
+      "description": "Attack the enemy.",
+      "cost": 5,
+      "effects": [
+      ],
+      "attack": 4,
+      "armor": 0,
+      "heal": 0,
+      "score": 0,
+      "merchantCost": 0,
+      "spriteUrl": ""
+    },
+    {
+      "id": "17",
+      "title": "Attack +++++",
+      "description": "Heal you.",
+      "cost": 1,
+      "effects": [
+      ],
+      "attack": 5,
+      "armor": 0,
+      "heal": 0,
+      "score": 0,
+      "merchantCost": 0,
+      "spriteUrl": ""
+    },
+    {
+      "id": "18",
+      "title": "Life +++  Armor +++",
+      "description": "Give you small armor",
+      "cost": 6,
+      "effects": [
+      ],
+      "attack": 0,
+      "armor": 3,
+      "heal": 3,
+      "score": 0,
+      "merchantCost": 0,
+      "spriteUrl": ""
+    },
+    {
+      "id": "19",
+      "title": "Attack +  Armor ++++",
+      "description": "Heal you.",
+      "cost": 6,
+      "effects": [
+      ],
+      "attack": 1,
+      "armor": 4,
+      "heal": 0,
+      "score": 0,
+      "merchantCost": 0,
+      "spriteUrl": ""
+    },
+    {
+      "id": "20",
+      "title": "Life +++++  Armor +",
+      "description": "Give you small armor",
+      "cost": 4,
+      "effects": [
+      ],
+      "attack": 0,
+      "armor": 1,
+      "heal": 5,
+      "score": 0,
+      "merchantCost": 0,
       "spriteUrl": ""
     }
+    
   ]
+<<<<<<< HEAD
+=======
+  
+}
+>>>>>>> 8965a7719dc2d63bc229beadb3e0bb22265b455d

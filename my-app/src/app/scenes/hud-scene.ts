@@ -22,6 +22,9 @@ export class HudScene extends Phaser.Scene {
     create() : void {
 
         this.player = new Player(this.cache.json.get("player"));
+        this.add.image(400, 300, 'background_tree');
+        this.add.image(400, 300, 'tree');
+
         this.cards = new Array<Card>();
 
         for(let cardObj of this.cache.json.get("cards")) {
