@@ -9,7 +9,7 @@ export class BootScene extends Phaser.Scene {
     }
 
     preload() : void {
-        this.load.image("loading", ROOT_CONST.ROOT_ASSETS + "assets/logo/logo.png");
+        this.load.image("loading","assets/logo/logo.png");
 
     }
 
