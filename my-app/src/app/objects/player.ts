@@ -1,21 +1,27 @@
 import { Character } from "./character";
 import { Card } from "./card";
+import { Effect } from './effect';
 
 export class Player extends Character {
 
   deck: Card[];
-  maxAction: number;
+  hand: Card[];
+  discard: Card[];
 
-  currentAction: number;
+  maxActionPoint: number;
+  currentActionPoint: number;
+
+  nextAttackEffects: Effect[];
 
   constructor(jsonObject: any) {
     super();
 
-    this.maxLife = jsonObject.maxLife;
-    this.currentLife = jsonObject.currentLife;
+    this.maxHealth = jsonObject.maxHealth;
+    this.currentHealth = jsonObject.currentHealth;
     this.currentAttack = jsonObject.currentAttack;
     this.currentArmor = jsonObject.currentArmor;
 
+    this.maxActionPoint = jsonObject.maxActionPoint;
   }
 
   getDeck() {
@@ -26,19 +32,43 @@ export class Player extends Character {
     this.deck = deck;
   }
 
-  getMaxAction() {
-    return this.maxAction;
+  getHand() {
+    return this.hand;
   }
 
-  setMaxAction(maxAction: number) {
-    this.maxAction = maxAction;
+  setHand(hand: Card[]) {
+    this.hand = hand;
   }
 
-  getCurrentAction() {
-    return this.maxAction;
+  getDiscard() {
+    return this.discard;
   }
 
-  setCurrentAction(currentAction: number) {
-    this.currentAction = currentAction;
+  setDiscard(discard: Card[]) {
+    this.discard = discard;
+  }
+
+  getMaxActionPoint() {
+    return this.maxActionPoint;
+  }
+
+  setMaxActionPoint(maxActionPoint: number) {
+    this.maxActionPoint = maxActionPoint;
+  }
+
+  getCurrentActionPoint() {
+    return this.maxActionPoint;
+  }
+
+  setCurrentActionPoint(currentActionPoint: number) {
+    this.currentActionPoint = currentActionPoint;
+  }
+
+  getNextAttackEffects() {
+    return this.nextAttackEffects;
+  }
+
+  setNextAttackEffects(nextAttackEffects: Effect[]) {
+    this.nextAttackEffects = nextAttackEffects;
   }
 }
