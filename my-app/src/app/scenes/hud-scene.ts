@@ -25,13 +25,15 @@ export class HudScene extends Phaser.Scene {
         this.cards = new Array<Card>();
 
         for(let cardObj of this.cache.json.get("cards")) {
-
+            console.log(cardObj);
             this.cards.push(cardObj);
         }
 
         this.deck = this._cardService.createDeck(this.cards);
+
+        console.log("" + this.deck);
     
-        this.cameras.main.startFollow(this.add.text(0, 0, 'the deck is ' + this.deck.toString()).setOrigin(0.5), false);
+        this.cameras.main.startFollow(this.add.text(0, 0, 'the deck is ' + this.deck).setOrigin(0.5), false);
     }
 
     update() : void {
