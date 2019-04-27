@@ -1,4 +1,4 @@
-export class Charactere {
+export class Character {
 
   maxLife: number;
 
