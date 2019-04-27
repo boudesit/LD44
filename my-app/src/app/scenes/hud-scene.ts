@@ -1,9 +1,10 @@
 import { Player } from '../objects/player';
 import { Card } from '../objects/card';
 import { CardService } from '../services/card.service';
-
+var sprite;
 export class HudScene extends Phaser.Scene {
 
+    
     player : Player;
     cards : Card[];
     deck : Card[];
@@ -18,13 +19,11 @@ export class HudScene extends Phaser.Scene {
             key : "HudScene"
         })
     }
-
+    
     create() : void {
 
         this.player = new Player(this.cache.json.get("player"));
-        this.add.image(400, 300, 'background_tree');
-        this.add.image(400, 300, 'tree');
-
+       
         this.cards = new Array<Card>();
 
         for(let cardObj of this.cache.json.get("cards")) {
@@ -36,7 +35,22 @@ export class HudScene extends Phaser.Scene {
 
         console.log("" + this.deck);
     
+<<<<<<< HEAD
         this.cameras.main.startFollow(this.add.text(0, 0, 'the deck is ' + this.deck).setOrigin(0.5), false);
+=======
+        this.cameras.main.startFollow(this.add.text(0, 0, 'the deck is ' + this.deck.toString()).setOrigin(0.5), false);
+
+        /*********BACGROUND *************/
+        var bgAnimation = this.anims.create({
+            key: 'run',
+            frames: [{key :'background', frame : 8}],
+            frameRate: 8
+        });
+    
+        var sprite = this.add.sprite(50, 300, 'background').setScale(4);
+    
+        sprite.play('run');
+>>>>>>> 19278233df9c2e94ac13771e0a95cb23a065c22c
     }
 
     update() : void {
