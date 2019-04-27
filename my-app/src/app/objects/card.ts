@@ -6,14 +6,14 @@ export class Card {
     title : string;
     description : string;
     cost : number;
-    effects : Effect;
+    effects : Effect[];
     attack : number;
     armor : number;
-    heal : number; 
+    heal : number;
     score : number;
     merchantCost : number;
     spriteUrl : string;
-    
+
 
     constructor(jsonObj : any) {
 
