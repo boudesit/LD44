@@ -35,9 +35,6 @@ export class HudScene extends Phaser.Scene {
 
         console.log("" + this.deck);
     
-<<<<<<< HEAD
-        this.cameras.main.startFollow(this.add.text(0, 0, 'the deck is ' + this.deck).setOrigin(0.5), false);
-=======
         this.cameras.main.startFollow(this.add.text(0, 0, 'the deck is ' + this.deck.toString()).setOrigin(0.5), false);
 
         /*********BACGROUND *************/
@@ -50,7 +47,6 @@ export class HudScene extends Phaser.Scene {
         var sprite = this.add.sprite(50, 300, 'background').setScale(4);
     
         sprite.play('run');
->>>>>>> 19278233df9c2e94ac13771e0a95cb23a065c22c
     }
 
     update() : void {
