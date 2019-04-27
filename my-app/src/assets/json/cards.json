@@ -1,0 +1,81 @@
+{
+  "effects": [
+    "POISON",
+    "STUN",
+    "ACTION"
+  ],
+  "cards": [
+    {
+      "id": "1",
+      "title": "Basic attack",
+      "description": "Attack the enemy.",
+      "cost": 1,
+      "effects": [
+      ],
+      "attack": 1,
+      "armor": 0,
+      "heal": 0,
+      "score": 10,
+      "merchantCost": 1,
+      "spriteUrl": ""
+    },
+    {
+      "id": "2",
+      "title": "Basic armor",
+      "description": "Give you a small armor.",
+      "cost": 1,
+      "effects": [
+      ],
+      "attack": 0,
+      "armor": 1,
+      "heal": 0,
+      "score": 10,
+      "merchantCost": 1,
+      "spriteUrl": ""
+    },
+    {
+      "id": "3",
+      "title": "Basic heal",
+      "description": "Heal you.",
+      "cost": 1,
+      "effects": [
+      ],
+      "attack": 0,
+      "armor": 0,
+      "heal": 1,
+      "score": 10,
+      "merchantCost": 1,
+      "spriteUrl": ""
+    },
+    {
+      "id": "4",
+      "title": "Poison",
+      "description": "Give a poison effect to the enemy.",
+      "cost": 1,
+      "effects": [
+        "POISON"
+      ],
+      "attack": 0,
+      "armor": 0,
+      "heal": 0,
+      "score": 10,
+      "merchantCost": 1,
+      "spriteUrl": ""
+    },
+    {
+      "id": "5",
+      "title": "Stun",
+      "description": "Stun the enemy.",
+      "cost": 1,
+      "effects": [
+        "STUN"
+      ],
+      "attack": 0,
+      "armor": 0,
+      "heal": 0,
+      "score": 10,
+      "merchantCost": 1,
+      "spriteUrl": ""
+    }
+  ]
+}

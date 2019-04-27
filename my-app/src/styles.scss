@@ -1,5 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
-body {
-
-    background-image: url('./assets/background/background-html.jpg');
-}
+html, body {
+    height: 100%;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    background: #111;
+    color: #eee;
+    font: caption;
+  }
+  
+  canvas {
+      position: relative;
+    //display: block;
+  }

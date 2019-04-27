@@ -13,12 +13,11 @@ export class PreloadScene extends Phaser.Scene {
 
     preload() : void {
         let _this=this;
-        this.loadingBar =  this.add.image(512, 288, "loading");
+        this.loadingBar =  this.add.image(this.game.config.width as number / 2, this.game.config.height as number / 2, "loading");
 
-        //TODO: It's just a test remove this after
-        for (var i = 0; i < 100; i++) {
-            this.load.image("loading"+i, ROOT_CONST.ROOT_ASSETS + "assets/logo/logo.png");
-        }
+        this.load.json("options","../../configuration/env-config.json");
+
+
 
         this.load.on('progress', (value : number) => {
             _this.loadingBar.setCrop(0, 0,525 * value, 900);
