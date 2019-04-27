@@ -26,12 +26,15 @@ export class PreloadScene extends Phaser.Scene {
         /**********************************************/
         /*****************IMAGES***********************/
         /**********************************************/
-        this.load.image('background_tree', 'assets/images/background_tree.png');
-        this.load.image('tree', 'assets/images/tree.png');
-        this.load.spritesheet('dude', 
-        'assets/sprites/river.png',
-        { frameWidth: 32, frameHeight: 48 })
+       
+     
+        this.load.spritesheet('background', 
+        'assets/background/BG_JEU.png',
+        { frameWidth: 1920, frameHeight: 1080 })
 
+        this.load.image("coeur",'assets/images/coeur.png');
+        this.load.image("armor",'assets/images/armor.png');
+        this.load.image("attack",'assets/images/attack.png');
 
         this.load.on('progress', (value : number) => {
             _this.loadingBar.setCrop(0, 0,525 * value, 900);

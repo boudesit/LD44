@@ -16,8 +16,12 @@ export class Card {
     merchantCost : number;
     spriteUrl : string;
 
+    _cardService : CardService;
 
-    constructor(jsonObj : any, public _cardService : CardService) {
+
+    constructor(jsonObj : any ) {
+
+        this._cardService = new CardService();
 
         this.id = jsonObj.id;
         this.title = jsonObj.title;
@@ -34,5 +38,5 @@ export class Card {
 
     isPlayed(player : Player) {
         this._cardService.isPlayed(player, this);
-    }
+    }    
 }
