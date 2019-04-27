@@ -1,0 +1,11 @@
+{
+    "palyer": [
+      {
+        "type": "player",
+        "maxLife": 20,
+        "maxAction": 5
+      }   
+  ]   
+  }
+
+  
