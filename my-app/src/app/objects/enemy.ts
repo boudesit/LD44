@@ -1,8 +1,9 @@
 import { Character } from './character';
+import {EnemyAction} from './enemyAction';
 
 export class enemy extends Character {
 
-      actions: EnemyActions[];
+      actions: EnemyAction[];
       level: number;
       name: string;
       text: string;
@@ -14,7 +15,6 @@ export class enemy extends Character {
         super();
     }
 
-    
-    
+
+
   }
-  
