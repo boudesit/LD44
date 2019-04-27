@@ -3,7 +3,6 @@ import {Effect} from './effect';
 export class Character {
 
   maxLife: number;
-  actionPoints: number;
 
   currentLife: number;
   currentAttack: number;
@@ -28,7 +27,7 @@ export class Character {
   }
 
   setCurrentLife(currentLife: number) {
-    this.currentLife = currentLife;
+    this.currentLife = currentLife < this.maxLife ? currentLife : this.maxLife;
   }
   getCurrentAttack() {
     return this.currentAttack;
@@ -43,5 +42,13 @@ export class Character {
 
   setCurrentArmor(currentArmor: number) {
     this.currentArmor = currentArmor;
+  }
+
+  getEffects() {
+    return this.effects;
+  }
+
+  setEffects(effects: Effect[]) {
+    this.effects = effects;
   }
 }
