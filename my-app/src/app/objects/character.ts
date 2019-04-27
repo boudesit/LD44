@@ -1,6 +1,7 @@
 export class Character {
 
   maxLife: number;
+  actionPoints: number;
 
   currentLife: number;
   currentAttack: number;
