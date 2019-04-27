@@ -1,3 +1,5 @@
+import {Effect} from './effect';
+
 export class Character {
 
   maxLife: number;
@@ -6,6 +8,8 @@ export class Character {
   currentLife: number;
   currentAttack: number;
   currentArmor: number;
+
+  effects: Effect[];
 
   constructor() {
 
