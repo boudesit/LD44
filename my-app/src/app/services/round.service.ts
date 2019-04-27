@@ -102,8 +102,9 @@ function inflictDamage(character1: Character, character2: Character) {
 
 function inflictEffects(player: Player, enemy: Enemy, effects: Effect[]) {
   for (let effect of effects) {
-    if (!effect.conditionTarget ||
-      (effect.conditionTarget === 'enemy' && effect.conditionState === 'stun' && enemy.getIsStuned)) {
+    if (!effect.conditionTarget
+      || (effect.conditionTarget === 'enemy' && effect.conditionState === 'stun' && enemy.getIsStuned)
+      || (effect.conditionTarget === 'player' && effect.conditionState === 'stun' && player.getIsStuned)) {
       if (effect.probability > getRandomInt(99)) {
         if (effect.target === 'enemy') {
           if (effect.type === 'boost') {
