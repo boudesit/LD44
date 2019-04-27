@@ -6,4 +6,8 @@ export class CardService {
     isPlayed(player : Player, card : Card) {
         //TODO: Effect of the card
     }
+
+    createDeck(cards : Card[]) {
+
+    }
 }
