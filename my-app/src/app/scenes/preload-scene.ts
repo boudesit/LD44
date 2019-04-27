@@ -16,9 +16,9 @@ export class PreloadScene extends Phaser.Scene {
         this.loadingBar =  this.add.image(this.game.config.width as number / 2, this.game.config.height as number / 2, "loading");
 
         this.load.json("options","configuration/env-config.json");
-        this.load.json("cards","asset/json/cards.json");
-        this.load.json("enemy","asset/json/enemy.json");
-        this.load.json("player","");
+        this.load.json("cards","assets/json/cards.json");
+        this.load.json("enemy","assets/json/enemy.json");
+        this.load.json("player","assets/json/player.json");
         // this.load.json("","");
 
 
