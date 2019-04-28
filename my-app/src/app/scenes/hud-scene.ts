@@ -126,24 +126,24 @@ export class HudScene extends Phaser.Scene {
 
     onObjectClicked()  // wait next graph of monsieurduba
     {
-      this.attackHero();
+      //this.attackHero();
 
-        // heroSprite.x += 200;
-        // setTimeout(() => {
-        //       heroSprite.x -= 200;
-        //  }, 500);
+        heroSprite.x += 200;
+        setTimeout(() => {
+              heroSprite.x -= 200;
+         }, 500);
  
     }
 
-    private attackHero(){
+    // private attackHero(){
 
-        attackHeroSprite = this.add.sprite(-800 / this.ratio, 150 / this.ratio, 'hero_attack').setScale(1);
-        attackHeroSprite.setDisplaySize(200 / this.ratio, 300 / this.ratio);
-        attackHeroSprite.anims.play('heroAttack');
+    //     attackHeroSprite = this.add.sprite(-800 / this.ratio, 150 / this.ratio, 'hero_attack').setScale(1);
+    //     attackHeroSprite.setDisplaySize(200 / this.ratio, 300 / this.ratio);
+    //     attackHeroSprite.anims.play('heroAttack');
       
 
        
-    }
+    // }
 
     update() : void {
         
