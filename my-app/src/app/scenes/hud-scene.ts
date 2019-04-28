@@ -163,6 +163,11 @@ export class HudScene extends Phaser.Scene {
 
      private attackHero(){
 
+        heroSprite.x += 200;
+        setTimeout(() => {
+              heroSprite.x -= 200;
+         }, 500);
+ 
          attackHeroSprite = this.add.sprite(-800 / this.ratio, 150 / this.ratio, 'hero_attack').setScale(1);
          attackHeroSprite.setDisplaySize(200 / this.ratio, 300 / this.ratio);
          attackHeroSprite.anims.play('heroAttack');
