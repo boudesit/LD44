@@ -44,6 +44,10 @@ export class RoundService {
 }
 
 function draw(player: Player, n: number) {
+  while(player.getHand().length > 0){
+    player.getDiscard().push(player.getHand().pop());
+  }
+
   for (let i = n; i > 0; i--) {
     if (player.getDeck().length <= 0) {
       player.setDeck(Utils.shuffle(player.getDiscard()));
