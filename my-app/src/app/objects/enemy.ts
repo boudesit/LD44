@@ -10,9 +10,14 @@ export class Enemy extends Character {
 
 
 
-    constructor() {
-
+    constructor(jsonObj : any) {
         super();
+
+        this.actions = jsonObj.actions;
+        this.level = jsonObj.level;
+        this.name = jsonObj.name;
+        this.text = jsonObj.text;
+
     }
 
 

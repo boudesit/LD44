@@ -1,5 +1,7 @@
 import { Player } from '../objects/player';
 import { Card } from '../objects/card';
+import {Utils} from './utils';
+
 
 export class CardService {
 
@@ -14,7 +16,7 @@ export class CardService {
   }
 
   createDeck(cards: Array<Card>): Card[] {
-    return [cards[0], cards[0], cards[1], cards[1], cards[1], cards[1]];
+    return Utils.shuffle([cards[0], cards[0], cards[1], cards[1], cards[1], cards[1], cards[2], cards[2], cards[3], cards[3], cards[4], cards[5], cards[3], cards[2], cards[9]]);
   }
 }
 

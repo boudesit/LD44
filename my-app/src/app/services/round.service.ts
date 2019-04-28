@@ -3,13 +3,15 @@ import { Player } from '../objects/player';
 import { Enemy } from '../objects/enemy';
 import { Effect } from '../objects/effect';
 
+import {Utils} from './utils';
+
 export class RoundService {
 
   startRoundPlayer(player: Player, enemy: Enemy) {
     draw(player, 5);
     player.setCurrentActionPoint(player.getMaxActionPoint());
     resetStats(player);
-    applyEffects(player, enemy);
+    // applyEffects(player, enemy);
   }
 
   endRoundPlayer(player: Player, enemy: Enemy) {
@@ -30,33 +32,10 @@ export class RoundService {
   }
 }
 
-function shuffle(array) {
-  var currentIndex = array.length, temporaryValue, randomIndex;
-
-  // While there remain elements to shuffle...
-  while (0 !== currentIndex) {
-
-    // Pick a remaining element...
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1;
-
-    // And swap it with the current element.
-    temporaryValue = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
-  }
-
-  return array;
-}
-
-function getRandomInt(max) {
-  return Math.floor(Math.random() * Math.floor(max));
-}
-
 function draw(player: Player, n: number) {
-  for (let i = n; i >= 0; i--) {
+  for (let i = n; i > 0; i--) {
     if (player.getDeck().length <= 0) {
-      player.setDeck(shuffle(player.getDiscard()));
+      player.setDeck(Utils.shuffle(player.getDiscard()));
       player.setDiscard([]);
     }
     player.getHand().push(player.getDeck().pop())
@@ -105,7 +84,7 @@ function inflictEffects(player: Player, enemy: Enemy, effects: Effect[]) {
     if (!effect.conditionTarget
       || (effect.conditionTarget === 'enemy' && effect.conditionState === 'stun' && enemy.getIsStuned)
       || (effect.conditionTarget === 'player' && effect.conditionState === 'stun' && player.getIsStuned)) {
-      if (effect.probability > getRandomInt(99)) {
+      if (effect.probability > Utils.getRandomInt(99)) {
         if (effect.target === 'enemy') {
           if (effect.type === 'boost') {
             enemy.getEffects().unshift(effect);
