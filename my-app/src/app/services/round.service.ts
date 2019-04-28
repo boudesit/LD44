@@ -19,6 +19,8 @@ export class RoundService {
     inflictDamage(player, enemy);
     inflictEffects(player, enemy, player.getNextAttackEffects());
     player.setNextAttackEffects([]);
+    console.log(player);
+    console.log(enemy);
   }
 
   startRoundEnemy(player: Player, enemy: Enemy) {

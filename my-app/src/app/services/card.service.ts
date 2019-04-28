@@ -6,6 +6,9 @@ import {Utils} from './utils';
 export class CardService {
 
   isPlayed(player: Player, card: Card) {
+
+    // console.log(player);
+    // console.log(card);
     if(player.getIsStuned()){
       return false;
     }

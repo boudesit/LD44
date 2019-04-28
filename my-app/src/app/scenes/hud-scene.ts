@@ -5,10 +5,13 @@ import { readPatchedData } from '@angular/core/src/render3/util';
 import { Enemy } from '../objects/enemy';
 import { RoundService } from '../services/round.service';
 var sprite;
-var cursor;
 var heroSprite;
 var attackHeroSprite;
-
+var rect;
+var graph;
+var lifeText;
+var armorText
+var attackText
 export class HudScene extends Phaser.Scene {
 
     
@@ -65,11 +68,17 @@ export class HudScene extends Phaser.Scene {
         this.createBackground(); // Creat background méthod
         this.createProgressbar(); // Creat progreess bar méthod
         this.createHero(); // Creat Hero méthod
-        this.createEndRound();
-       
-       
+        this.createEndRound(_this);
+        
+        rect = new Phaser.Geom.Rectangle(-150/ _this.ratio, 100/_this.ratio, 350 / _this.ratio, 150 / _this.ratio);
+        graph = this.add.graphics({ fillStyle: { color: 0x0060FF } });
+        graph.fillRectShape(rect);
+        graph.alpha = 0.5;
+        graph.inputEnabled = true;
+        graph.visible = true;
 
-       
+        this._roundService.startRoundPlayer(this.player, this.fakePlayer);
+        this.addCardInHand(_this);
     }
 
     private createBackground() {
@@ -89,65 +98,50 @@ export class HudScene extends Phaser.Scene {
     }
 
     private createProgressbar() {
-        let _this = this;
+
         var health = this.add.image(-920 / this.ratio , -500 / this.ratio , 'coeur');
         health.setDisplaySize(70 / this.ratio, 57 / this.ratio);
         var armor = this.add.image(-920 / this.ratio , -400 / this.ratio , 'armor');
         armor.setDisplaySize(60 / this.ratio, 49 / this.ratio);
         var attack = this.add.image(-920 / this.ratio , -300 / this.ratio , 'attack');
         attack.setDisplaySize(70 / this.ratio, 70 / this.ratio);
-        attack.setInteractive();
-        this.input.on('gameobjectdown',() => {
-            _this.attackHero();
-        }); // wait next graph of monsieurduba
+        
        
-         this.add.text(-870 / this.ratio , -500 / this.ratio, ''+this.player.getCurrentHealth(), {
+          lifeText = this.add.text(-870 / this.ratio , -500 / this.ratio, ''+this.player.getCurrentHealth(), {
             fontfamily : 'BIT',
             fontSize: '32px',
             fill: "white",
             align: "center"
         });
-        this.add.text(-870 / this.ratio , -400 / this.ratio, ''+this.player.getCurrentArmor(), {
+         console.log(lifeText);
+         armorText = this.add.text(-870 / this.ratio , -400 / this.ratio, ''+this.player.getCurrentArmor(), {
             fontfamily : 'BIT',
             fontSize: '32px',
             fill: "white",
             align: "center"
         });
-        this.add.text(-870 / this.ratio , -300 / this.ratio, ''+this.player.getCurrentAttack(), {
+         attackText = this.add.text(-870 / this.ratio , -300 / this.ratio, ''+this.player.getCurrentAttack(), {
             fontfamily : 'BIT',
             fontSize: '32px',
             fill: "white",
             align: "center"
-        });
-
-        this._roundService.startRoundPlayer(this.player, this.fakePlayer);
-
-        this.addCardInHand(_this);
+        });    
     }
 
     private addCardInHand(_this: this) {
         for (let handCard of this.player.getHand()) {
-            let sprite = this.add.sprite((this.initCard += 250) / this.ratio, 400 / this.ratio, "blank_card") as any;
+            sprite = this.add.sprite((this.initCard += 250) / this.ratio, 400 / this.ratio, "blank_card") as any;
             sprite.setDisplaySize(200 / this.ratio, 200 / this.ratio);
             sprite.setInteractive();
             sprite.card = handCard;
-            this.handCardSprites.push(sprite);
+            this.handCardSprites.push(sprite);   
         }
         for (let cardSprite of this.handCardSprites) {
-            cardSprite.on("pointerover", (event, other) => {
-
-                var rect = new Phaser.Geom.Rectangle((_this.initCard  += 250) / _this.ratio, 200 / _this.ratio, 300 / _this.ratio, 200 / _this.ratio);
-                var graphics = this.add.graphics({ fillStyle: { color: 0x000000 } });
-            
-                graphics.fillRectShape(rect);
-            
-                console.log((cardSprite as any).card);
-            });
             cardSprite.on("pointerdown", () => {
                 _this._cardService.isPlayed(_this.player, (cardSprite as any).card);
                 cardSprite.destroy();
-            });
-        }
+            });   
+        }  
     }
 
     private createHero() {
@@ -179,10 +173,19 @@ export class HudScene extends Phaser.Scene {
 
     }
 
-    private createEndRound() {
+    private createEndRound(_this: this) {
 
-        var endRound = this.add.image(100 / this.ratio , 200 / this.ratio , 'endround');
+
+        var endRound = this.add.image(690 / this.ratio , 330 / this.ratio , 'endround');
         endRound.setDisplaySize(70 / this.ratio, 57 / this.ratio);
+        endRound.setInteractive();
+        endRound.on("pointerdown", ()=> {
+           
+           this._roundService.endRoundPlayer(this.player,this.fakePlayer);
+          // this._roundService.startRoundEnemy(this.player,this.fakePlayer);
+
+          _this.attackHero();
+        })
 
     }
 
@@ -204,7 +207,10 @@ export class HudScene extends Phaser.Scene {
     }
 
     update() : void {
-        
+
+    lifeText.text = this.player.getCurrentHealth();
+    armorText.text = this.player.getCurrentArmor();
+    attackText.text = this.player.getCurrentAttack();
       
     }
 

@@ -4,8 +4,8 @@
       "name": "Spider",
       "level": 1,
       "text": "Mwahaha",
-      "maxLife": 10,
-      "currentLife": 10,
+      "maxHealth": 10,
+      "currentHealth": 10,
       "currentAttack": 1,
       "currentArmor": 0,
       "actions": [
@@ -29,8 +29,8 @@
       "name": "Sipder2",
       "level": 1,
       "text": "Mwahaha",
-      "maxLife": 10,
-      "currentLife": 10,
+      "maxHealth": 10,
+      "currentHealth": 10,
       "currentAttack": 1,
       "currentArmor": 0,
       "actions": [
@@ -56,8 +56,8 @@
       "name": "Hobgoblin",
       "level": 2,
       "text": "Mwahaha",
-      "maxLife": 10,
-      "currentLife": 10,
+      "maxHealth": 10,
+      "currentHealth": 10,
       "currentAttack": 1,
       "currentArmor": 0,
       "actions": [
@@ -81,8 +81,8 @@
       "name": "Hobgoblin2",
       "level": 2,
       "text": "Mwahaha",
-      "maxLife": 10,
-      "currentLife": 10,
+      "maxHealth": 10,
+      "currentHealth": 10,
       "currentAttack": 1,
       "currentArmor": 0,
       "actions": [
