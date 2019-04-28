@@ -1,7 +1,7 @@
 import { Character } from './character';
 import {EnemyAction} from './enemyAction';
 
-export class enemy extends Character {
+export class Enemy extends Character {
 
       actions: EnemyAction[];
       level: number;
