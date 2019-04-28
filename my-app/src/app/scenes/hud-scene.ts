@@ -84,6 +84,7 @@ export class HudScene extends Phaser.Scene {
     }
 
     private createProgressbar() {
+        let _this = this;
         var health = this.add.image(-920 / this.ratio , -500 / this.ratio , 'coeur');
         health.setDisplaySize(70 / this.ratio, 57 / this.ratio);
         var armor = this.add.image(-920 / this.ratio , -400 / this.ratio , 'armor');
@@ -91,7 +92,9 @@ export class HudScene extends Phaser.Scene {
         var attack = this.add.image(-920 / this.ratio , -300 / this.ratio , 'attack');
         attack.setDisplaySize(70 / this.ratio, 70 / this.ratio);
         attack.setInteractive();
-        this.input.on('gameobjectdown',this.onObjectClicked); // wait next graph of monsieurduba
+        this.input.on('gameobjectdown',() => {
+            _this.attackHero();
+        }); // wait next graph of monsieurduba
        
         var text = this.add.text(-870 / this.ratio , -500 / this.ratio, "5", {
             fontfamily : 'BIT',
@@ -145,6 +148,7 @@ export class HudScene extends Phaser.Scene {
 
    
 
+<<<<<<< HEAD
     onObjectClicked()  // wait next graph of monsieurduba
     {
       //this.attackHero();
@@ -153,8 +157,18 @@ export class HudScene extends Phaser.Scene {
         setTimeout(() => {
               heroSprite.x -= 200;
          }, 500);
+=======
+    // onObjectClicked()  // wait next graph of monsieurduba
+    // {
+    //   this.attackHero();
+
+    //     // heroSprite.x += 200;
+    //     // setTimeout(() => {
+    //     //       heroSprite.x -= 200;
+    //     //  }, 500);
+>>>>>>> 46d7069a30edc99b668af18e22f8ac9bfb7a4998
  
-    }
+    // }
 
     // private attackHero(){
 
