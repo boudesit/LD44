@@ -15,9 +15,9 @@ export class Player extends Character {
     super();
 
     this.maxHealth = jsonObject.maxHealth;
-    this.currentHealth = jsonObject.currentHealth;
-    this.currentAttack = jsonObject.currentAttack;
-    this.currentArmor = jsonObject.currentArmor;
+    this.currentHealth = jsonObject.maxHealth;
+    this.currentAttack = 1;
+    this.currentArmor = 0;
 
     this.maxActionPoint = jsonObject.maxActionPoint;
   }
