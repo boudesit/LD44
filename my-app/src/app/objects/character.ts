@@ -3,7 +3,6 @@ import { Effect } from './effect';
 export class Character {
 
   maxHealth: number;
-
   currentHealth: number;
   currentAttack: number;
   currentArmor: number;
@@ -24,6 +23,7 @@ export class Character {
     return this.maxHealth;
   }
 
+ 
   setMaxHealth(maxHealth: number) {
     this.maxHealth = maxHealth;
   }

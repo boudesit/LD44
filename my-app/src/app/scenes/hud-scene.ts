@@ -4,6 +4,7 @@ import { CardService } from '../services/card.service';
 import { readPatchedData } from '@angular/core/src/render3/util';
 import { Enemy } from '../objects/enemy';
 import { RoundService } from '../services/round.service';
+import { Utils } from '../services/utils';
 var sprite;
 var heroSprite;
 var attackHeroSprite;
@@ -12,6 +13,7 @@ var graph;
 var lifeText;
 var armorText
 var attackText
+var journeyX = 0;
 export class HudScene extends Phaser.Scene {
 
     
@@ -48,10 +50,11 @@ export class HudScene extends Phaser.Scene {
         this.width = this.game.config.width as number;
         this.height = this.game.config.height as number;
 
-        this.player = new Player(this.cache.json.get("player"));
+        this.player = new Player(this.cache.json.get("player")); // Add the player
 
-        this.fakePlayer = new Enemy(this.cache.json.get("enemy")[0][0]);
-
+        this.fakePlayer = new Enemy(this.cache.json.get("enemy")[journeyX][Utils.getRandomInt(1)]); // Add the enemy (n° day, 0/1)
+        var enemyName = this.fakePlayer.getName();
+        var enemyFrame = this.fakePlayer.getFrame();
        
         this.cards = new Array<Card>();
 
@@ -68,14 +71,16 @@ export class HudScene extends Phaser.Scene {
         this.createBackground(); // Creat background méthod
         this.createProgressbar(); // Creat progreess bar méthod
         this.createHero(); // Creat Hero méthod
-        this.createEndRound(_this);
-        
-        rect = new Phaser.Geom.Rectangle(-150/ _this.ratio, 100/_this.ratio, 350 / _this.ratio, 150 / _this.ratio);
-        graph = this.add.graphics({ fillStyle: { color: 0x0060FF } });
-        graph.fillRectShape(rect);
-        graph.alpha = 0.5;
-        graph.inputEnabled = true;
-        graph.visible = true;
+        this.createEnemy(); // Creat Hero méthod
+        this.createEndRound(_this); // Creat end round méthod
+        this.createJourney(journeyX); //Update journey
+
+        // rect = new Phaser.Geom.Rectangle(-150/ _this.ratio, 100/_this.ratio, 350 / _this.ratio, 150 / _this.ratio);
+        // graph = this.add.graphics({ fillStyle: { color: 0x0060FF } });
+        // graph.fillRectShape(rect);
+        // graph.alpha = 0.5;
+        // graph.inputEnabled = true;
+        // graph.visible = true;
 
         this._roundService.startRoundPlayer(this.player, this.fakePlayer);
         this.addCardInHand(_this);
@@ -173,16 +178,57 @@ export class HudScene extends Phaser.Scene {
 
     }
 
+    private createEnemy(){
+        
+        var configEnemy = {
+            key: 'enemy',
+            frames: this.anims.generateFrameNumbers('enemy', { start: 0, end: 2 }),
+            frameRate: 5,
+            repeat : -1
+            //yoyo : true
+   
+        };
+        this.anims.create(configEnemy);
+
+        heroSprite = this.add.sprite(-800 / this.ratio, 150 / this.ratio, 'hero_idle').setScale(1);
+        heroSprite.setDisplaySize(200 / this.ratio, 300 / this.ratio);
+        heroSprite.anims.play('hero');
+
+
+    }
     private createEndRound(_this: this) {
 
 
-        var endRound = this.add.image(690 / this.ratio , 330 / this.ratio , 'endround');
-        endRound.setDisplaySize(70 / this.ratio, 57 / this.ratio);
+        var endRound = this.add.image(760 / this.ratio , 250 / this.ratio , 'endround');
+        endRound.setDisplaySize(200 / this.ratio, 100 / this.ratio);
         endRound.setInteractive();
         endRound.on("pointerdown", ()=> {
+
+            this._roundService.endRoundPlayer(this.player,this.fakePlayer);
+            
+            if(this.fakePlayer.getCurrentHealth() <= 0 || this.player.getCurrentHealth() <= 0 )
+            {
+                // this._roundService.endBatlle();
+                return;
+
+            }
            
-           this._roundService.endRoundPlayer(this.player,this.fakePlayer);
-          // this._roundService.startRoundEnemy(this.player,this.fakePlayer);
+           this._roundService.startRoundEnemy(this.player,this.fakePlayer);
+           this._roundService.roundEnemy(this.fakePlayer);
+           this._roundService.endRoundEnemy(this.player,this.fakePlayer);
+           if(this.player.getCurrentHealth() <= 0 || this.fakePlayer.getCurrentHealth() <= 0)
+           {  
+               // this._roundService.endBatlle();
+               return;
+           }
+
+           this._roundService.startRoundPlayer(this.player,this.fakePlayer);
+           this.initCard  = -750;
+           this.deleteCards();
+           this.addCardInHand(_this);
+            
+           
+           
 
           _this.attackHero();
         })
@@ -206,11 +252,27 @@ export class HudScene extends Phaser.Scene {
        
     }
 
+    private createJourney(journey : number){
+
+      this.add.sprite(0 / this.ratio , -473 / this.ratio , 'journey',journey);
+    }
+
+    private deleteCards(){
+
+        for (let cardSprite of this.handCardSprites) {
+            
+                
+                cardSprite.destroy();
+        }
+
+    }
+
     update() : void {
 
     lifeText.text = this.player.getCurrentHealth();
     armorText.text = this.player.getCurrentArmor();
     attackText.text = this.player.getCurrentAttack();
+
       
     }
 

@@ -2,6 +2,7 @@
   [
     {
       "name": "Spider",
+      "frame":8,
       "level": 1,
       "text": "Mwahaha",
       "maxHealth": 10,
@@ -28,6 +29,7 @@
     {
       "name": "Sipder2",
       "level": 1,
+      "frame":8,
       "text": "Mwahaha",
       "maxHealth": 10,
       "currentHealth": 10,
@@ -55,6 +57,7 @@
     {
       "name": "Hobgoblin",
       "level": 2,
+      "frame":7,
       "text": "Mwahaha",
       "maxHealth": 10,
       "currentHealth": 10,
@@ -80,6 +83,7 @@
     {
       "name": "Hobgoblin2",
       "level": 2,
+      "frame":7,
       "text": "Mwahaha",
       "maxHealth": 10,
       "currentHealth": 10,
