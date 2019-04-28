@@ -26,7 +26,10 @@ export class PreloadScene extends Phaser.Scene {
         /**********************************************/
         /*****************IMAGES***********************/
         /**********************************************/
-       
+        this.load.spritesheet('hero_idle', 'assets/sprites/hero_idle_sprite.png',{ frameWidth: 200, frameHeight: 300 })
+        this.load.spritesheet('hero_attack', 'assets/sprites/hero_attack_sprite.png',{ frameWidth: 200, frameHeight: 300 })
+
+
      
         this.load.spritesheet('background', 
         'assets/background/BG_JEU.png',
