@@ -11,6 +11,8 @@ export class Character {
   nextAttackEffects: Effect[];
 
   isStuned: boolean;
+  isImmune: boolean;
+  isProtected: boolean;
 
   effects: Effect[];
 
@@ -62,6 +64,22 @@ export class Character {
 
   setIsStuned(isStuned: boolean) {
     this.isStuned = isStuned;
+  }
+
+  getIsImmune() {
+    return this.isImmune;
+  }
+
+  setIsImmune(isImmune: boolean) {
+    this.isImmune = isImmune;
+  }
+
+  getIsProtected() {
+    return this.isProtected;
+  }
+
+  setIsProtected(isProtected: boolean) {
+    this.isProtected = isProtected;
   }
 
   getEffects() {

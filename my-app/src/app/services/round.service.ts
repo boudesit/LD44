@@ -2,6 +2,7 @@ import { Character } from '../objects/character';
 import { Player } from '../objects/player';
 import { Enemy } from '../objects/enemy';
 import { Effect } from '../objects/effect';
+import { EffectCondition } from '../objects/effectCondition';
 
 import {Utils} from './utils';
 
@@ -60,7 +61,14 @@ function applyEffects(character1: Character, character2: Character) {
         }
         if (effect.type === 'stun') {
           character1.setIsStuned(true);
-        } if (effect.type === 'poison') {
+        }
+        if (effect.type === 'immune') {
+          character1.setIsImmune(true);
+        }
+        if (effect.type === 'protect') {
+          character1.setIsProtected(true);
+        }
+        if (effect.type === 'poison') {
           let poisonDamage = (character2.getCurrentAttack() - character1.getCurrentArmor()) / 2;
           character1.setCurrentHealth(character1.getCurrentHealth() - poisonDamage);
         }
@@ -81,9 +89,7 @@ function inflictDamage(character1: Character, character2: Character) {
 
 function inflictEffects(player: Player, enemy: Enemy, effects: Effect[]) {
   for (let effect of effects) {
-    if (!effect.conditionTarget
-      || (effect.conditionTarget === 'enemy' && effect.conditionState === 'stun' && enemy.getIsStuned)
-      || (effect.conditionTarget === 'player' && effect.conditionState === 'stun' && player.getIsStuned)) {
+    if (areConditionsFullfiled(player, enemy, effect.conditions)) {
       if (effect.probability > Utils.getRandomInt(99)) {
         if (effect.target === 'enemy') {
           if (effect.type === 'boost') {
@@ -101,4 +107,48 @@ function inflictEffects(player: Player, enemy: Enemy, effects: Effect[]) {
       }
     }
   }
+}
+
+function areConditionsFullfiled(player: Player, enemy: Enemy, conditions: EffectCondition[]) {
+   if(conditions.length > 0) {
+    for(let condition of conditions) {
+      if(condition.type === 'state' && condition.caracteristic === 'stun') {
+        if((condition.target === 'enemy' && !enemy.getIsStuned())
+        || (condition.target === 'player' && !player.getIsStuned())){
+          return false;
+        }
+      }
+      if(condition.type === 'state' && condition.caracteristic === 'immune') {
+        if((condition.target === 'enemy' && !enemy.getIsImmune())
+        || (condition.target === 'player' && !player.getIsImmune())){
+          return false;
+        }
+      }
+      if(condition.type === 'state' && condition.caracteristic === 'protected') {
+        if((condition.target === 'enemy' && !enemy.getIsProtected())
+        || (condition.target === 'player' && !player.getIsProtected())){
+          return false;
+        }
+      }
+      if(condition.type === 'stats' && condition.caracteristic === 'attack') {
+        if((condition.target === 'enemy' && !(enemy.getCurrentAttack() > condition.value))
+        || (condition.target === 'player' && !(player.getCurrentAttack() > condition.value))){
+          return false;
+        }
+      }
+      if(condition.type === 'stats' && condition.caracteristic === 'armor') {
+        if((condition.target === 'enemy' && !(enemy.getCurrentArmor() > condition.value))
+        || (condition.target === 'player' && !(player.getCurrentArmor() > condition.value))){
+          return false;
+        }
+      }
+      if(condition.type === 'stats' && condition.caracteristic === 'health') {
+        if((condition.target === 'enemy' && !(enemy.getCurrentHealth() > condition.value))
+        || (condition.target === 'player' && !(player.getCurrentHealth() > condition.value))){
+          return false;
+        }
+      }
+    }
+  }
+  return true;
 }

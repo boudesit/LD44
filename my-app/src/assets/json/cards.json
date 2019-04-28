@@ -1,283 +1,415 @@
 [
-    {
-      "id": "1",
-      "title": "Basic attack",
-      "description": "Attack the enemy.",
-      "cost": 1,
-      "effects": [
-      ],
-      "attack": 1,
-      "armor": 0,
-      "heal": 0,
-      "score": 0,
-      "merchantCost": 0,
-      "spriteUrl": ""
-    },
-    {
-      "id": "2",
-      "title": "Basic life",
-      "description": "Heal you.",
-      "cost": 1,
-      "effects": [
-      ],
-      "attack": 0,
-      "armor": 0,
-      "heal": 1,
-      "score": 0,
-      "merchantCost": 0,
-      "spriteUrl": ""
-    },
-    {
-      "id": "3",
-      "title": "Basic armor",
-      "description": "Give you small armor",
-      "cost": 1,
-      "effects": [
-      ],
-      "attack": 0,
-      "armor": 1,
-      "heal": 0,
-      "score": 0,
-      "merchantCost": 0,
-      "spriteUrl": ""
-    },
-    {
-      "id": "4",
-      "title": "Attack ++",
-      "description": "Attack the enemy.",
-      "cost": 1,
-      "effects": [
-      ],
-      "attack": 2,
-      "armor": 0,
-      "heal": 0,
-      "score": 0,
-      "merchantCost": 0,
-      "spriteUrl": ""
-    },
-    {
-      "id": "5",
-      "title": "Life ++",
-      "description": "Heal you.",
-      "cost": 1,
-      "effects": [
-      ],
-      "attack": 0,
-      "armor": 0,
-      "heal": 2,
-      "score": 0,
-      "merchantCost": 0,
-      "spriteUrl": ""
-    },
-    {
-      "id": "6",
-      "title": "Armor ++",
-      "description": "Give you small armor",
-      "cost": 1,
-      "effects": [
-      ],
-      "attack": 0,
-      "armor": 2,
-      "heal": 0,
-      "score": 0,
-      "merchantCost": 0,
-      "spriteUrl": ""
-    },
-    {
-      "id": "7",
-      "title": "Attack +++",
-      "description": "Attack the enemy.",
-      "cost": 2,
-      "effects": [
-      ],
-      "attack": 3,
-      "armor": 0,
-      "heal": 0,
-      "score": 0,
-      "merchantCost": 0,
-      "spriteUrl": ""
-    },
-    {
-      "id": "8",
-      "title": "Life +++",
-      "description": "Heal you.",
-      "cost": 2,
-      "effects": [
-      ],
-      "attack": 0,
-      "armor": 0,
-      "heal": 3,
-      "score": 0,
-      "merchantCost": 0,
-      "spriteUrl": ""
-    },
-    {
-      "id": "9",
-      "title": "Armor +++",
-      "description": "Give you small armor",
-      "cost": 2,
-      "effects": [
-      ],
-      "attack": 0,
-      "armor": 3,
-      "heal": 0,
-      "score": 0,
-      "merchantCost": 0,
-      "spriteUrl": ""
-    },
-    {
-      "id": "10",
-      "title": "Attack + life +",
-      "description": "Attack the enemy.",
-      "cost": 2,
-      "effects": [
-      ],
-      "attack": 1,
-      "armor": 0,
-      "heal": 1,
-      "score": 0,
-      "merchantCost": 0,
-      "spriteUrl": ""
-    },
-    {
-      "id": "11",
-      "title": "Attack + armor +",
-      "description": "Heal you.",
-      "cost": 2,
-      "effects": [
-      ],
-      "attack": 1,
-      "armor": 1,
-      "heal": 0,
-      "score": 0,
-      "merchantCost": 0,
-      "spriteUrl": ""
-    },
-    {
-      "id": "12",
-      "title": "Life + armor +",
-      "description": "Give you small armor",
-      "cost": 2,
-      "effects": [
-      ],
-      "attack": 0,
-      "armor": 1,
-      "heal": 1,
-      "score": 0,
-      "merchantCost": 0,
-      "spriteUrl": ""
-    },
-    {
-      "id": "13",
-      "title": "like + armor ++",
-      "description": "Attack the enemy.",
-      "cost": 3,
-      "effects": [
-      ],
-      "attack": 0,
-      "armor": 2,
-      "heal": 1,
-      "score": 0,
-      "merchantCost": 0,
-      "spriteUrl": ""
-    },
-    {
-      "id": "14",
-      "title": "Atack + Life ++  armor +",
-      "description": "Heal you.",
-      "cost": 3,
-      "effects": [
-      ],
-      "attack": 1,
-      "armor": 1,
-      "heal": 2,
-      "score": 0,
-      "merchantCost": 0,
-      "spriteUrl": ""
-    },
-    {
-      "id": "15",
-      "title": "Attack ++  life + Armor ++",
-      "description": "Give you small armor",
-      "cost": 3,
-      "effects": [
-      ],
-      "attack": 2,
-      "armor": 2,
-      "heal": 1,
-      "score": 0,
-      "merchantCost": 0,
-      "spriteUrl": ""
-    },
-    {
-      "id": "16",
-      "title": "Attack ++++",
-      "description": "Attack the enemy.",
-      "cost": 5,
-      "effects": [
-      ],
-      "attack": 4,
-      "armor": 0,
-      "heal": 0,
-      "score": 0,
-      "merchantCost": 0,
-      "spriteUrl": ""
-    },
-    {
-      "id": "17",
-      "title": "Attack +++++",
-      "description": "Heal you.",
-      "cost": 1,
-      "effects": [
-      ],
-      "attack": 5,
-      "armor": 0,
-      "heal": 0,
-      "score": 0,
-      "merchantCost": 0,
-      "spriteUrl": ""
-    },
-    {
-      "id": "18",
-      "title": "Life +++  Armor +++",
-      "description": "Give you small armor",
-      "cost": 6,
-      "effects": [
-      ],
-      "attack": 0,
-      "armor": 3,
-      "heal": 3,
-      "score": 0,
-      "merchantCost": 0,
-      "spriteUrl": ""
-    },
-    {
-      "id": "19",
-      "title": "Attack +  Armor ++++",
-      "description": "Heal you.",
-      "cost": 6,
-      "effects": [
-      ],
-      "attack": 1,
-      "armor": 4,
-      "heal": 0,
-      "score": 0,
-      "merchantCost": 0,
-      "spriteUrl": ""
-    },
-    {
-      "id": "20",
-      "title": "Life +++++  Armor +",
-      "description": "Give you small armor",
-      "cost": 4,
-      "effects": [
-      ],
-      "attack": 0,
-      "armor": 1,
-      "heal": 5,
-      "score": 0,
-      "merchantCost": 0,
-      "spriteUrl": ""
-    }
-    
-  ]
+  {
+    "id": "1",
+    "title": "",
+    "description": "This turn, gives you 1 attack.",
+    "cost": 1,
+    "effects": [],
+    "attack": 1,
+    "armor": 0,
+    "heal": 0,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": ""
+  },
+  {
+    "id": "2",
+    "title": "",
+    "description": "This turn, gives you 1 health.",
+    "cost": 1,
+    "effects": [],
+    "attack": 0,
+    "armor": 0,
+    "heal": 1,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": ""
+  },
+  {
+    "id": "3",
+    "title": "",
+    "description": "This turn, gives you 1 armor.",
+    "cost": 1,
+    "effects": [],
+    "attack": 0,
+    "armor": 1,
+    "heal": 0,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": ""
+  },
+  {
+    "id": "4",
+    "title": "Attack ++",
+    "description": "This turn, gives you 2 attack.",
+    "cost": 2,
+    "effects": [],
+    "attack": 2,
+    "armor": 0,
+    "heal": 0,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": ""
+  },
+  {
+    "id": "5",
+    "title": "Life ++",
+    "description": "This turn, gives you 2 health.",
+    "cost": 2,
+    "effects": [],
+    "attack": 0,
+    "armor": 0,
+    "heal": 2,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": ""
+  },
+  {
+    "id": "6",
+    "title": "Armor ++",
+    "description": "This turn, gives you 2 armor.",
+    "cost": 2,
+    "effects": [],
+    "attack": 0,
+    "armor": 2,
+    "heal": 0,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": ""
+  },
+  {
+    "id": "7",
+    "title": "Attack +++",
+    "description": "This turn, gives you 3 attack.",
+    "cost": 3,
+    "effects": [],
+    "attack": 3,
+    "armor": 0,
+    "heal": 0,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": ""
+  },
+  {
+    "id": "8",
+    "title": "Life +++",
+    "description": "This turn, gives you 3 health.",
+    "cost": 3,
+    "effects": [],
+    "attack": 0,
+    "armor": 0,
+    "heal": 3,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": ""
+  },
+  {
+    "id": "9",
+    "title": "Armor +++",
+    "description": "This turn, gives you 3 armor.",
+    "cost": 3,
+    "effects": [],
+    "attack": 0,
+    "armor": 3,
+    "heal": 0,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": ""
+  },
+  {
+    "id": "10",
+    "title": "Attack + life +",
+    "description": "This turn, your opponent becomes poisoned ",
+    "cost": 2,
+    "effects": [
+      {
+        "type": "poison",
+        "target": "enemy",
+        "probability": 100,
+        "conditions": [],
+        "duration": 1,
+        "delay": 0,
+        "attack": null,
+        "armor": null,
+        "health": null
+      }
+    ],
+    "attack": 1,
+    "armor": 0,
+    "heal": 1,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": ""
+  },
+  {
+    "id": "11",
+    "title": "Attack + armor +",
+    "description": "Gives you 1 attack this turn and 1 armor the next one.",
+    "cost": 2,
+    "effects": [
+      {
+        "type": "boost",
+        "target": "player",
+        "probability": 100,
+        "conditions": [],
+        "duration": 1,
+        "delay": 1,
+        "attack": 0,
+        "armor": 1,
+        "health": 0
+      }
+    ],
+    "attack": 1,
+    "armor": 0,
+    "heal": 0,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": ""
+  },
+  {
+    "id": "12",
+    "title": "Life + armor +",
+    "description": "If you have at least X attack points, you opponent becomes stunned 1 turn.",
+    "cost": 2,
+    "effects": [
+      {
+        "type": "stun",
+        "target": "enemy",
+        "probability": 100,
+        "conditions": [
+          {
+            "target": "player",
+            "type": "stats",
+            "caracteristic": "attack",
+            "value": 5
+          }
+        ],
+        "duration": 1,
+        "delay": 0,
+        "attack": null,
+        "armor": null,
+        "health": null
+      }
+    ],
+    "attack": 0,
+    "armor": 1,
+    "heal": 1,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": ""
+  },
+  {
+    "id": "13",
+    "title": "like + armor ++",
+    "description": "If your opponent is stunned, gives you 1 attack the next turn.",
+    "cost": 3,
+    "effects": [
+      {
+        "type": "boost",
+        "target": "player",
+        "probability": 100,
+        "conditions": [
+          {
+            "target": "enemy",
+            "type": "state",
+            "caracteristic": "stun",
+            "value": null
+          }
+        ],
+        "duration": 1,
+        "delay": 1,
+        "attack": 0,
+        "armor": 1,
+        "health": 0
+      }
+    ],
+    "attack": 0,
+    "armor": 2,
+    "heal": 1,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": ""
+  },
+  {
+    "id": "14",
+    "title": "Atack + Life ++  armor +",
+    "description": "For the next two turns, you take half damages",
+    "cost": 3,
+    "effects": [
+      {
+        "type": "protect",
+        "target": "player",
+        "probability": 100,
+        "conditions": [],
+        "duration": 2,
+        "delay": 0,
+        "attack": null,
+        "armor": null,
+        "health": null
+      }
+    ],
+    "attack": 1,
+    "armor": 1,
+    "heal": 2,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": ""
+  },
+  {
+    "id": "15",
+    "title": "Attack ++  life + Armor ++",
+    "description": "You have 66% chance to become immune this turn.",
+    "cost": 5,
+    "effects": [
+      {
+        "type": "immune",
+        "target": "player",
+        "probability": 66,
+        "conditions": [],
+        "duration": 1,
+        "delay": 0,
+        "attack": null,
+        "armor": null,
+        "health": null
+      }
+    ],
+    "attack": 2,
+    "armor": 1,
+    "heal": 1,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": ""
+  },
+  {
+    "id": "16",
+    "title": "Attack ++++",
+    "description": "Your opponent is poisoned for 2 turns.",
+    "cost": 5,
+    "effects": [
+      {
+        "type": "poison",
+        "target": "enemy",
+        "probability": 100,
+        "conditions": [],
+        "duration": 1,
+        "delay": 0,
+        "attack": null,
+        "armor": null,
+        "health": null
+      }
+    ],
+    "attack": 2,
+    "armor": 0,
+    "heal": 1,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": ""
+  },
+  {
+    "id": "17",
+    "title": "Attack +++++",
+    "description": "You get 3 attack and have 50% change to get 2 next turn.",
+    "cost": 5,
+    "effects": [
+      {
+        "type": "boost",
+        "target": "player",
+        "probability": 50,
+        "conditions": [],
+        "duration": 1,
+        "delay": 0,
+        "attack": 2,
+        "armor": 0,
+        "health": 0
+      }
+    ],
+    "attack": 3,
+    "armor": 0,
+    "heal": 0,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": ""
+  },
+  {
+    "id": "18",
+    "title": "Life +++  Armor +++",
+    "description": "Your opponent is stunned and poisoned for 1 turn.",
+    "cost": 5,
+    "effects": [
+      {
+        "type": "stun",
+        "target": "enemy",
+        "probability": 100,
+        "conditions": [],
+        "duration": 1,
+        "delay": 0,
+        "attack": null,
+        "armor": null,
+        "health": null
+      },
+      {
+        "type": "poison",
+        "target": "enemy",
+        "probability": 100,
+        "conditions": [],
+        "duration": 1,
+        "delay": 0,
+        "attack": null,
+        "armor": null,
+        "health": null
+      }
+    ],
+    "attack": 0,
+    "armor": 3,
+    "heal": 1,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": ""
+  },
+  {
+    "id": "19",
+    "title": "Attack +  Armor ++++",
+    "description": "Give you 1 armor next turn.",
+    "cost": 5,
+    "effects": [{
+        "type": "boost",
+        "target": "player",
+        "probability": 100,
+        "conditions": [],
+        "duration": 1,
+        "delay": 0,
+        "attack": 0,
+        "armor": 1,
+        "health": 0
+      }],
+    "attack": 1,
+    "armor": 4,
+    "heal": 0,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": ""
+  },
+  {
+    "id": "20",
+    "title": "Life +++++  Armor +",
+    "description": "Give you 3 attack next turn",
+    "cost": 4,
+    "effects": [{
+        "type": "boost",
+        "target": "player",
+        "probability": 100,
+        "conditions": [],
+        "duration": 1,
+        "delay": 0,
+        "attack": 3,
+        "armor": 0,
+        "health": 0
+      }],
+    "attack": 0,
+    "armor": 1,
+    "heal": 5,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": ""
+  }
+]
