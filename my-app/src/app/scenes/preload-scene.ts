@@ -38,6 +38,7 @@ export class PreloadScene extends Phaser.Scene {
         this.load.image("coeur",'assets/images/coeur.png');
         this.load.image("armor",'assets/images/armor.png');
         this.load.image("attack",'assets/images/attack.png');
+        this.load.image("endround",'assets/images/FinTour.png');
 
         this.load.on('progress', (value : number) => {
             _this.loadingBar.setCrop(0, 0,525 * value, 900);

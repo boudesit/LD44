@@ -61,6 +61,7 @@ export class HudScene extends Phaser.Scene {
         this.createBackground(); // Creat background méthod
         this.createProgressbar(); // Creat progreess bar méthod
         this.createHero(); // Creat Hero méthod
+        this.createEndRound();
        
        
 
@@ -137,42 +138,39 @@ export class HudScene extends Phaser.Scene {
         heroSprite.anims.play('hero');
 
 
-        var confiAttackgHero = {
+        var configAttackHero = {
             key: 'heroAttack',
             frames: this.anims.generateFrameNumbers('hero_attack', { start: 0, end: 6 }),
-            frameRate: 5,
+            frameRate: 10,
             //repeat : -1,
             yoyo : true
 
         };
+        this.anims.create(configAttackHero);
 
     }
 
-   
+    private createEndRound() {
 
-    // onObjectClicked()  // wait next graph of monsieurduba
-    // {
-    //   this.attackHero();
+        var endRound = this.add.image(100 / this.ratio , 200 / this.ratio , 'endround');
+        endRound.setDisplaySize(70 / this.ratio, 57 / this.ratio);
 
-    //     // heroSprite.x += 200;
-    //     // setTimeout(() => {
-    //     //       heroSprite.x -= 200;
-    //     //  }, 500);
- 
-    // }
+    }
 
      private attackHero(){
+     
+        heroSprite.visible = false;
 
-        heroSprite.x += 200;
+        attackHeroSprite = this.add.sprite(-800 / this.ratio, 150 / this.ratio, 'hero_attack').setScale(1);
+        attackHeroSprite.setDisplaySize(200 / this.ratio, 300 / this.ratio);
+        attackHeroSprite.anims.play('heroAttack');
+
+        attackHeroSprite.x += 200;
         setTimeout(() => {
-              heroSprite.x -= 200;
-         }, 500);
- 
-         attackHeroSprite = this.add.sprite(-800 / this.ratio, 150 / this.ratio, 'hero_attack').setScale(1);
-         attackHeroSprite.setDisplaySize(200 / this.ratio, 300 / this.ratio);
-         attackHeroSprite.anims.play('heroAttack');
-      
-
+            attackHeroSprite.x -= 200;
+            heroSprite.visible = true;
+            attackHeroSprite.visible = false;
+         }, 1000);
        
     }
 
