@@ -19,7 +19,8 @@ export class Player extends Character {
     this.currentAttack = 1;
     this.currentArmor = 0;
 
-    this.maxActionPoint = jsonObject.maxActionPoint;
+    this.maxActionPoint = jsonObject.maxAction;
+    this.currentActionPoint = jsonObject.maxAction;
   }
 
   getDeck() {
