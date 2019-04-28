@@ -15,15 +15,13 @@ export class RoundService {
     draw(player, 5);
     player.setCurrentActionPoint(player.getMaxActionPoint());
     resetStats(player);
-    // applyEffects(player, enemy);
+    applyEffects(player, enemy);
   }
 
   endRoundPlayer(player: Player, enemy: Enemy) {
     inflictDamage(player, enemy);
     inflictEffects(player, enemy, player.getNextAttackEffects());
     player.setNextAttackEffects([]);
-    console.log(player);
-    console.log(enemy);
   }
 
   startRoundEnemy(player: Player, enemy: Enemy) {

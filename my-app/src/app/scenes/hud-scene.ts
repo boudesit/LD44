@@ -18,7 +18,7 @@ var enemyName;
 var enemyFrame;
 export class HudScene extends Phaser.Scene {
 
-    
+
     player : Player;
     fakePlayer : Enemy;
 
@@ -41,23 +41,23 @@ export class HudScene extends Phaser.Scene {
         super({
             key : "HudScene"
         })
-        
+
         this.ratio = Number(localStorage.getItem("resolution_ratio"));
-        
+
     }
-    
+
     create() : void {
         let _this = this;
-        
+
         this.width = this.game.config.width as number;
         this.height = this.game.config.height as number;
 
         this.player = new Player(this.cache.json.get("player")); // Add the player
 
-        this.fakePlayer = new Enemy(this.cache.json.get("enemy")[journeyX][Utils.getRandomInt(1)]); // Add the enemy (n° day, 0/1)
-         enemyName = this.fakePlayer.getName();
-         enemyFrame = this.fakePlayer.getFrame();
-       
+        this.fakePlayer = new Enemy(this.cache.json.get("enemy")[journeyX][Utils.getRandomInt(this.cache.json.get("enemy")[journeyX].length - 1)]); // Add the enemy (n° day, 0/1)
+        var enemyName = this.fakePlayer.getName();
+        var enemyFrame = this.fakePlayer.getFrame();
+
         this.cards = new Array<Card>();
 
         for(let cardObj of this.cache.json.get("cards")) {
@@ -67,7 +67,7 @@ export class HudScene extends Phaser.Scene {
         this.deck = this._cardService.createDeck(this.cards);
 
         this.player.setDeck(this.deck);
-    
+
         this.cameras.main.startFollow(this.add.text(0, 0, 'the deck is ' + this.deck.toString()).setOrigin(0.5), false);
 
         this.createBackground(); // Creat background méthod
@@ -96,8 +96,8 @@ export class HudScene extends Phaser.Scene {
             frameRate: 5,
             repeat : -1,
             yoyo : true
-            
-            
+
+
         });
         sprite = this.add.sprite(0 / this.ratio, 0 / this.ratio, 'background');
         sprite.setDisplaySize(this.width, this.height);
@@ -112,8 +112,8 @@ export class HudScene extends Phaser.Scene {
         armor.setDisplaySize(60 / this.ratio, 49 / this.ratio);
         var attack = this.add.image(-920 / this.ratio , -300 / this.ratio , 'attack');
         attack.setDisplaySize(70 / this.ratio, 70 / this.ratio);
-        
-       
+
+
           lifeText = this.add.text(-870 / this.ratio , -500 / this.ratio, ''+this.player.getCurrentHealth(), {
             fontfamily : 'BIT',
             fontSize: '32px',
@@ -132,7 +132,7 @@ export class HudScene extends Phaser.Scene {
             fontSize: '32px',
             fill: "white",
             align: "center"
-        });    
+        });
     }
 
     private addCardInHand(_this: this) {
@@ -141,14 +141,14 @@ export class HudScene extends Phaser.Scene {
             sprite.setDisplaySize(200 / this.ratio, 200 / this.ratio);
             sprite.setInteractive();
             sprite.card = handCard;
-            this.handCardSprites.push(sprite);   
+            this.handCardSprites.push(sprite);
         }
         for (let cardSprite of this.handCardSprites) {
             cardSprite.on("pointerdown", () => {
                 _this._cardService.isPlayed(_this.player, (cardSprite as any).card);
                 cardSprite.destroy();
-            });   
-        }  
+            });
+        }
     }
 
     private createHero() {
@@ -159,7 +159,7 @@ export class HudScene extends Phaser.Scene {
             frameRate: 5,
             repeat : -1
             //yoyo : true
-   
+
         };
         var anim = this.anims.create(configHero);
 
@@ -181,14 +181,14 @@ export class HudScene extends Phaser.Scene {
     }
 
     private createEnemy(){
-        
+
         var configEnemy = {
             key: 'enemy',
             frames: this.anims.generateFrameNumbers('enemy', { start: 0, end: 2 }),
             frameRate: 5,
             repeat : -1
             //yoyo : true
-   
+
         };
         this.anims.create(configEnemy);
 
@@ -207,19 +207,19 @@ export class HudScene extends Phaser.Scene {
         endRound.on("pointerdown", ()=> {
 
             this._roundService.endRoundPlayer(this.player,this.fakePlayer);
-            
+
             if(this.fakePlayer.getCurrentHealth() <= 0 || this.player.getCurrentHealth() <= 0 )
             {
                 // this._roundService.endBatlle();
                 return;
 
             }
-           
+
            this._roundService.startRoundEnemy(this.player,this.fakePlayer);
            this._roundService.roundEnemy(this.fakePlayer);
            this._roundService.endRoundEnemy(this.player,this.fakePlayer);
            if(this.player.getCurrentHealth() <= 0 || this.fakePlayer.getCurrentHealth() <= 0)
-           {  
+           {
                // this._roundService.endBatlle();
                return;
            }
@@ -228,9 +228,9 @@ export class HudScene extends Phaser.Scene {
            this.initCard  = -750;
            this.deleteCards();
            this.addCardInHand(_this);
-            
-           
-           
+
+
+
 
           _this.attackHero();
         })
@@ -238,7 +238,7 @@ export class HudScene extends Phaser.Scene {
     }
 
      private attackHero(){
-     
+
         heroSprite.visible = false;
 
         attackHeroSprite = this.add.sprite(-800 / this.ratio, 150 / this.ratio, 'hero_attack').setScale(1);
@@ -251,7 +251,7 @@ export class HudScene extends Phaser.Scene {
             heroSprite.visible = true;
             attackHeroSprite.visible = false;
          }, 1000);
-       
+
     }
 
     private createJourney(journey : number, name : string, frame : number){
@@ -262,8 +262,8 @@ export class HudScene extends Phaser.Scene {
     private deleteCards(){
 
         for (let cardSprite of this.handCardSprites) {
-            
-                
+
+
                 cardSprite.destroy();
         }
 
@@ -275,7 +275,7 @@ export class HudScene extends Phaser.Scene {
     armorText.text = this.player.getCurrentArmor();
     attackText.text = this.player.getCurrentAttack();
 
-      
+
     }
 
     cardClicked() {
