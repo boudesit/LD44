@@ -89,7 +89,7 @@ function applyEffects(character1: Character, character2: Character) {
         if (effect.type === 'protect') {
           character1.setIsProtected(true);
         }
-        if (effect.type === 'poison') {
+        if (effect.type === 'poison' && ! character1.getIsImmune()) {
           let poisonDamage = (character2.getCurrentAttack() - character1.getCurrentArmor()) / 2;
           character1.setCurrentHealth(character1.getCurrentHealth() - poisonDamage);
         }
@@ -105,6 +105,7 @@ function applyEffects(character1: Character, character2: Character) {
 function inflictDamage(character1: Character, character2: Character) {
   let attackDamage = character1.getCurrentAttack() - character2.getCurrentArmor();
   attackDamage = attackDamage > 0 ? attackDamage : 0;
+  attackDamage = character1.getIsProtected() ? attackDamage / 2 : attackDamage;
   character2.setCurrentHealth(character2.getCurrentHealth() - attackDamage);
 }
 
