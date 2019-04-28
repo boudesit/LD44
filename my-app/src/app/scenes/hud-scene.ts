@@ -2,6 +2,8 @@ import { Player } from '../objects/player';
 import { Card } from '../objects/card';
 import { CardService } from '../services/card.service';
 import { readPatchedData } from '@angular/core/src/render3/util';
+import { Enemy } from '../objects/enemy';
+import { RoundService } from '../services/round.service';
 var sprite;
 var cursor;
 var heroSprite;
@@ -11,6 +13,8 @@ export class HudScene extends Phaser.Scene {
 
     
     player : Player;
+    fakePlayer : Enemy;
+
     cards : Card[];
     deck : Card[];
 
@@ -19,6 +23,7 @@ export class HudScene extends Phaser.Scene {
     height : number;
 
     _cardService = new CardService();
+    _roundService = new RoundService();
 
 
     constructor() {
@@ -36,6 +41,9 @@ export class HudScene extends Phaser.Scene {
         this.height = this.game.config.height as number;
 
         this.player = new Player(this.cache.json.get("player"));
+
+        this.fakePlayer = new Enemy(this.cache.json.get("enemy")[0][0]);
+
        
         this.cards = new Array<Card>();
 
@@ -46,7 +54,7 @@ export class HudScene extends Phaser.Scene {
 
         this.deck = this._cardService.createDeck(this.cards);
 
-        console.log("" + this.deck);
+        this.player.setDeck(this.deck);
     
         this.cameras.main.startFollow(this.add.text(0, 0, 'the deck is ' + this.deck.toString()).setOrigin(0.5), false);
 
@@ -91,7 +99,15 @@ export class HudScene extends Phaser.Scene {
             fill: "white",
             align: "center"
         });
+<<<<<<< HEAD
     } 
+=======
+
+        this._roundService.startRoundPlayer(this.player, this.fakePlayer);
+
+        console.log(this.player.getHand());
+    }
+>>>>>>> 4a488ff8375df2d2dd6888fac69e0ca51b75f7ab
 
     private createHero() {
 
@@ -116,9 +132,14 @@ export class HudScene extends Phaser.Scene {
             frameRate: 5,
             //repeat : -1,
             yoyo : true
+<<<<<<< HEAD
    
         };
         this.anims.create(confiAttackgHero);
+=======
+
+        });
+>>>>>>> 4a488ff8375df2d2dd6888fac69e0ca51b75f7ab
 
     }
 

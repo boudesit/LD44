@@ -4,9 +4,9 @@ import { Effect } from './effect';
 
 export class Player extends Character {
 
-  deck: Card[];
-  hand: Card[];
-  discard: Card[];
+  deck: Card[] = [];
+  hand : Card[] = [];
+  discard: Card[] = [];
 
   maxActionPoint: number;
   currentActionPoint: number;
