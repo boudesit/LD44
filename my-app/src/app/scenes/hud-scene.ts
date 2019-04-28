@@ -96,7 +96,19 @@ export class HudScene extends Phaser.Scene {
             _this.attackHero();
         }); // wait next graph of monsieurduba
        
-        var text = this.add.text(-870 / this.ratio , -500 / this.ratio, "5", {
+         this.add.text(-870 / this.ratio , -500 / this.ratio, ''+this.player.getCurrentHealth(), {
+            fontfamily : 'BIT',
+            fontSize: '32px',
+            fill: "white",
+            align: "center"
+        });
+        this.add.text(-870 / this.ratio , -400 / this.ratio, ''+this.player.getCurrentArmor(), {
+            fontfamily : 'BIT',
+            fontSize: '32px',
+            fill: "white",
+            align: "center"
+        });
+        this.add.text(-870 / this.ratio , -300 / this.ratio, ''+this.player.getCurrentAttack(), {
             fontfamily : 'BIT',
             fontSize: '32px',
             fill: "white",
