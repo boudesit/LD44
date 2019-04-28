@@ -3,10 +3,13 @@ import { Player } from '../objects/player';
 import { Enemy } from '../objects/enemy';
 import { Effect } from '../objects/effect';
 import { EffectCondition } from '../objects/effectCondition';
+import { EnemyActionService } from '../services/enemyAction.service'
 
 import {Utils} from './utils';
 
 export class RoundService {
+
+  enemyActionService: EnemyActionService = new EnemyActionService();
 
   startRoundPlayer(player: Player, enemy: Enemy) {
     draw(player, 5);
@@ -26,6 +29,11 @@ export class RoundService {
   startRoundEnemy(player: Player, enemy: Enemy) {
     resetStats(enemy);
     applyEffects(enemy, player);
+  }
+
+  roundEnemy(enemy: Enemy) {
+    let action = enemy.actions[Utils.getRandomInt(enemy.actions.length - 1)];
+    this.enemyActionService.isUsed(enemy, action);
   }
 
   endRoundEnemy(player: Player, enemy: Enemy) {
@@ -48,7 +56,7 @@ function draw(player: Player, n: number) {
 function resetStats(caracter: Character) {
   caracter.setIsStuned(false);
   caracter.setCurrentAttack(1);
-  caracter.setCurrentArmor(1);
+  caracter.setCurrentArmor(0);
 }
 
 function applyEffects(character1: Character, character2: Character) {
