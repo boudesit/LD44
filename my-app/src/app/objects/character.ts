@@ -1,4 +1,5 @@
 import { Effect } from './effect';
+import { HudScene } from '../scenes/hud-scene';
 
 export class Character {
 
@@ -30,6 +31,7 @@ export class Character {
 
   getCurrentHealth() {
     return this.currentHealth;
+  
   }
 
   setCurrentHealth(currentHealth: number) {

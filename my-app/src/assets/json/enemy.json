@@ -1,8 +1,8 @@
 [
   [
     {
-      "name": "Spider",
-      "frame":8,
+      "name": "spider",
+      "frame":7,
       "level": 1,
       "text": "Mwahaha",
       "maxHealth": 10,
@@ -27,9 +27,9 @@
       ]
     },
     {
-      "name": "Sipder2",
+      "name": "spider2",
       "level": 1,
-      "frame":8,
+      "frame":7,
       "text": "Mwahaha",
       "maxHealth": 10,
       "currentHealth": 10,
@@ -57,7 +57,7 @@
     {
       "name": "Hobgoblin",
       "level": 2,
-      "frame":7,
+      "frame":6,
       "text": "Mwahaha",
       "maxHealth": 10,
       "currentHealth": 10,
@@ -83,7 +83,7 @@
     {
       "name": "Hobgoblin2",
       "level": 2,
-      "frame":7,
+      "frame":6,
       "text": "Mwahaha",
       "maxHealth": 10,
       "currentHealth": 10,

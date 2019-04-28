@@ -7,6 +7,7 @@ import { RoundService } from '../services/round.service';
 import { Utils } from '../services/utils';
 var sprite;
 var heroSprite;
+var enemySprite;
 var attackHeroSprite;
 var rect;
 var graph;
@@ -16,6 +17,12 @@ var attackText
 var journeyX = 0;
 var enemyName;
 var enemyFrame;
+var spriteJourney ;
+var animEnemy;
+var currentArmor=0;
+var waitShow=0;
+var animEnemyAttack;
+
 export class HudScene extends Phaser.Scene {
 
 
@@ -55,8 +62,8 @@ export class HudScene extends Phaser.Scene {
         this.player = new Player(this.cache.json.get("player")); // Add the player
 
         this.fakePlayer = new Enemy(this.cache.json.get("enemy")[journeyX][Utils.getRandomInt(this.cache.json.get("enemy")[journeyX].length - 1)]); // Add the enemy (n° day, 0/1)
-        var enemyName = this.fakePlayer.getName();
-        var enemyFrame = this.fakePlayer.getFrame();
+         enemyName = this.fakePlayer.getName();
+         enemyFrame = this.fakePlayer.getFrame();
 
         this.cards = new Array<Card>();
 
@@ -73,9 +80,9 @@ export class HudScene extends Phaser.Scene {
         this.createBackground(); // Creat background méthod
         this.createProgressbar(); // Creat progreess bar méthod
         this.createHero(); // Creat Hero méthod
-        this.createEnemy(); // Creat Hero méthod
+        this.createEnemy(enemyName,enemyFrame); // Creat Hero méthod
         this.createEndRound(_this); // Creat end round méthod
-        this.createJourney(journeyX,enemyName,enemyFrame); //Update journey
+        this.createJourney(journeyX); //Update journey
 
         // rect = new Phaser.Geom.Rectangle(-150/ _this.ratio, 100/_this.ratio, 350 / _this.ratio, 150 / _this.ratio);
         // graph = this.add.graphics({ fillStyle: { color: 0x0060FF } });
@@ -146,6 +153,7 @@ export class HudScene extends Phaser.Scene {
         for (let cardSprite of this.handCardSprites) {
             cardSprite.on("pointerdown", () => {
                 _this._cardService.isPlayed(_this.player, (cardSprite as any).card);
+                currentArmor = this.player.getCurrentArmor();
                 cardSprite.destroy();
             });
         }
@@ -180,24 +188,29 @@ export class HudScene extends Phaser.Scene {
 
     }
 
-    private createEnemy(){
+    private createEnemy(name : string, frame : number){     //Create automatick enemy from json (because different frame of sprite enemy)
 
+        if (journeyX >0)
+    {
+        enemySprite.destroy();
+        animEnemy.destroy();
+    }
         var configEnemy = {
             key: 'enemy',
-            frames: this.anims.generateFrameNumbers('enemy', { start: 0, end: 2 }),
-            frameRate: 5,
+            frames: this.anims.generateFrameNumbers(name, { start: 0, end: frame }),  //end: frame = nb frame of enemy sprite name = enemy random
+            frameRate: 6,
             repeat : -1
-            //yoyo : true
-
         };
-        this.anims.create(configEnemy);
 
-        heroSprite = this.add.sprite(-800 / this.ratio, 150 / this.ratio, 'hero_idle').setScale(1);
-        heroSprite.setDisplaySize(200 / this.ratio, 300 / this.ratio);
-        heroSprite.anims.play('hero');
+        animEnemy =this.anims.create(configEnemy);
+
+        enemySprite = this.add.sprite(0 / this.ratio, 150 / this.ratio, name);
+        enemySprite.setDisplaySize((enemySprite.width/2) / this.ratio, (enemySprite.height/2) / this.ratio);
+        enemySprite.anims.play('enemy');
 
 
     }
+
     private createEndRound(_this: this) {
 
 
@@ -205,23 +218,52 @@ export class HudScene extends Phaser.Scene {
         endRound.setDisplaySize(200 / this.ratio, 100 / this.ratio);
         endRound.setInteractive();
         endRound.on("pointerdown", ()=> {
-
             this._roundService.endRoundPlayer(this.player,this.fakePlayer);
 
-            if(this.fakePlayer.getCurrentHealth() <= 0 || this.player.getCurrentHealth() <= 0 )
+            if(this.fakePlayer.getCurrentHealth() <= 0 || this.player.getCurrentHealth() <= 0 ) // IF PLAYER OR ENEMY DIED
             {
-                // this._roundService.endBatlle();
+                // si player est  mort ???
+
+                // this._roundService.endBatlle();  
+                journeyX++;
+                this.createJourney(journeyX); // NEW JOURNEY
+                this.fakePlayer = new Enemy(this.cache.json.get("enemy")[journeyX][Utils.getRandomInt(this.cache.json.get("enemy")[journeyX].length - 1)]); // Add the enemy (n° day, 0/1)
+                 enemyName = this.fakePlayer.getName();
+                 enemyFrame = this.fakePlayer.getFrame();
+                this.createEnemy(enemyName,enemyFrame);   // NEW ENEMY
+                this._roundService.startRoundPlayer(this.player,this.fakePlayer); // START ROUND OF PLAYER
+                this.initCard  = -750;
+                this.deleteCards(); // DELETE HAND CARDS
+                this.addCardInHand(_this); // NEW HAND
                 return;
 
             }
 
-           this._roundService.startRoundEnemy(this.player,this.fakePlayer);
-           this._roundService.roundEnemy(this.fakePlayer);
+           this._roundService.startRoundEnemy(this.player,this.fakePlayer);  // START ROUND OF ENEMY
+           this._roundService.roundEnemy(this.fakePlayer); // ROUND OF ENEMY
+           
+           if(this.fakePlayer.getCurrentAttack() >0){  // SPRITE ATTACK ENEMY
+            setTimeout(() => {
+                this.attackEnemy()
+             }, 2000);   
+           }
            this._roundService.endRoundEnemy(this.player,this.fakePlayer);
            if(this.player.getCurrentHealth() <= 0 || this.fakePlayer.getCurrentHealth() <= 0)
            {
-               // this._roundService.endBatlle();
-               return;
+               // si player est  mort ???
+
+                // this._roundService.endBatlle();  
+                journeyX++;
+                this.createJourney(journeyX);
+                this.fakePlayer = new Enemy(this.cache.json.get("enemy")[journeyX][Utils.getRandomInt(this.cache.json.get("enemy")[journeyX].length - 1)]); // Add the enemy (n° day, 0/1)
+                enemyName = this.fakePlayer.getName();
+                enemyFrame = this.fakePlayer.getFrame();
+                this.createEnemy(enemyName,enemyFrame);  
+                this._roundService.startRoundPlayer(this.player,this.fakePlayer);
+                this.initCard  = -750;
+                this.deleteCards();
+                this.addCardInHand(_this);
+                return;
            }
 
            this._roundService.startRoundPlayer(this.player,this.fakePlayer);
@@ -238,7 +280,7 @@ export class HudScene extends Phaser.Scene {
     }
 
      private attackHero(){
-
+        
         heroSprite.visible = false;
 
         attackHeroSprite = this.add.sprite(-800 / this.ratio, 150 / this.ratio, 'hero_attack').setScale(1);
@@ -252,11 +294,57 @@ export class HudScene extends Phaser.Scene {
             attackHeroSprite.visible = false;
          }, 1000);
 
+         var configEnemyAnim = {
+            key: 'enemyDamage',
+            frames: this.anims.generateFrameNumbers("anim_attack_enemy", { start: 0, end: 11 }),  //end: frame = nb frame of enemy sprite name = enemy random
+            frameRate: 30,
+            //repeat : -1
+        };
+
+        animEnemyAttack =this.anims.create(configEnemyAnim);
+
+        var damage = this.add.sprite(0 / this.ratio, 150 / this.ratio, "anim_attack_enemy");
+        damage.setDisplaySize(250 / this.ratio, 250 / this.ratio);
+        damage.anims.play('enemyDamage');
+
+        setTimeout(() => {
+            damage.destroy();
+         }, 1200);
+
     }
 
-    private createJourney(journey : number, name : string, frame : number){
+    private attackEnemy(){
+        enemySprite.x -= 200;
+        setTimeout(() => {
+            enemySprite.x += 200;
+         }, 1000);
 
-      this.add.sprite(0 / this.ratio , -473 / this.ratio , 'journey',journey);
+         var configHeroAnim = {
+            key: 'heroDamage',
+            frames: this.anims.generateFrameNumbers("anim_attack_hero", { start: 0, end: 11 }),  //end: frame = nb frame of enemy sprite name = enemy random
+            frameRate: 30,
+            //repeat : -1
+        };
+
+        var animHeroAttack =this.anims.create(configHeroAnim);
+
+        var damageHero = this.add.sprite(-800 / this.ratio, 150 / this.ratio, "anim_attack_hero");
+        damageHero.setDisplaySize(250 / this.ratio, 250 / this.ratio);
+        damageHero.anims.play('heroDamage');
+
+        setTimeout(() => {
+            damageHero.destroy();
+         }, 1200);
+
+    }
+
+    private createJourney(journey : number){
+         
+    if (journeyX >0)
+    {
+        spriteJourney.destroy();
+    }
+      spriteJourney = this.add.sprite(0 / this.ratio , -473 / this.ratio , 'journey',journey);
     }
 
     private deleteCards(){
@@ -274,7 +362,6 @@ export class HudScene extends Phaser.Scene {
     lifeText.text = this.player.getCurrentHealth();
     armorText.text = this.player.getCurrentArmor();
     attackText.text = this.player.getCurrentAttack();
-
 
     }
 
