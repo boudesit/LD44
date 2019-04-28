@@ -7,6 +7,7 @@ export class Enemy extends Character {
       level: number;
       name: string;
       text: string;
+      frame: number;
 
 
 
@@ -15,6 +16,7 @@ export class Enemy extends Character {
 
         this.actions = jsonObj.actions;
         this.level = jsonObj.level;
+        this.frame = jsonObj.frame;
         this.name = jsonObj.name;
         this.text = jsonObj.text;
         this.maxHealth = jsonObj.maxHealth;
@@ -24,6 +26,12 @@ export class Enemy extends Character {
 
     }
 
+    getName() {
+      return this.name;
+    }
 
+    getFrame() {
+      return this.frame;
+    }
 
   }

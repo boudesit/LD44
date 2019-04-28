@@ -52,7 +52,7 @@ export class HudScene extends Phaser.Scene {
         this.player = new Player(this.cache.json.get("player")); // Add the player
 
         this.fakePlayer = new Enemy(this.cache.json.get("enemy")[0][0]); // Add the enemy
-        this.fakePlayer.getCurrentArmor
+        this.fakePlayer.getName();
        
         this.cards = new Array<Card>();
 
@@ -201,9 +201,16 @@ export class HudScene extends Phaser.Scene {
         endRound.setDisplaySize(200 / this.ratio, 100 / this.ratio);
         endRound.setInteractive();
         endRound.on("pointerdown", ()=> {
-           
            this._roundService.endRoundPlayer(this.player,this.fakePlayer);
-          // this._roundService.startRoundPlayer(this.player,this.fakePlayer);
+           this._roundService.startRoundEnemy(this.player,this.fakePlayer);
+           this._roundService.roundEnemy(this.fakePlayer);
+           this._roundService.endRoundEnemy(this.player,this.fakePlayer);
+           this._roundService.startRoundPlayer(this.player,this.fakePlayer);
+           this.initCard  = -750;
+           this.deleteCards();
+           this.addCardInHand(_this);
+           
+           
 
           _this.attackHero();
         })
@@ -230,6 +237,12 @@ export class HudScene extends Phaser.Scene {
     private createJourney(journey : number){
 
       this.add.sprite(0 / this.ratio , -473 / this.ratio , 'journey',journey);
+    }
+
+    private deleteCards(){
+
+       this.handCardSprites = [];
+
     }
 
     update() : void {

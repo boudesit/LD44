@@ -23,6 +23,7 @@ export class Character {
     return this.maxHealth;
   }
 
+ 
   setMaxHealth(maxHealth: number) {
     this.maxHealth = maxHealth;
   }
