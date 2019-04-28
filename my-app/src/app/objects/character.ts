@@ -3,7 +3,6 @@ import { Effect } from './effect';
 export class Character {
 
   maxHealth: number;
-
   currentHealth: number;
   currentAttack: number;
   currentArmor: number;
