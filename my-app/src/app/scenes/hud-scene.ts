@@ -1,6 +1,7 @@
 import { Player } from '../objects/player';
 import { Card } from '../objects/card';
 import { CardService } from '../services/card.service';
+import { readPatchedData } from '@angular/core/src/render3/util';
 var sprite;
 export class HudScene extends Phaser.Scene {
 
@@ -22,7 +23,7 @@ export class HudScene extends Phaser.Scene {
         })
         
         this.ratio = Number(localStorage.getItem("resolution_ratio"));
-
+        
     }
     
     create() : void {
@@ -46,15 +47,34 @@ export class HudScene extends Phaser.Scene {
         this.cameras.main.startFollow(this.add.text(0, 0, 'the deck is ' + this.deck.toString()).setOrigin(0.5), false);
 
         this.createBackground();
+        var health = this.add.image(-920 / this.ratio , -500 / this.ratio , 'coeur');
+        health.setDisplaySize(70 / this.ratio, 57 / this.ratio);
+        var armor = this.add.image(-920 / this.ratio , -400 / this.ratio , 'armor');
+        armor.setDisplaySize(60 / this.ratio, 49 / this.ratio);
+        var attack = this.add.image(-920 / this.ratio , -300 / this.ratio , 'attack');
+        attack.setDisplaySize(70 / this.ratio, 70 / this.ratio);
+       
+        var text = this.add.text(-870 / this.ratio , -500 / this.ratio, "5", {
+            fontfamily : 'BIT',
+            fontSize: '32px',
+            fill: "white",
+            align: "center"
+        });
     }
 
     private createBackground() {
 
         var bgAnimation = this.anims.create({
             key: 'run',
-            frames: [{ key: 'background', frame: 8 }],
-            frameRate: 8,
+            frames: this.anims.generateFrameNumbers('background', { start: 1, end: 7 }),
+            frameRate: 5,
+            repeat : -1,
+            yoyo : true
+            
+            
         });
+
+       
 
         var sprite = this.add.sprite(0 / this.ratio, 0 / this.ratio, 'background');
         sprite.setDisplaySize(this.width, this.height);

@@ -1,12 +1,16 @@
-import {Effect} from './effect';
+import { Effect } from './effect';
 
 export class Character {
 
-  maxLife: number;
+  maxHealth: number;
 
-  currentLife: number;
+  currentHealth: number;
   currentAttack: number;
   currentArmor: number;
+
+  nextAttackEffects: Effect[];
+
+  isStuned: boolean;
 
   effects: Effect[];
 
@@ -14,20 +18,20 @@ export class Character {
 
   }
 
-  getMaxLife() {
-    return this.maxLife;
+  getMaxHealth() {
+    return this.maxHealth;
   }
 
-  setMaxLife(maxLife: number) {
-    this.maxLife = maxLife;
+  setMaxHealth(maxHealth: number) {
+    this.maxHealth = maxHealth;
   }
 
-  getCurrentLife() {
-    return this.currentLife;
+  getCurrentHealth() {
+    return this.currentHealth;
   }
 
-  setCurrentLife(currentLife: number) {
-    this.currentLife = currentLife < this.maxLife ? currentLife : this.maxLife;
+  setCurrentHealth(currentHealth: number) {
+    this.currentHealth = currentHealth < this.maxHealth ? currentHealth : this.maxHealth;
   }
   getCurrentAttack() {
     return this.currentAttack;
@@ -42,6 +46,22 @@ export class Character {
 
   setCurrentArmor(currentArmor: number) {
     this.currentArmor = currentArmor;
+  }
+
+  getNextAttackEffects() {
+    return this.nextAttackEffects;
+  }
+
+  setNextAttackEffects(nextAttackEffects: Effect[]) {
+    this.nextAttackEffects = nextAttackEffects;
+  }
+
+  getIsStuned() {
+    return this.isStuned;
+  }
+
+  setIsStuned(isStuned: boolean) {
+    this.isStuned = isStuned;
   }
 
   getEffects() {
