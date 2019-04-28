@@ -17,6 +17,10 @@ export class Enemy extends Character {
         this.level = jsonObj.level;
         this.name = jsonObj.name;
         this.text = jsonObj.text;
+        this.maxHealth = jsonObj.maxHealth;
+        this.currentHealth = jsonObj.maxHealth;
+        this.currentAttack = 1;
+        this.currentArmor = 0;
 
     }
 

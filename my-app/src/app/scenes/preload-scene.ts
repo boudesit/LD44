@@ -26,15 +26,22 @@ export class PreloadScene extends Phaser.Scene {
         /**********************************************/
         /*****************IMAGES***********************/
         /**********************************************/
-       
+        this.load.spritesheet('hero_idle', 'assets/sprites/hero_idle_sprite.png',{ frameWidth: 200, frameHeight: 300 })
+        this.load.spritesheet('hero_attack', 'assets/sprites/hero_attack_sprite.png',{ frameWidth: 200, frameHeight: 300 })
+
+
      
         this.load.spritesheet('background', 
         'assets/background/BG_JEU.png',
         { frameWidth: 1920, frameHeight: 1080 })
 
+        this.load.image("blank_card",'assets/Cards/Carte_0.png');
+
+
         this.load.image("coeur",'assets/images/coeur.png');
         this.load.image("armor",'assets/images/armor.png');
         this.load.image("attack",'assets/images/attack.png');
+        this.load.image("endround",'assets/images/FinTour.png');
 
         this.load.on('progress', (value : number) => {
             _this.loadingBar.setCrop(0, 0,525 * value, 900);

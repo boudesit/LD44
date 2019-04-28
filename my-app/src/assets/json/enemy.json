@@ -1,11 +1,88 @@
 [
   [
     {
-      "name": "Goblin",
+      "name": "Spider",
       "level": 1,
       "text": "Mwahaha",
-      "maxLife": 10,
-      "currentLife": 10,
+      "maxHealth": 10,
+      "currentHealth": 10,
+      "currentAttack": 1,
+      "currentArmor": 0,
+      "actions": [
+        {
+          "title": "Attack",
+          "attack": 1,
+          "armor": 0,
+          "heal": 0,
+          "effects": []
+        },
+        {
+          "title": "Defense",
+          "attack": 0,
+          "armor": 2,
+          "heal": 0,
+          "effects": []
+        }
+      ]
+    },
+    {
+      "name": "Sipder2",
+      "level": 1,
+      "text": "Mwahaha",
+      "maxHealth": 10,
+      "currentHealth": 10,
+      "currentAttack": 1,
+      "currentArmor": 0,
+      "actions": [
+        {
+          "title": "Attack",
+          "attack": 1,
+          "armor": 0,
+          "heal": 0,
+          "effects": []
+        },
+        {
+          "title": "Defense",
+          "attack": 0,
+          "armor": 2,
+          "heal": 0,
+          "effects": []
+        }
+      ]
+    }
+  ],
+  [
+    {
+      "name": "Hobgoblin",
+      "level": 2,
+      "text": "Mwahaha",
+      "maxHealth": 10,
+      "currentHealth": 10,
+      "currentAttack": 1,
+      "currentArmor": 0,
+      "actions": [
+        {
+          "title": "Attack",
+          "attack": 1,
+          "armor": 0,
+          "heal": 0,
+          "effects": []
+        },
+        {
+          "title": "Defense",
+          "attack": 0,
+          "armor": 2,
+          "heal": 0,
+          "effects": []
+        }
+      ]
+    },
+    {
+      "name": "Hobgoblin2",
+      "level": 2,
+      "text": "Mwahaha",
+      "maxHealth": 10,
+      "currentHealth": 10,
       "currentAttack": 1,
       "currentArmor": 0,
       "actions": [
