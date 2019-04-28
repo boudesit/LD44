@@ -35,6 +35,9 @@ export class PreloadScene extends Phaser.Scene {
         'assets/background/BG_JEU.png',
         { frameWidth: 1920, frameHeight: 1080 })
 
+        this.load.image("blank_card",'assets/Cards/Carte_0.png');
+
+
         this.load.image("coeur",'assets/images/coeur.png');
         this.load.image("armor",'assets/images/armor.png');
         this.load.image("attack",'assets/images/attack.png');
