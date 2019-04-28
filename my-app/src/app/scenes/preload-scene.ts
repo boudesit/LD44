@@ -44,6 +44,8 @@ export class PreloadScene extends Phaser.Scene {
 
         this.load.spritesheet('anim_attack_enemy', 'assets/animations/anim_attack_enemy.png',{ frameWidth: 500, frameHeight: 500 });
         this.load.spritesheet('anim_attack_hero', 'assets/animations/anim_attack_hero.png',{ frameWidth: 500, frameHeight: 500 });
+
+        this.load.spritesheet('deck', 'assets/images/deck.png',{ frameWidth: 200, frameHeight: 200 });
        
 
 

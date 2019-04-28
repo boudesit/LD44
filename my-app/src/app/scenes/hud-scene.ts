@@ -83,7 +83,7 @@ export class HudScene extends Phaser.Scene {
         this.createEnemy(enemyName,enemyFrame); // Creat Hero méthod
         this.createEndRound(_this); // Creat end round méthod
         this.createJourney(journeyX); //Update journey
-
+        this.createDeck(); // Creat deck méthod
         // rect = new Phaser.Geom.Rectangle(-150/ _this.ratio, 100/_this.ratio, 350 / _this.ratio, 150 / _this.ratio);
         // graph = this.add.graphics({ fillStyle: { color: 0x0060FF } });
         // graph.fillRectShape(rect);
@@ -355,6 +355,12 @@ export class HudScene extends Phaser.Scene {
                 cardSprite.destroy();
         }
 
+    }
+
+    private createDeck(){
+
+        var deck = this.add.image(760 / this.ratio , 410 / this.ratio , 'deck');
+        deck.setDisplaySize(200 / this.ratio, 200 / this.ratio);
     }
 
     update() : void {
