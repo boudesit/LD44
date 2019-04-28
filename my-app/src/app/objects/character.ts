@@ -8,7 +8,7 @@ export class Character {
   currentAttack: number;
   currentArmor: number;
 
-  nextAttackEffects: Effect[];
+  nextAttackEffects: Effect[] = [];
 
   isStuned: boolean;
   isImmune: boolean;

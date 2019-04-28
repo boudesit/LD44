@@ -18,6 +18,10 @@ export class HudScene extends Phaser.Scene {
     width : number;
     height : number;
 
+    initCard : number = -750;
+
+    handCardSprites : Phaser.GameObjects.Sprite[] = [];
+
     _cardService = new CardService();
     _roundService = new RoundService();
 
@@ -32,6 +36,7 @@ export class HudScene extends Phaser.Scene {
     }
     
     create() : void {
+        let _this = this;
         
         this.width = this.game.config.width as number;
         this.height = this.game.config.height as number;
@@ -44,7 +49,6 @@ export class HudScene extends Phaser.Scene {
         this.cards = new Array<Card>();
 
         for(let cardObj of this.cache.json.get("cards")) {
-            console.log(cardObj);
             this.cards.push(cardObj);
         }
 
@@ -71,7 +75,32 @@ export class HudScene extends Phaser.Scene {
 
         this._roundService.startRoundPlayer(this.player, this.fakePlayer);
 
-        console.log(this.player.getHand());
+        this.addCardInHand(_this);
+    }
+
+    private addCardInHand(_this: this) {
+        for (let handCard of this.player.getHand()) {
+            let sprite = this.add.sprite((this.initCard += 250) / this.ratio, 400 / this.ratio, "blank_card") as any;
+            sprite.setDisplaySize(200 / this.ratio, 200 / this.ratio);
+            sprite.setInteractive();
+            sprite.card = handCard;
+            this.handCardSprites.push(sprite);
+        }
+        for (let cardSprite of this.handCardSprites) {
+            cardSprite.on("pointerover", (event, other) => {
+
+                var rect = new Phaser.Geom.Rectangle((_this.initCard  += 250) / _this.ratio, 200 / _this.ratio, 300 / _this.ratio, 200 / _this.ratio);
+                var graphics = this.add.graphics({ fillStyle: { color: 0x000000 } });
+            
+                graphics.fillRectShape(rect);
+            
+                console.log((cardSprite as any).card);
+            });
+            cardSprite.on("pointerdown", () => {
+                _this._cardService.isPlayed(_this.player, (cardSprite as any).card);
+                cardSprite.destroy();
+            });
+        }
     }
 
     private createBackground() {
