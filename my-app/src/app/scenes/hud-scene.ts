@@ -102,15 +102,11 @@ export class HudScene extends Phaser.Scene {
             fill: "white",
             align: "center"
         });
-<<<<<<< HEAD
-    } 
-=======
 
         this._roundService.startRoundPlayer(this.player, this.fakePlayer);
 
         console.log(this.player.getHand());
     }
->>>>>>> 4a488ff8375df2d2dd6888fac69e0ca51b75f7ab
 
     private createHero() {
 
@@ -135,29 +131,13 @@ export class HudScene extends Phaser.Scene {
             frameRate: 5,
             //repeat : -1,
             yoyo : true
-<<<<<<< HEAD
-   
-        };
-        this.anims.create(confiAttackgHero);
-=======
 
-        });
->>>>>>> 4a488ff8375df2d2dd6888fac69e0ca51b75f7ab
+        };
 
     }
 
    
 
-<<<<<<< HEAD
-    onObjectClicked()  // wait next graph of monsieurduba
-    {
-      //this.attackHero();
-
-        heroSprite.x += 200;
-        setTimeout(() => {
-              heroSprite.x -= 200;
-         }, 500);
-=======
     // onObjectClicked()  // wait next graph of monsieurduba
     // {
     //   this.attackHero();
@@ -166,19 +146,18 @@ export class HudScene extends Phaser.Scene {
     //     // setTimeout(() => {
     //     //       heroSprite.x -= 200;
     //     //  }, 500);
->>>>>>> 46d7069a30edc99b668af18e22f8ac9bfb7a4998
  
     // }
 
-    // private attackHero(){
+     private attackHero(){
 
-    //     attackHeroSprite = this.add.sprite(-800 / this.ratio, 150 / this.ratio, 'hero_attack').setScale(1);
-    //     attackHeroSprite.setDisplaySize(200 / this.ratio, 300 / this.ratio);
-    //     attackHeroSprite.anims.play('heroAttack');
+         attackHeroSprite = this.add.sprite(-800 / this.ratio, 150 / this.ratio, 'hero_attack').setScale(1);
+         attackHeroSprite.setDisplaySize(200 / this.ratio, 300 / this.ratio);
+         attackHeroSprite.anims.play('heroAttack');
       
 
        
-    // }
+    }
 
     update() : void {
         
