@@ -14,6 +14,8 @@ var lifeText;
 var armorText
 var attackText
 var journeyX = 0;
+var enemyName;
+var enemyFrame;
 export class HudScene extends Phaser.Scene {
 
     
@@ -53,8 +55,8 @@ export class HudScene extends Phaser.Scene {
         this.player = new Player(this.cache.json.get("player")); // Add the player
 
         this.fakePlayer = new Enemy(this.cache.json.get("enemy")[journeyX][Utils.getRandomInt(1)]); // Add the enemy (n° day, 0/1)
-        var enemyName = this.fakePlayer.getName();
-        var enemyFrame = this.fakePlayer.getFrame();
+         enemyName = this.fakePlayer.getName();
+         enemyFrame = this.fakePlayer.getFrame();
        
         this.cards = new Array<Card>();
 
@@ -73,7 +75,7 @@ export class HudScene extends Phaser.Scene {
         this.createHero(); // Creat Hero méthod
         this.createEnemy(); // Creat Hero méthod
         this.createEndRound(_this); // Creat end round méthod
-        this.createJourney(journeyX); //Update journey
+        this.createJourney(journeyX,enemyName,enemyFrame); //Update journey
 
         // rect = new Phaser.Geom.Rectangle(-150/ _this.ratio, 100/_this.ratio, 350 / _this.ratio, 150 / _this.ratio);
         // graph = this.add.graphics({ fillStyle: { color: 0x0060FF } });
@@ -252,7 +254,7 @@ export class HudScene extends Phaser.Scene {
        
     }
 
-    private createJourney(journey : number){
+    private createJourney(journey : number, name : string, frame : number){
 
       this.add.sprite(0 / this.ratio , -473 / this.ratio , 'journey',journey);
     }
