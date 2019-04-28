@@ -1,11 +1,7 @@
 {
-    "player": [
-      {
-        "type": "player",
-        "maxLife": 20,
-        "maxAction": 5
-      }   
-  ]   
-  }
+    "type": "player",
+    "maxLife": 20,
+    "maxAction": 5
 
-  
+ }
+
