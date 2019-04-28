@@ -6,6 +6,9 @@ import {Utils} from './utils';
 export class CardService {
 
   isPlayed(player: Player, card: Card) {
+    if(player.getIsStuned()){
+      return false;
+    }
 
     if (player.getCurrentActionPoint() < card.cost) {
       return false;

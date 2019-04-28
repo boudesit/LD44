@@ -10,11 +10,11 @@ export class Character {
 
   nextAttackEffects: Effect[] = [];
 
-  isStuned: boolean;
-  isImmune: boolean;
-  isProtected: boolean;
+  isStuned: boolean = false;
+  isImmune: boolean = false;
+  isProtected: boolean = false;
 
-  effects: Effect[];
+  effects: Effect[] = [];
 
   constructor() {
 
