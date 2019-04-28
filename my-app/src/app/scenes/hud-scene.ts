@@ -4,6 +4,7 @@ import { CardService } from '../services/card.service';
 import { readPatchedData } from '@angular/core/src/render3/util';
 import { Enemy } from '../objects/enemy';
 import { RoundService } from '../services/round.service';
+import { Utils } from '../services/utils';
 var sprite;
 var heroSprite;
 var attackHeroSprite;
@@ -51,8 +52,9 @@ export class HudScene extends Phaser.Scene {
 
         this.player = new Player(this.cache.json.get("player")); // Add the player
 
-        this.fakePlayer = new Enemy(this.cache.json.get("enemy")[0][0]); // Add the enemy
-        this.fakePlayer.getName();
+        this.fakePlayer = new Enemy(this.cache.json.get("enemy")[journeyX][Utils.getRandomInt(1)]); // Add the enemy (n° day, 0/1)
+        var enemyName = this.fakePlayer.getName();
+        var enemyFrame = this.fakePlayer.getFrame();
        
         this.cards = new Array<Card>();
 
@@ -201,14 +203,30 @@ export class HudScene extends Phaser.Scene {
         endRound.setDisplaySize(200 / this.ratio, 100 / this.ratio);
         endRound.setInteractive();
         endRound.on("pointerdown", ()=> {
-           this._roundService.endRoundPlayer(this.player,this.fakePlayer);
+
+            this._roundService.endRoundPlayer(this.player,this.fakePlayer);
+            
+            if(this.fakePlayer.getCurrentHealth() <= 0 || this.player.getCurrentHealth() <= 0 )
+            {
+                // this._roundService.endBatlle();
+                return;
+
+            }
+           
            this._roundService.startRoundEnemy(this.player,this.fakePlayer);
            this._roundService.roundEnemy(this.fakePlayer);
            this._roundService.endRoundEnemy(this.player,this.fakePlayer);
+           if(this.player.getCurrentHealth() <= 0 || this.fakePlayer.getCurrentHealth() <= 0)
+           {  
+               // this._roundService.endBatlle();
+               return;
+           }
+
            this._roundService.startRoundPlayer(this.player,this.fakePlayer);
            this.initCard  = -750;
            this.deleteCards();
            this.addCardInHand(_this);
+            
            
            
 
@@ -241,7 +259,11 @@ export class HudScene extends Phaser.Scene {
 
     private deleteCards(){
 
-       this.handCardSprites = [];
+        for (let cardSprite of this.handCardSprites) {
+            
+                
+                cardSprite.destroy();
+        }
 
     }
 
@@ -250,6 +272,7 @@ export class HudScene extends Phaser.Scene {
     lifeText.text = this.player.getCurrentHealth();
     armorText.text = this.player.getCurrentArmor();
     attackText.text = this.player.getCurrentAttack();
+
       
     }
 
