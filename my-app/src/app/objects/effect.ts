@@ -1,3 +1,5 @@
+import {EffectCondition} from './effectCondition';
+
 export class Effect {
 
   type: String;
@@ -5,8 +7,7 @@ export class Effect {
 
   probability: number;
 
-  conditionTarget: String;
-  conditionState: String;
+  conditions: EffectCondition[];
 
   duration: number;
   delay: number;
