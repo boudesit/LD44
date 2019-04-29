@@ -9,6 +9,9 @@ export class MainMenuScene extends Phaser.Scene {
     optionMenu : Menu;
     fullscreenMenu : Menu;
 
+    width : number;
+    height : number;
+
     canvas : HTMLCanvasElement;
 
 
@@ -19,13 +22,18 @@ export class MainMenuScene extends Phaser.Scene {
     }
 
     create() : void {
-
-
         let _this = this;
 
-        this.canvas = document.getElementsByTagName("canvas").item(0);
+        this.width = this.game.config.width as number;
+        this.height = this.game.config.height as number;
+    
 
-        
+        var bgAnimation = this.add.image(0,0,"background_title");
+        bgAnimation.setDisplayOrigin(0, 0);
+
+        bgAnimation.setDisplaySize(this.width, this.height);
+
+        this.canvas = document.getElementsByTagName("canvas").item(0);
 
         if (!document.fullscreenEnabled) {
           return;
