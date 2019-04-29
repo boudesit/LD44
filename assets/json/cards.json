@@ -1,0 +1,1217 @@
+[
+  {
+    "id": "1",
+    "title": "Hit !",
+    "description": "This turn, gives you 1 attack.",
+    "cost": 1,
+    "effects": [],
+    "attack": 1,
+    "armor": 0,
+    "heal": 0,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_1"
+  },
+  {
+    "id": "2",
+    "title": "Heal !",
+    "description": "This turn, gives you 1 health.",
+    "cost": 1,
+    "effects": [],
+    "attack": 0,
+    "armor": 0,
+    "heal": 1,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_2"
+  },
+  {
+    "id": "3",
+    "title": "Block ! ",
+    "description": "This turn, gives you 1 armor.",
+    "cost": 1,
+    "effects": [],
+    "attack": 0,
+    "armor": 1,
+    "heal": 0,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_3"
+  },
+  {
+    "id": "4",
+    "title": "Hit Hit !",
+    "description": "This turn, gives you 2 attack.",
+    "cost": 2,
+    "effects": [],
+    "attack": 2,
+    "armor": 0,
+    "heal": 0,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_4"
+  },
+  {
+    "id": "5",
+    "title": "Heal Heal !",
+    "description": "This turn, gives you 2 health.",
+    "cost": 2,
+    "effects": [],
+    "attack": 0,
+    "armor": 0,
+    "heal": 2,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_5"
+  },
+  {
+    "id": "6",
+    "title": "Block ! Block !",
+    "description": "This turn, gives you 2 armor.",
+    "cost": 2,
+    "effects": [],
+    "attack": 0,
+    "armor": 2,
+    "heal": 0,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_6"
+  },
+  {
+    "id": "7",
+    "title": "Hit ! Hit ! Hit harder !",
+    "description": "This turn, gives you 3 attack.",
+    "cost": 3,
+    "effects": [],
+    "attack": 3,
+    "armor": 0,
+    "heal": 0,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_7"
+  },
+  {
+    "id": "8",
+    "title": "Heal ! Heal ! Heal better !",
+    "description": "This turn, gives you 3 health.",
+    "cost": 3,
+    "effects": [],
+    "attack": 0,
+    "armor": 0,
+    "heal": 3,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_8"
+  },
+  {
+    "id": "9",
+    "title": "Block ! Block ! Block stronger !",
+    "description": "This turn, gives you 3 armor.",
+    "cost": 3,
+    "effects": [],
+    "attack": 0,
+    "armor": 3,
+    "heal": 0,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_9"
+  },
+  {
+    "id": "10",
+    "title": "Scratch !",
+    "description": "This turn, your opponent becomes poisoned ",
+    "cost": 2,
+    "effects": [
+      {
+        "type": "poison",
+        "target": "enemy",
+        "probability": 100,
+        "conditions": [],
+        "duration": 1,
+        "delay": 0,
+        "attack": null,
+        "armor": null,
+        "health": null
+      }
+    ],
+    "attack": 1,
+    "armor": 0,
+    "heal": 1,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_10"
+  },
+  {
+    "id": "11",
+    "title": "Prepare for battle",
+    "description": "Gives you 1 attack this turn and 1 armor the next one.",
+    "cost": 2,
+    "effects": [
+      {
+        "type": "boost",
+        "target": "player",
+        "probability": 100,
+        "conditions": [],
+        "duration": 1,
+        "delay": 0,
+        "attack": 0,
+        "armor": 1,
+        "health": 0
+      }
+    ],
+    "attack": 1,
+    "armor": 0,
+    "heal": 0,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_11"
+  },
+  {
+    "id": "12",
+    "title": "Fear me !",
+    "description": "If you have at least 5 attack points, you opponent becomes stunned 1 turn.",
+    "cost": 2,
+    "effects": [
+      {
+        "type": "stun",
+        "target": "enemy",
+        "probability": 100,
+        "conditions": [
+          {
+            "target": "player",
+            "type": "stats",
+            "caracteristic": "attack",
+            "value": 5
+          }
+        ],
+        "duration": 1,
+        "delay": 0,
+        "attack": null,
+        "armor": null,
+        "health": null
+      }
+    ],
+    "attack": 0,
+    "armor": 1,
+    "heal": 1,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_12"
+  },
+  {
+    "id": "13",
+    "title": "Enjoy the weakness",
+    "description": "If your opponent is stunned, gives you 1 attack the next turn.",
+    "cost": 3,
+    "effects": [
+      {
+        "type": "boost",
+        "target": "player",
+        "probability": 100,
+        "conditions": [
+          {
+            "target": "enemy",
+            "type": "state",
+            "caracteristic": "stun",
+            "value": null
+          }
+        ],
+        "duration": 1,
+        "delay": 0,
+        "attack": 1,
+        "armor": 0,
+        "health": 0
+      }
+    ],
+    "attack": 0,
+    "armor": 2,
+    "heal": 1,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_13"
+  },
+  {
+    "id": "14",
+    "title": "Shielded !",
+    "description": "For the next two turns, you take half damages",
+    "cost": 3,
+    "effects": [
+      {
+        "type": "protect",
+        "target": "player",
+        "probability": 100,
+        "conditions": [],
+        "duration": 2,
+        "delay": 0,
+        "attack": null,
+        "armor": null,
+        "health": null
+      }
+    ],
+    "attack": 1,
+    "armor": 1,
+    "heal": 2,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_14"
+  },
+  {
+    "id": "15",
+    "title": "Emergency",
+    "description": "You have 66% chance to become immune next turn.",
+    "cost": 5,
+    "effects": [
+      {
+        "type": "immune",
+        "target": "player",
+        "probability": 66,
+        "conditions": [],
+        "duration": 1,
+        "delay": 0,
+        "attack": null,
+        "armor": null,
+        "health": null
+      }
+    ],
+    "attack": 2,
+    "armor": 1,
+    "heal": 1,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_15"
+  },
+  {
+    "id": "16",
+    "title": "That card is poisoooon",
+    "description": "Your opponent is poisoned for 2 turns.",
+    "cost": 5,
+    "effects": [
+      {
+        "type": "poison",
+        "target": "enemy",
+        "probability": 100,
+        "conditions": [],
+        "duration": 2,
+        "delay": 0,
+        "attack": null,
+        "armor": null,
+        "health": null
+      }
+    ],
+    "attack": 2,
+    "armor": 0,
+    "heal": 1,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_16"
+  },
+  {
+    "id": "17",
+    "title": "I'm about to end this man's whole barrier",
+    "description": "You get 3 attack and have 50% change to get 2 next turn.",
+    "cost": 5,
+    "effects": [
+      {
+        "type": "boost",
+        "target": "player",
+        "probability": 50,
+        "conditions": [],
+        "duration": 1,
+        "delay": 0,
+        "attack": 2,
+        "armor": 0,
+        "health": 0
+      }
+    ],
+    "attack": 3,
+    "armor": 0,
+    "heal": 0,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_17"
+  },
+  {
+    "id": "18",
+    "title": "You're shivering, aren't you ?",
+    "description": "Your opponent is stunned and poisoned for 1 turn.",
+    "cost": 5,
+    "effects": [
+      {
+        "type": "stun",
+        "target": "enemy",
+        "probability": 100,
+        "conditions": [],
+        "duration": 1,
+        "delay": 0,
+        "attack": null,
+        "armor": null,
+        "health": null
+      },
+      {
+        "type": "poison",
+        "target": "enemy",
+        "probability": 100,
+        "conditions": [],
+        "duration": 1,
+        "delay": 0,
+        "attack": null,
+        "armor": null,
+        "health": null
+      }
+    ],
+    "attack": 0,
+    "armor": 3,
+    "heal": 1,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_18"
+  },
+  {
+    "id": "19",
+    "title": "And my armor !",
+    "description": "Give you 1 armor next turn.",
+    "cost": 5,
+    "effects": [
+      {
+        "type": "boost",
+        "target": "player",
+        "probability": 100,
+        "conditions": [],
+        "duration": 1,
+        "delay": 0,
+        "attack": 0,
+        "armor": 1,
+        "health": 0
+      }
+    ],
+    "attack": 1,
+    "armor": 4,
+    "heal": 0,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_19"
+  },
+  {
+    "id": "20",
+    "title": "Get Ready !",
+    "description": "Next turn, you will have 3 attack points",
+    "cost": 5,
+    "effects": [
+      {
+        "type": "boost",
+        "target": "player",
+        "probability": 100,
+        "conditions": [],
+        "duration": 1,
+        "delay": 0,
+        "attack": 3,
+        "armor": 0,
+        "health": 0
+      }
+    ],
+    "attack": 0,
+    "armor": 2,
+    "heal": 5,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_20"
+  },
+  {
+    "id": "21",
+    "title": "Prepare for battle !",
+    "description": "Your opponent has + 1 attack point the next turn.",
+    "cost": 1,
+    "effects": [
+      {
+        "type": "boost",
+        "target": "enemy",
+        "probability": 100,
+        "conditions": [],
+        "duration": 1,
+        "delay": 0,
+        "attack": 1,
+        "armor": 0,
+        "health": 0
+      }
+    ],
+    "attack": 1,
+    "armor": 1,
+    "heal": 0,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_21"
+  },
+  {
+    "id": "22",
+    "title": "Spark the life ",
+    "description": "Gives your opponent and yourself 2 health points.",
+    "cost": 1,
+    "effects": [
+      {
+        "type": "boost",
+        "target": "enemy",
+        "probability": 100,
+        "conditions": [],
+        "duration": 1,
+        "delay": 0,
+        "attack": 0,
+        "armor": 0,
+        "health": 2
+      }
+    ],
+    "attack": 0,
+    "armor": 0,
+    "heal": 2,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_22"
+  },
+  {
+    "id": "23",
+    "title": "I just bliked…",
+    "description": "You take 2 damages the next turn",
+    "cost": 2,
+    "effects": [
+      {
+        "type": "boost",
+        "target": "player",
+        "probability": 100,
+        "conditions": [],
+        "duration": 1,
+        "delay": 0,
+        "attack": 0,
+        "armor": 0,
+        "health": -2
+      }
+    ],
+    "attack": 2,
+    "armor": 0,
+    "heal": 0,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_23"
+  },
+  {
+    "id": "24",
+    "title": " Eeeeer",
+    "description": "you become poisoned for 1 turn",
+    "cost": 2,
+    "effects": [
+      {
+        "type": "poison",
+        "target": "player",
+        "probability": 100,
+        "conditions": [],
+        "duration": 1,
+        "delay": 0,
+        "attack": null,
+        "armor": null,
+        "health": null
+      }
+    ],
+    "attack": 0,
+    "armor": 1,
+    "heal": 2,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_24"
+  },
+  {
+    "id": "25",
+    "title": "Despair Energy",
+    "description": "Gives you 3 health points, then you'll lose 3 health points 2 turns from now",
+    "cost": 2,
+    "effects": [
+      {
+        "type": "boost",
+        "target": "player",
+        "probability": 100,
+        "conditions": [],
+        "duration": 1,
+        "delay": 2,
+        "attack": 0,
+        "armor": 0,
+        "health": -3
+      }
+    ],
+    "attack": 0,
+    "armor": 0,
+    "heal": 3,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_25"
+  },
+  {
+    "id": "26",
+    "title": "Take that !",
+    "description": "Gives 2 attack points to your opponent",
+    "cost": 2,
+    "effects": [
+      {
+        "type": "boost",
+        "target": "enemy",
+        "probability": 100,
+        "conditions": [],
+        "duration": 1,
+        "delay": 0,
+        "attack": 2,
+        "armor": 0,
+        "health": 0
+      }
+    ],
+    "attack": 1,
+    "armor": 1,
+    "heal": 1,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_26"
+  },
+  {
+    "id": "27",
+    "title": "Toastyyy! ",
+    "description": "50 % chance for your opponent to deal 5 more damage this turn",
+    "cost": 3,
+    "effects": [
+      {
+        "type": "boost",
+        "target": "enemy",
+        "probability": 50,
+        "conditions": [],
+        "duration": 1,
+        "delay": 0,
+        "attack": 5,
+        "armor": 0,
+        "health": 0
+      }
+    ],
+    "attack": 1,
+    "armor": 2,
+    "heal": 2,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_27"
+  },
+  {
+    "id": "28",
+    "title": "Berzerk",
+    "description": "Increases your attack by 4 points but decreases your health AND you armor by 2 points",
+    "cost": 3,
+    "effects": [],
+    "attack": 4,
+    "armor": -2,
+    "heal": -2,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_28"
+  },
+  {
+    "id": "29",
+    "title": "Price to pay",
+    "description": "If your opponent is stunned, you become poisoned for 2 turns.",
+    "cost": 3,
+    "effects": [
+      {
+        "type": "poison",
+        "target": "player",
+        "probability": 100,
+        "conditions": [
+          {
+            "target": "enemy",
+            "type": "state",
+            "caracteristic": "stun",
+            "value": null
+          }
+        ],
+        "duration": 2,
+        "delay": 0,
+        "attack": null,
+        "armor": null,
+        "health": null
+      }
+    ],
+    "attack": 2,
+    "armor": 2,
+    "heal": 0,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_29"
+  },
+  {
+    "id": "30",
+    "title": "Sooty",
+    "description": "You have 50% chance to miss your next attack",
+    "cost": 4,
+    "effects": [
+      {
+        "type": "boost",
+        "target": "player",
+        "probability": 50,
+        "conditions": [],
+        "duration": 1,
+        "delay": 0,
+        "attack": -100,
+        "armor": 0,
+        "health": 0
+      }
+    ],
+    "attack": 4,
+    "armor": -3,
+    "heal": 1,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_30"
+  },
+  {
+    "id": "31",
+    "title": "Bong!",
+    "description": "You get stunned the next turn",
+    "cost": 4,
+    "effects": [
+      {
+        "type": "stun",
+        "target": "player",
+        "probability": 100,
+        "conditions": [],
+        "duration": 1,
+        "delay": 0,
+        "attack": null,
+        "armor": null,
+        "health": null
+      }
+    ],
+    "attack": 0,
+    "armor": 2,
+    "heal": 3,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_31"
+  },
+  {
+    "id": "32",
+    "title": "Hemophilius",
+    "description": "If your opponent hits you this turn, you'll take 3 more damages",
+    "cost": 3,
+    "effects": [
+      {
+        "type": "boost",
+        "target": "enemy",
+        "probability": 100,
+        "conditions": [],
+        "duration": 1,
+        "delay": 0,
+        "attack": 3,
+        "armor": 0,
+        "health": 0
+      }
+    ],
+    "attack": 3,
+    "armor": 2,
+    "heal": -3,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_32"
+  },
+  {
+    "id": "33",
+    "title": "Blindfolded",
+    "description": "You have 60% chance to miss next turn.",
+    "cost": 4,
+    "effects": [
+      {
+        "type": "boost",
+        "target": "player",
+        "probability": 60,
+        "conditions": [],
+        "duration": 1,
+        "delay": 0,
+        "attack": -100,
+        "armor": 0,
+        "health": 0
+      }
+    ],
+    "attack": 5,
+    "armor": -2,
+    "heal": -1,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_33"
+  },
+  {
+    "id": "34",
+    "title": "An opening ",
+    "description": "You loose 2 armor points this turn, and the next one too.",
+    "cost": 4,
+    "effects": [
+      {
+        "type": "boost",
+        "target": "player",
+        "probability": 100,
+        "conditions": [],
+        "duration": 1,
+        "delay": 0,
+        "attack": 0,
+        "armor": -2,
+        "health": 0
+      }
+    ],
+    "attack": 5,
+    "armor": -2,
+    "heal": 0,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_34"
+  },
+  {
+    "id": "35",
+    "title": "On your side !",
+    "description": "For the next 3 turns, you loose 1 health point and 2 armor points",
+    "cost": 4,
+    "effects": [
+      {
+        "type": "boost",
+        "target": "player",
+        "probability": 100,
+        "conditions": [],
+        "duration": 3,
+        "delay": 0,
+        "attack": 0,
+        "armor": -2,
+        "health": -1
+      }
+    ],
+    "attack": 4,
+    "armor": 1,
+    "heal": 2,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_35"
+  },
+  {
+    "id": "36",
+    "title": "Oupsy !",
+    "description": "Nothing happened",
+    "cost": 0,
+    "effects": [],
+    "attack": 0,
+    "armor": 0,
+    "heal": 0,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_36"
+  },
+  {
+    "id": "37",
+    "title": "For the glory ! Or for the pity…",
+    "description": "50 % chance to increase your attack by 3 points next turn, 50 % chance to decrease your attack by 3 next turn.",
+    "cost": 5,
+    "effects": [
+      {
+        "type": "boost",
+        "target": "player",
+        "probability": 50,
+        "conditions": [],
+        "duration": 1,
+        "delay": 0,
+        "attack": 3,
+        "armor": 0,
+        "health": 0
+      },
+      {
+        "type": "boost",
+        "target": "player",
+        "probability": 50,
+        "conditions": [],
+        "duration": 1,
+        "delay": 0,
+        "attack": -3,
+        "armor": 0,
+        "health": 0
+      }
+    ],
+    "attack": 0,
+    "armor": 2,
+    "heal": 4,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_37"
+  },
+  {
+    "id": "38",
+    "title": "Tough tough",
+    "description": "Have a 60% change to stun you next turn.",
+    "cost": 5,
+    "effects": [
+      {
+        "type": "stun",
+        "target": "player",
+        "probability": 60,
+        "conditions": [],
+        "duration": 1,
+        "delay": 0,
+        "attack": null,
+        "armor": null,
+        "health": null
+      }
+    ],
+    "attack": 4,
+    "armor": 4,
+    "heal": 4,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_38"
+  },
+  {
+    "id": "39",
+    "title": "Last chance",
+    "description": "Give your oponent +3 attack points for the next 3 turns.",
+    "cost": 5,
+    "effects": [
+      {
+        "type": "boost",
+        "target": "enemy",
+        "probability": 100,
+        "conditions": [],
+        "duration": 3,
+        "delay": 0,
+        "attack": 3,
+        "armor": 0,
+        "health": 0
+      }
+    ],
+    "attack": 5,
+    "armor": 5,
+    "heal": 0,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_39"
+  },
+  {
+    "id": "40",
+    "title": "Coin flip",
+    "description": "If you play this card, you have 50% chance to win this fight immediatly. And 50% to lose.",
+    "cost": 5,
+    "effects": [
+      {
+        "type": "boost",
+        "target": "enemy",
+        "probability": 50,
+        "conditions": [],
+        "duration": 1,
+        "delay": 0,
+        "attack": 100,
+        "armor": 0,
+        "health": 0
+      },
+      {
+        "type": "boost",
+        "target": "enemy",
+        "probability": 50,
+        "conditions": [],
+        "duration": 1,
+        "delay": 0,
+        "attack": 0,
+        "armor": 0,
+        "health": -100
+      }
+    ],
+    "attack": 0,
+    "armor": 0,
+    "heal": 0,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_40"
+  },
+  {
+    "id": "41",
+    "title": "Friendship is magic",
+    "description": "75 % chance to deal 2 extra damages for you and your opponent on your next turn",
+    "cost": 0,
+    "effects": [
+      {
+        "type": "boost",
+        "target": "player",
+        "probability": 75,
+        "conditions": [],
+        "duration": 1,
+        "delay": 0,
+        "attack": 2,
+        "armor": 0,
+        "health": 0
+      },
+      {
+        "type": "boost",
+        "target": "enemy",
+        "probability": 75,
+        "conditions": [],
+        "duration": 1,
+        "delay": 0,
+        "attack": 2,
+        "armor": 0,
+        "health": 0
+      }
+    ],
+    "attack": 0,
+    "armor": 0,
+    "heal": 0,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_41"
+  },
+  {
+    "id": "42",
+    "title": "Sblah Sblah !",
+    "description": "Your opponent become stunned for this turn",
+    "cost": 2,
+    "effects": [
+      {
+        "type": "stun",
+        "target": "enemy",
+        "probability": 100,
+        "conditions": [],
+        "duration": 1,
+        "delay": 0,
+        "attack": null,
+        "armor": null,
+        "health": null
+      }
+    ],
+    "attack": 0,
+    "armor": 0,
+    "heal": 0,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_42"
+  },
+  {
+    "id": "43",
+    "title": "Footloose",
+    "description": "You have 50% chance to avoid attacks this turn.",
+    "cost": 2,
+    "effects": [
+      {
+        "type": "boost",
+        "target": "enemy",
+        "probability": 50,
+        "conditions": [],
+        "duration": 1,
+        "delay": 0,
+        "attack": -100,
+        "armor": 0,
+        "health": 0
+      }
+    ],
+    "attack": 0,
+    "armor": 0,
+    "heal": 0,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_43"
+  },
+  {
+    "id": "44",
+    "title": "Taste my medicine !",
+    "description": "Gives you 100 % chance to poisoned your opponent this turn.",
+    "cost": 2,
+    "effects": [
+      {
+        "type": "poison",
+        "target": "enemy",
+        "probability": 100,
+        "conditions": [],
+        "duration": 1,
+        "delay": 0,
+        "attack": null,
+        "armor": null,
+        "health": null
+      }
+    ],
+    "attack": 0,
+    "armor": 0,
+    "heal": 0,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_44"
+  },
+  {
+    "id": "45",
+    "title": "That's developers's fault",
+    "description": "This card does nothing",
+    "cost": 0,
+    "effects": [],
+    "attack": 0,
+    "armor": 0,
+    "heal": 0,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_45"
+  },
+  {
+    "id": "46",
+    "title": "Envenom",
+    "description": "Your opponent and you both become poisoned for the next 2 turns.",
+    "cost": 2,
+    "effects": [
+      {
+        "type": "poison",
+        "target": "player",
+        "probability": 100,
+        "conditions": [],
+        "duration": 2,
+        "delay": 0,
+        "attack": null,
+        "armor": null,
+        "health": null
+      },
+      {
+        "type": "poison",
+        "target": "enemy",
+        "probability": 100,
+        "conditions": [],
+        "duration": 2,
+        "delay": 0,
+        "attack": null,
+        "armor": null,
+        "health": null
+      }
+    ],
+    "attack": 0,
+    "armor": 0,
+    "heal": 0,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_46"
+  },
+  {
+    "id": "47",
+    "title": "Serum",
+    "description": "For the next 2 turns, your are immune to the poison",
+    "cost": 0,
+    "effects": [
+      {
+        "type": "immune",
+        "target": "player",
+        "probability": 100,
+        "conditions": [],
+        "duration": 2,
+        "delay": 0,
+        "attack": null,
+        "armor": null,
+        "health": null
+      }
+    ],
+    "attack": 0,
+    "armor": 0,
+    "heal": 0,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_47"
+  },
+  {
+    "id": "48",
+    "title": "Stomp !",
+    "description": "You have a 50% chance to get stunned, and a 50% change to stun your opponent.",
+    "cost": 3,
+    "effects": [
+      {
+        "type": "stun",
+        "target": "player",
+        "probability": 50,
+        "conditions": [],
+        "duration": 1,
+        "delay": 0,
+        "attack": null,
+        "armor": null,
+        "health": null
+      },
+      {
+        "type": "stun",
+        "target": "enemy",
+        "probability": 50,
+        "conditions": [],
+        "duration": 1,
+        "delay": 0,
+        "attack": null,
+        "armor": null,
+        "health": null
+      }
+    ],
+    "attack": 0,
+    "armor": 0,
+    "heal": 0,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_48"
+  },
+  {
+    "id": "49",
+    "title": "Mi-mi-mi-misssss",
+    "description": "Your next attack and your opponent's have 33 % chance to miss.",
+    "cost": 2,
+    "effects": [
+      {
+        "type": "boost",
+        "target": "player",
+        "probability": 33,
+        "conditions": [],
+        "duration": 1,
+        "delay": 0,
+        "attack": -100,
+        "armor": 0,
+        "health": 0
+      },
+      {
+        "type": "boost",
+        "target": "enemy",
+        "probability": 33,
+        "conditions": [],
+        "duration": 1,
+        "delay": 0,
+        "attack": -100,
+        "armor": 0,
+        "health": 0
+      }
+    ],
+    "attack": 0,
+    "armor": 0,
+    "heal": 0,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_49"
+  },
+  {
+    "id": "50",
+    "title": "Doge ! I mean, do-dge !",
+    "description": "Your opponent and you have 75% chance to avoid the next hit.",
+    "cost": 2,
+    "effects": [
+      {
+        "type": "boost",
+        "target": "player",
+        "probability": 75,
+        "conditions": [],
+        "duration": 1,
+        "delay": 0,
+        "attack": -100,
+        "armor": 0,
+        "health": 0
+      },
+      {
+        "type": "boost",
+        "target": "enemy",
+        "probability": 75,
+        "conditions": [],
+        "duration": 1,
+        "delay": 0,
+        "attack": -100,
+        "armor": 0,
+        "health": 0
+      }
+    ],
+    "attack": 0,
+    "armor": 0,
+    "heal": 0,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_50"
+  }
+]

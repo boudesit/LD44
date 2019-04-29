@@ -1,0 +1,824 @@
+[
+  [
+    {
+      "name": "Spidy",
+      "frame": 7,
+      "level": 1,
+      "text": "Shhh, Shhhhhhh",
+      "maxHealth": 8,
+      "currentHealth": 8,
+      "currentAttack": 1,
+      "currentArmor": 0,
+      "actions": [
+        {
+          "title": "Attack poison",
+          "attack": 0,
+          "armor": 0,
+          "heal": 0,
+          "effects": [
+            {
+              "type": "poison",
+              "target": "player",
+              "probability": 3,
+              "conditions": [],
+              "duration": 1,
+              "delay": 0,
+              "attack": null,
+              "armor": null,
+              "health": null
+            }
+          ]
+        },
+        {
+          "title": "Attack stun",
+          "attack": 0,
+          "armor": 0,
+          "heal": 0,
+          "effects": [
+            {
+              "type": "stun",
+              "target": "player",
+              "probability": 3,
+              "conditions": [],
+              "duration": 1,
+              "delay": 0,
+              "attack": null,
+              "armor": null,
+              "health": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Frodo",
+      "level": 1,
+      "frame": 6,
+      "text": "It's time to ring a bell with your head ! ",
+      "maxHealth": 10,
+      "currentHealth": 10,
+      "currentAttack": 1,
+      "currentArmor": 0,
+      "actions": [
+        {
+          "title": "Attack stun",
+          "attack": 1,
+          "armor": 0,
+          "heal": 0,
+          "effects": [
+            {
+              "type": "stun",
+              "target": "player",
+              "probability": 6,
+              "conditions": [],
+              "duration": 1,
+              "delay": 0,
+              "attack": null,
+              "armor": null,
+              "health": null
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  [
+    {
+      "name": "Razmo",
+      "level": 2,
+      "frame": 7,
+      "text": "Skkkkrit, skkkrit, skkkkkkkkkRIT !!",
+      "maxHealth": 12,
+      "currentHealth": 12,
+      "currentAttack": 1,
+      "currentArmor": 0,
+      "actions": [
+        {
+          "title": "Attack",
+          "attack": 1,
+          "armor": 0,
+          "heal": 0,
+          "effects": []
+        },
+        {
+          "title": "Armor",
+          "attack": -1,
+          "armor": 2,
+          "heal": 0,
+          "effects": []
+        }
+      ]
+    },
+    {
+      "name": "Cultiz",
+      "level": 2,
+      "frame": 7,
+      "text": "Come with me, coooooome with me !",
+      "maxHealth": 13,
+      "currentHealth": 13,
+      "currentAttack": 1,
+      "currentArmor": 0,
+      "actions": [
+        {
+          "title": "Attack stun",
+          "attack": 1,
+          "armor": 3,
+          "heal": 1,
+          "effects": [
+            {
+              "type": "stun",
+              "target": "player",
+              "probability": 10,
+              "conditions": [],
+              "duration": 1,
+              "delay": 0,
+              "attack": null,
+              "armor": null,
+              "health": null
+            }
+          ]
+        },
+        {
+          "title": "Armor",
+          "attack": -1,
+          "armor": 3,
+          "heal": 0,
+          "effects": []
+        },
+        {
+          "title": "Heal",
+          "attack": -1,
+          "armor": 0,
+          "heal": 1,
+          "effects": []
+        }
+      ]
+    },
+    {
+      "name": "Merchant",
+      "frame": 8
+    }
+  ],
+  [
+    {
+      "name": "Caspor",
+      "level": 3,
+      "frame": 10,
+      "text": "Beeeeh, err, i mean, booooooo",
+      "maxHealth": 18,
+      "currentHealth": 18,
+      "currentAttack": 1,
+      "currentArmor": 0,
+      "actions": [
+        {
+          "title": "Attack stun",
+          "attack": 2,
+          "armor": 1,
+          "heal": 2,
+          "effects": [
+            {
+              "type": "stun",
+              "target": "player",
+              "probability": 13,
+              "conditions": [],
+              "duration": 1,
+              "delay": 0,
+              "attack": null,
+              "armor": null,
+              "health": null
+            }
+          ]
+        },
+        {
+          "title": "Armor",
+          "attack": -1,
+          "armor": 1,
+          "heal": 0,
+          "effects": []
+        },
+        {
+          "title": "Heal",
+          "attack": -1,
+          "armor": 0,
+          "heal": 2,
+          "effects": []
+        }
+      ]
+    },
+    {
+      "name": "Bigznoise",
+      "level": 3,
+      "frame": 7,
+      "text": "Hello kidddzzz, why are you doing in here ? Wanna some…magic ?",
+      "maxHealth": 22,
+      "currentHealth": 22,
+      "currentAttack": 1,
+      "currentArmor": 0,
+      "actions": [
+        {
+          "title": "Attack poison",
+          "attack": 2,
+          "armor": 0,
+          "heal": 0,
+          "effects": [
+            {
+              "type": "poison",
+              "target": "player",
+              "probability": 18,
+              "conditions": [],
+              "duration": 1,
+              "delay": 0,
+              "attack": null,
+              "armor": null,
+              "health": null
+            }
+          ]
+        },
+        {
+          "title": "Armor",
+          "attack": -1,
+          "armor": 1,
+          "heal": 0,
+          "effects": []
+        },
+        {
+          "title": "Heal",
+          "attack": -1,
+          "armor": 0,
+          "heal": 2,
+          "effects": []
+        }
+      ]
+    },
+    {
+      "name": "Merchant",
+      "frame": 8
+    }
+  ],
+  [
+    {"name": "Slid",
+      "level": 4,
+      "frame": 12,
+      "text": "Sssssssz, Ssssszzzz ?",
+      "maxHealth": 25,
+      "currentHealth": 25,
+      "currentAttack": 1,
+      "currentArmor": 0,
+      "actions": [
+        {
+          "title": "Attack poison",
+          "attack": 3,
+          "armor": 0,
+          "heal": 0,
+          "effects": [
+            {
+              "type": "poison",
+              "target": "player",
+              "probability": 10,
+              "conditions": [],
+              "duration": 1,
+              "delay": 0,
+              "attack": null,
+              "armor": null,
+              "health": null
+            }
+          ]
+        },
+        {
+          "title": "Attack stun",
+          "attack": 3,
+          "armor": 0,
+          "heal": 0,
+          "effects": [
+            {
+              "type": "stun",
+              "target": "player",
+              "probability": 10,
+              "conditions": [],
+              "duration": 1,
+              "delay": 0,
+              "attack": null,
+              "armor": null,
+              "health": null
+            }
+          ]
+        },
+        {
+          "title": "Armor",
+          "attack": -1,
+          "armor": 3,
+          "heal": 0,
+          "effects": []
+        },
+        {
+          "title": "Heal",
+          "attack": -1,
+          "armor": 0,
+          "heal": 2,
+          "effects": []
+        }
+      ]
+      },
+    {
+      "name": "Coweird",
+      "level": 4,
+      "frame": 14,
+      "text": "Moooooooooh",
+      "maxHealth": 27,
+      "currentHealth": 27,
+      "currentAttack": 1,
+      "currentArmor": 0,
+      "actions": [
+        {
+          "title": "Attack stun",
+          "attack": 3,
+          "armor": 0,
+          "heal": 0,
+          "effects": [
+            {
+              "type": "stun",
+              "target": "player",
+              "probability": 14,
+              "conditions": [],
+              "duration": 1,
+              "delay": 0,
+              "attack": null,
+              "armor": null,
+              "health": null
+            }
+          ]
+        },
+        {
+          "title": "Armor",
+          "attack": -1,
+          "armor": 5,
+          "heal": 0,
+          "effects": []
+        }
+      ]
+    },
+    {
+      "name": "Merchant",
+      "frame": 8
+    }
+  ],
+  [
+    {
+      "name": "Chtoing",
+      "level": 5,
+      "frame": 21,
+      "text": "Gnfh…R'lehhhh",
+      "maxHealth": 30,
+      "currentHealth": 30,
+      "currentAttack": 1,
+      "currentArmor": 0,
+      "actions": [
+        {
+          "title": "Attack poison",
+          "attack": 3,
+          "armor": 0,
+          "heal": 0,
+          "effects": [
+            {
+              "type": "poison",
+              "target": "player",
+              "probability": 15,
+              "conditions": [],
+              "duration": 1,
+              "delay": 0,
+              "attack": null,
+              "armor": null,
+              "health": null
+            }
+          ]
+        },
+        {
+          "title": "Attack stun",
+          "attack": 3,
+          "armor": 0,
+          "heal": 0,
+          "effects": [
+            {
+              "type": "stun",
+              "target": "player",
+              "probability": 15,
+              "conditions": [],
+              "duration": 1,
+              "delay": 0,
+              "attack": null,
+              "armor": null,
+              "health": null
+            }
+          ]
+        },
+        {
+          "title": "Armor",
+          "attack": -1,
+          "armor": 3,
+          "heal": 0,
+          "effects": []
+        }
+      ]
+    },
+    {
+      "name": "Merchant",
+      "frame": 8
+    }
+  ],
+ [
+    {
+      "name": "Spidhell",
+      "frame": 7,
+      "level": 6,
+      "text": "Fresh flesh, fresh flesh, fresh flesh ",
+      "maxHealth": 40,
+      "currentHealth": 40,
+      "currentAttack": 1,
+      "currentArmor": 0,
+      "actions": [
+        {
+          "title": "Attack poison",
+          "attack": 4,
+          "armor": 0,
+          "heal": 0,
+          "effects": [
+            {
+              "type": "poison",
+              "target": "player",
+              "probability": 25,
+              "conditions": [],
+              "duration": 1,
+              "delay": 0,
+              "attack": null,
+              "armor": null,
+              "health": null
+            }
+          ]
+        },
+        {
+          "title": "Attack stun",
+          "attack": 4,
+          "armor": 0,
+          "heal": 0,
+          "effects": [
+            {
+              "type": "stun",
+              "target": "player",
+              "probability": 25,
+              "conditions": [],
+              "duration": 1,
+              "delay": 0,
+              "attack": null,
+              "armor": null,
+              "health": null
+            }
+          ]
+        },
+        {
+          "title": "Armor",
+          "attack": -1,
+          "armor": 5,
+          "heal": 0,
+          "effects": []
+        },
+        {
+          "title": "Heal",
+          "attack": -1,
+          "armor": 0,
+          "heal": 2,
+          "effects": []
+        }
+      ]
+    },
+    {
+      "name": "Grey Knight",
+      "level": 6,
+      "frame": 6,
+      "text": "Be sure that this won't be a simple scratch !",
+      "maxHealth": 45,
+      "currentHealth": 45,
+      "currentAttack": 1,
+      "currentArmor": 0,
+      "actions": [
+        {
+          "title": "Attack stun",
+          "attack": 3,
+          "armor": 0,
+          "heal": 0,
+          "effects": [
+            {
+              "type": "stun",
+              "target": "player",
+              "probability": 28,
+              "conditions": [],
+              "duration": 1,
+              "delay": 0,
+              "attack": null,
+              "armor": null,
+              "health": null
+            }
+          ]
+        },
+        {
+          "title": "Armor",
+          "attack": -1,
+          "armor": 10,
+          "heal": 0,
+          "effects": []
+        },
+        {
+          "title": "Heal",
+          "attack": -1,
+          "armor": 0,
+          "heal": 4,
+          "effects": []
+        }
+      ]
+    },
+    {
+      "name": "Merchant",
+      "frame": 8
+    }
+  ],
+  [
+    {
+      "name": "Rapido",
+      "level": 7,
+      "frame": 7,
+      "text": "SKRAT SKRAT SKRAT",
+      "maxHealth": 35,
+      "currentHealth": 35,
+      "currentAttack": 1,
+      "currentArmor": 0,
+      "actions": [
+        {
+          "title": "Attack poison",
+          "attack": 5,
+          "armor": 0,
+          "heal": 0,
+          "effects": [{
+              "type": "poison",
+              "target": "player",
+              "probability": 35,
+              "conditions": [],
+              "duration": 1,
+              "delay": 0,
+              "attack": null,
+              "armor": null,
+              "health": null
+            }]
+        },
+        {
+          "title": "Armor",
+          "attack": -1,
+          "armor": 2,
+          "heal": 0,
+          "effects": []
+        },
+        {
+          "title": "Heal",
+          "attack": -1,
+          "armor": 0,
+          "heal": 4,
+          "effects": []
+        }
+      ]
+    },
+    {
+      "name": "Cultist",
+      "level": 7,
+      "frame": 7,
+      "text": "Time to wake up, master…",
+      "maxHealth": 50,
+      "currentHealth": 50,
+      "currentAttack": 1,
+      "currentArmor": 0,
+      "actions": [
+        {
+          "title": "Attack poison",
+          "attack": 5,
+          "armor": 0,
+          "heal": 0,
+          "effects": [
+            {
+              "type": "poison",
+              "target": "player",
+              "probability": 33,
+              "conditions": [],
+              "duration": 1,
+              "delay": 0,
+              "attack": null,
+              "armor": null,
+              "health": null
+            }
+          ]
+        },
+        {
+          "title": "Armor",
+          "attack": -1,
+          "armor": 5,
+          "heal": 0,
+          "effects": []
+        },
+        {
+          "title": "Heal",
+          "attack": -1,
+          "armor": 0,
+          "heal": 3,
+          "effects": []
+        }
+      ]
+    },
+    {
+      "name": "Merchant",
+      "frame": 8
+    }
+  ],
+  [
+    {
+      "name": "Ghoulst",
+      "level": 8,
+      "frame": 10,
+      "text": "…let me come…LET ME COME",
+      "maxHealth": 52,
+      "currentHealth": 52,
+      "currentAttack": 1,
+      "currentArmor": 0,
+      "actions": [
+        {
+          "title": "Attack stun",
+          "attack": 6,
+          "armor": 0,
+          "heal": 0,
+          "effects": [
+            {
+              "type": "stun",
+              "target": "player",
+              "probability": 33,
+              "conditions": [],
+              "duration": 1,
+              "delay": 0,
+              "attack": null,
+              "armor": null,
+              "health": null
+            }
+          ]
+        },
+        {
+          "title": "Armor",
+          "attack": -1,
+          "armor": 3,
+          "heal": 0,
+          "effects": []
+        },
+        {
+          "title": "Heal",
+          "attack": -1,
+          "armor": 0,
+          "heal": 2,
+          "effects": []
+        }
+      ]
+    },
+    {
+      "name": "IT",
+      "level": 8,
+      "frame": 7,
+      "text": "I've got plenty of balloons…To kill you !",
+      "maxHealth": 52,
+      "currentHealth": 52,
+      "currentAttack": 1,
+      "currentArmor": 0,
+      "actions": [
+        {
+          "title": "Attack poison",
+          "attack": 6,
+          "armor": 0,
+          "heal": 0,
+          "effects": [
+            {
+              "type": "poison",
+              "target": "player",
+              "probability": 38,
+              "conditions": [],
+              "duration": 1,
+              "delay": 0,
+              "attack": null,
+              "armor": null,
+              "health": null
+            }
+          ]
+        },
+        {
+          "title": "Armor",
+          "attack": -1,
+          "armor": 7,
+          "heal": 0,
+          "effects": []
+        },
+        {
+          "title": "Heal",
+          "attack": -1,
+          "armor": 0,
+          "heal": 4,
+          "effects": []
+        }
+      ]
+    },
+    {
+      "name": "Merchant",
+      "frame": 8
+    }
+  ],
+  [
+    {"name": "Solidsssssss",
+      "level": 9,
+      "frame": 12,
+      "text": "….........",
+      "maxHealth": 50,
+      "currentHealth": 50,
+      "currentAttack": 1,
+      "currentArmor": 0,
+      "actions": [
+        {
+          "title": "Attack poison",
+          "attack": 4,
+          "armor": 0,
+          "heal": 0,
+          "effects": [
+            {
+              "type": "poison",
+              "target": "player",
+              "probability": 66,
+              "conditions": [],
+              "duration": 1,
+              "delay": 0,
+              "attack": null,
+              "armor": null,
+              "health": null
+            }
+          ]
+        },
+        {
+          "title": "Armor",
+          "attack": -1,
+          "armor": 5,
+          "heal": 0,
+          "effects": []
+        },
+        {
+          "title": "Heal",
+          "attack": -1,
+          "armor": 0,
+          "heal": 5,
+          "effects": []
+        }
+      ]
+      },
+    {
+      "name": "Mino",
+      "level": 9,
+      "frame": 14,
+      "text": "Smash, Hash, let's started to crash !",
+      "maxHealth": 58,
+      "currentHealth": 58,
+      "currentAttack": 1,
+      "currentArmor": 0,
+      "actions": [
+        {
+          "title": "Attack stun",
+          "attack": 7,
+          "armor": 0,
+          "heal": 0,
+          "effects": [
+            {
+              "type": "stun",
+              "target": "player",
+              "probability": 45,
+              "conditions": [],
+              "duration": 1,
+              "delay": 0,
+              "attack": null,
+              "armor": null,
+              "health": null
+            }
+          ]
+        },
+        {
+          "title": "Armor",
+          "attack": -1,
+          "armor": 8,
+          "heal": 0,
+          "effects": []
+        }
+      ]
+    }
+  ],
+  [
+    {
+      "name": "Yogstot",
+      "text": "Welcome in hell. Take a seat, because you are here FOREVER !",
+      "frame": 21
+    }
+  ]
+]
