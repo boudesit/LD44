@@ -96,6 +96,13 @@
         {
           "title": "Attack",
           "attack": 1,
+          "armor": 0,
+          "heal": 0,
+          "effects": []
+        },
+        {
+          "title": "Armor",
+          "attack": -1,
           "armor": 2,
           "heal": 0,
           "effects": []
@@ -130,6 +137,20 @@
               "health": null
             }
           ]
+        },
+        {
+          "title": "Armor",
+          "attack": -1,
+          "armor": 3,
+          "heal": 0,
+          "effects": []
+        },
+        {
+          "title": "Heal",
+          "attack": -1,
+          "armor": 0,
+          "heal": 1,
+          "effects": []
         }
       ]
     },
@@ -167,6 +188,20 @@
               "health": null
             }
           ]
+        },
+        {
+          "title": "Armor",
+          "attack": -1,
+          "armor": 1,
+          "heal": 0,
+          "effects": []
+        },
+        {
+          "title": "Heal",
+          "attack": -1,
+          "armor": 0,
+          "heal": 2,
+          "effects": []
         }
       ]
     },
@@ -183,8 +218,8 @@
         {
           "title": "Attack poison",
           "attack": 2,
-          "armor": 1,
-          "heal": 2,
+          "armor": 0,
+          "heal": 0,
           "effects": [
             {
               "type": "poison",
@@ -198,6 +233,20 @@
               "health": null
             }
           ]
+        },
+        {
+          "title": "Armor",
+          "attack": -1,
+          "armor": 1,
+          "heal": 0,
+          "effects": []
+        },
+        {
+          "title": "Heal",
+          "attack": -1,
+          "armor": 0,
+          "heal": 2,
+          "effects": []
         }
       ]
     },
@@ -219,8 +268,8 @@
         {
           "title": "Attack poison",
           "attack": 3,
-          "armor": 3,
-          "heal": 2,
+          "armor": 0,
+          "heal": 0,
           "effects": [
             {
               "type": "poison",
@@ -238,8 +287,8 @@
         {
           "title": "Attack stun",
           "attack": 3,
-          "armor": 3,
-          "heal": 2,
+          "armor": 0,
+          "heal": 0,
           "effects": [
             {
               "type": "stun",
@@ -253,6 +302,20 @@
               "health": null
             }
           ]
+        },
+        {
+          "title": "Armor",
+          "attack": -1,
+          "armor": 3,
+          "heal": 0,
+          "effects": []
+        },
+        {
+          "title": "Heal",
+          "attack": -1,
+          "armor": 0,
+          "heal": 2,
+          "effects": []
         }
       ]
       },
@@ -269,7 +332,7 @@
         {
           "title": "Attack stun",
           "attack": 3,
-          "armor": 5,
+          "armor": 0,
           "heal": 0,
           "effects": [
             {
@@ -284,6 +347,13 @@
               "health": null
             }
           ]
+        },
+        {
+          "title": "Armor",
+          "attack": -1,
+          "armor": 5,
+          "heal": 0,
+          "effects": []
         }
       ]
     },
@@ -306,7 +376,7 @@
         {
           "title": "Attack poison",
           "attack": 3,
-          "armor": 3,
+          "armor": 0,
           "heal": 0,
           "effects": [
             {
@@ -325,7 +395,7 @@
         {
           "title": "Attack stun",
           "attack": 3,
-          "armor": 3,
+          "armor": 0,
           "heal": 0,
           "effects": [
             {
@@ -340,6 +410,13 @@
               "health": null
             }
           ]
+        },
+        {
+          "title": "Armor",
+          "attack": -1,
+          "armor": 3,
+          "heal": 0,
+          "effects": []
         }
       ]
     },
@@ -362,8 +439,8 @@
         {
           "title": "Attack poison",
           "attack": 4,
-          "armor": 5,
-          "heal": 2,
+          "armor": 0,
+          "heal": 0,
           "effects": [
             {
               "type": "poison",
@@ -381,8 +458,8 @@
         {
           "title": "Attack stun",
           "attack": 4,
-          "armor": 5,
-          "heal": 2,
+          "armor": 0,
+          "heal": 0,
           "effects": [
             {
               "type": "stun",
@@ -396,6 +473,20 @@
               "health": null
             }
           ]
+        },
+        {
+          "title": "Armor",
+          "attack": -1,
+          "armor": 5,
+          "heal": 0,
+          "effects": []
+        },
+        {
+          "title": "Heal",
+          "attack": -1,
+          "armor": 0,
+          "heal": 2,
+          "effects": []
         }
       ]
     },
@@ -412,8 +503,8 @@
         {
           "title": "Attack stun",
           "attack": 3,
-          "armor": 10,
-          "heal": 4,
+          "armor": 0,
+          "heal": 0,
           "effects": [
             {
               "type": "stun",
@@ -427,6 +518,20 @@
               "health": null
             }
           ]
+        },
+        {
+          "title": "Armor",
+          "attack": -1,
+          "armor": 10,
+          "heal": 0,
+          "effects": []
+        },
+        {
+          "title": "Heal",
+          "attack": -1,
+          "armor": 0,
+          "heal": 4,
+          "effects": []
         }
       ]
     },
@@ -449,8 +554,8 @@
         {
           "title": "Attack poison",
           "attack": 5,
-          "armor": 2,
-          "heal": 4,
+          "armor": 0,
+          "heal": 0,
           "effects": [{
               "type": "poison",
               "target": "player",
@@ -462,6 +567,20 @@
               "armor": null,
               "health": null
             }]
+        },
+        {
+          "title": "Armor",
+          "attack": -1,
+          "armor": 2,
+          "heal": 0,
+          "effects": []
+        },
+        {
+          "title": "Heal",
+          "attack": -1,
+          "armor": 0,
+          "heal": 4,
+          "effects": []
         }
       ]
     },
@@ -478,8 +597,8 @@
         {
           "title": "Attack poison",
           "attack": 5,
-          "armor": 5,
-          "heal": 3,
+          "armor": 0,
+          "heal": 0,
           "effects": [
             {
               "type": "poison",
@@ -493,6 +612,20 @@
               "health": null
             }
           ]
+        },
+        {
+          "title": "Armor",
+          "attack": -1,
+          "armor": 5,
+          "heal": 0,
+          "effects": []
+        },
+        {
+          "title": "Heal",
+          "attack": -1,
+          "armor": 0,
+          "heal": 3,
+          "effects": []
         }
       ]
     },
@@ -515,8 +648,8 @@
         {
           "title": "Attack stun",
           "attack": 6,
-          "armor": 3,
-          "heal": 2,
+          "armor": 0,
+          "heal": 0,
           "effects": [
             {
               "type": "stun",
@@ -530,6 +663,20 @@
               "health": null
             }
           ]
+        },
+        {
+          "title": "Armor",
+          "attack": -1,
+          "armor": 3,
+          "heal": 0,
+          "effects": []
+        },
+        {
+          "title": "Heal",
+          "attack": -1,
+          "armor": 0,
+          "heal": 2,
+          "effects": []
         }
       ]
     },
@@ -546,8 +693,8 @@
         {
           "title": "Attack poison",
           "attack": 6,
-          "armor": 7,
-          "heal": 4,
+          "armor": 0,
+          "heal": 0,
           "effects": [
             {
               "type": "poison",
@@ -561,6 +708,20 @@
               "health": null
             }
           ]
+        },
+        {
+          "title": "Armor",
+          "attack": -1,
+          "armor": 7,
+          "heal": 0,
+          "effects": []
+        },
+        {
+          "title": "Heal",
+          "attack": -1,
+          "armor": 0,
+          "heal": 4,
+          "effects": []
         }
       ]
     },
@@ -582,8 +743,8 @@
         {
           "title": "Attack poison",
           "attack": 4,
-          "armor": 5,
-          "heal": 5,
+          "armor": 0,
+          "heal": 0,
           "effects": [
             {
               "type": "poison",
@@ -597,6 +758,20 @@
               "health": null
             }
           ]
+        },
+        {
+          "title": "Armor",
+          "attack": -1,
+          "armor": 5,
+          "heal": 0,
+          "effects": []
+        },
+        {
+          "title": "Heal",
+          "attack": -1,
+          "armor": 0,
+          "heal": 5,
+          "effects": []
         }
       ]
       },
@@ -613,7 +788,7 @@
         {
           "title": "Attack stun",
           "attack": 7,
-          "armor": 8,
+          "armor": 0,
           "heal": 0,
           "effects": [
             {
@@ -628,6 +803,13 @@
               "health": null
             }
           ]
+        },
+        {
+          "title": "Armor",
+          "attack": -1,
+          "armor": 8,
+          "heal": 0,
+          "effects": []
         }
       ]
     }
