@@ -767,6 +767,9 @@ var HudScene = /** @class */ (function (_super) {
         return _this_1;
     }
     HudScene.prototype.create = function () {
+        if (!this.ratio) {
+            this.ratio = 1.875;
+        }
         if (this.ratio == 1.00) {
             this.px = "30px";
         }
