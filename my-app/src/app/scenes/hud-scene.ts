@@ -159,7 +159,7 @@ export class HudScene extends Phaser.Scene {
 
     private addCardInHand(_this: this) {  // Add card + Event on click card
         for (let handCard of this.player.getHand()) {
-            sprite = this.add.sprite((this.initCard += 250) / this.ratio, 400 / this.ratio, "blank_card") as any;
+            sprite = this.add.sprite((this.initCard += 250) / this.ratio, 400 / this.ratio, handCard.spriteUrl) as any;
             sprite.setDisplaySize(200 / this.ratio, 200 / this.ratio);
             sprite.setInteractive();
             sprite.card = handCard;
