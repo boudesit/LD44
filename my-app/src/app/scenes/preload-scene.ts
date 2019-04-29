@@ -39,7 +39,13 @@ export class PreloadScene extends Phaser.Scene {
         this.load.spritesheet('Frodo', 'assets/enemy/enemy_2.png',{ frameWidth: 600, frameHeight: 600 });
         this.load.spritesheet('Razmo', 'assets/enemy/enemy_3.png',{ frameWidth: 600, frameHeight: 600 });
         this.load.spritesheet('Cultiz', 'assets/enemy/enemy_4.png',{ frameWidth: 600, frameHeight: 600 });
-        this.load.spritesheet('Spidy_dark', 'assets/enemy/enemy_11.png',{ frameWidth: 600, frameHeight: 600 });
+        this.load.spritesheet('Caspor', 'assets/enemy/enemy_5.png',{ frameWidth: 600, frameHeight: 600 });
+        this.load.spritesheet('Bigznoise', 'assets/enemy/enemy_6.png',{ frameWidth: 600, frameHeight: 600 });
+        this.load.spritesheet('Slid', 'assets/enemy/enemy_7.png',{ frameWidth: 600, frameHeight: 600 });
+        this.load.spritesheet('Coweird', 'assets/enemy/enemy_8.png',{ frameWidth: 600, frameHeight: 600 });
+        this.load.spritesheet('Chtoing', 'assets/enemy/enemy_9.png',{ frameWidth: 600, frameHeight: 600 });
+      
+       
        
         this.load.spritesheet('Hobgoblin0', 'assets/enemy/enemy_12.png',{ frameWidth: 600, frameHeight: 600 });
         this.load.spritesheet('merchant', 'assets/enemy/shop_1.png',{ frameWidth: 600, frameHeight: 600 });
