@@ -8,6 +8,7 @@ import { Utils } from '../services/utils';
 import { MerchantService } from '../services/merchant.service';
 import { Options } from 'selenium-webdriver';
 import { OptionScene } from './options-scene';
+import { EndGameService } from '../services/endGame.service';
 var sprite;
 var heroSprite;
 var enemySprite;
@@ -39,6 +40,7 @@ var Option3;
 var OptionMerchant;
 var nb_deck;
 var endturn_clicked : boolean = false;
+var deck;
 
 export class HudScene extends Phaser.Scene {
 
@@ -59,11 +61,12 @@ export class HudScene extends Phaser.Scene {
 
   parchment: Phaser.GameObjects.Image;
 
-
+  px : string;
 
   _cardService = new CardService();
   _roundService = new RoundService();
   _merchantService = new MerchantService();
+  _endGameService = new EndGameService();
 
 
   constructor() {
@@ -72,11 +75,25 @@ export class HudScene extends Phaser.Scene {
     })
 
     this.ratio = Number(localStorage.getItem("resolution_ratio"));
-
   }
 
-  create(): void {
+      
+
+    create(): void {
+    if(!this.ratio) {
+      this.ratio = 1.875;
+  }
+
+  if(this.ratio == 1.00) {
+      this.px = "30px"
+  } else if(this.ratio == 1.50) {
+      this.px = "20px"
+  }else{
+
+    this.px = "16px";
+  }
     let _this = this;
+  
 
     this.width = this.game.config.width as number;
     this.height = this.game.config.height as number;
@@ -381,6 +398,13 @@ export class HudScene extends Phaser.Scene {
   private createEnemy(name: string, frame: number) {     //Create automatick enemy from json (because different frame of sprite enemy)
 
     ///////////ATTENTION ICI PEUT SPAWN UN MARCHANT => CONDIFTION POUR AFFICHAGE
+    if (this.fakePlayer.getName() == "Yogstot") {
+
+      this.scene.start("EndGameScene",{fin:this._endGameService.getEnd(this.player)});
+     
+
+    }
+
     if (this.fakePlayer.getName() == "Merchant") {
       var marchentOption = this._merchantService.createOptions(this.cards);
       bulle = this.add.image(390 / this.ratio, -120 / this.ratio, 'bulle_merchant');
@@ -388,7 +412,7 @@ export class HudScene extends Phaser.Scene {
       OptionMerchant = this.add.text(170 / this.ratio, -350 / this.ratio, marchentOption.text, {
 
         fontfamily: 'Arial Black',
-        fontSize: '30px',
+        fontSize: this.px,
         fill: "black",
         align: "center",
         wordWrap: { width: 450 / this.ratio }
@@ -400,7 +424,7 @@ export class HudScene extends Phaser.Scene {
       Option1 = this.add.text(-650 / this.ratio, -200 / this.ratio, "Option : 1   -1 Health\n", {
         fontfamily: 'Arial',
         fontWeight: 'bold',
-        fontSize: '30px',
+        fontSize: this.px,
         fill: "purple",
         align: "center",
         // wordWrap: { width: 450 / this.ratio }
@@ -413,7 +437,7 @@ export class HudScene extends Phaser.Scene {
       Option2 = this.add.text(-650 / this.ratio, -150 / this.ratio, "Option : 2   -2 Health\n", {
         fontfamily: 'Arial',
         fontWeight: 'bold',
-        fontSize: '30px',
+        fontSize: this.px,
         fill: "black",
         align: "center",
         // wordWrap: { width: 450 / this.ratio }
@@ -426,7 +450,7 @@ export class HudScene extends Phaser.Scene {
       Option3 = this.add.text(-650 / this.ratio, -100 / this.ratio, "Option : 3   -3 Health\n", {
         fontfamily: 'Arial',
         fontWeight: 'bold',
-        fontSize: '30px',
+        fontSize: this.px,
         fill: "black",
         align: "center",
         // wordWrap: { width: 450 / this.ratio }
@@ -462,8 +486,7 @@ export class HudScene extends Phaser.Scene {
   private createEndRoundEnemy(_this: this) {
     this._roundService.endRoundPlayer(this.player, this.fakePlayer); // END ROUND PLAYER
     if (this.fakePlayer.getCurrentHealth() <= 0) {
-    console.log(this);
-    console.log(journeyX);
+     
       let text = this.add.text(0, 0, "Day " + journeyX);
 
       text.setVisible(false);
@@ -698,7 +721,7 @@ export class HudScene extends Phaser.Scene {
 
   private createJourney(journey: number) {
 
-    if (journeyX > 0) {
+    if (spriteJourney) {
       spriteJourney.destroy();
     }
     spriteJourney = this.add.sprite(0 / this.ratio, -473 / this.ratio, 'journey', journey);
@@ -719,7 +742,7 @@ export class HudScene extends Phaser.Scene {
 
 
 
-    var deck = this.add.image(760 / this.ratio, 410 / this.ratio, 'deck');
+    deck = this.add.image(760 / this.ratio, 410 / this.ratio, 'deck');
     deck.setDisplaySize(200 / this.ratio, 200 / this.ratio);
 
     nb_deck = this.add.text(800 / this.ratio, 450 / this.ratio, '' + this.player.getDeck().length, {
