@@ -69,7 +69,7 @@ export class HudScene extends Phaser.Scene {
 
         this.player = new Player(this.cache.json.get("player")); // Add the player
 
-        this.fakePlayer = new Enemy(this.cache.json.get("enemy")[journeyX][Utils.getRandomInt(this.cache.json.get("enemy")[journeyX].length - 1)]); // Add the enemy (n° day, 0/1)
+        this.fakePlayer = new Enemy(this.cache.json.get("enemy")[journeyX][Utils.getRandomInt(this.cache.json.get("enemy")[journeyX].length)]); // Add the enemy (n° day, 0/1)
          enemyName = this.fakePlayer.getName();
          enemyFrame = this.fakePlayer.getFrame();
 
@@ -168,13 +168,20 @@ export class HudScene extends Phaser.Scene {
         }
         for (let cardSprite of this.handCardSprites) {
 
-            let textCard = this.add.text(-460 / _this.ratio, -140 / _this.ratio, (cardSprite as any).card.description, {
-                fontfamily : 'BIT',
-                fontSize: '16px',
-                fill: "black",
-                align: "center"
-
+            let textCard = this.make.text({
+                x: -470 / this.ratio,
+                y: -140 / this.ratio,
+                text: (cardSprite as any).card.description,
+                //origin: { x: 0.5, y: 0.5 },
+                style: {
+                    font: 'bold 16px Arial',
+                    fill: 'black',
+                    textAlign : 'center',
+                    wordWrap: { width: 280 / this.ratio }
+                }
             });
+
+
             textCard.setVisible(false);
 
 
@@ -190,7 +197,7 @@ export class HudScene extends Phaser.Scene {
                         fill: "white",
                         align: "center"
 
-                    });
+                    });           
                     setTimeout(() => {
                         text.destroy();
                      }, 500);
@@ -280,14 +287,14 @@ export class HudScene extends Phaser.Scene {
                     _this.parchment.setVisible(true);
                     textCard.setVisible(true);
 
-                    // alpha: { value: 0, duration: 3000, delay:2000}
+                   
             });
             cardSprite.on('pointerout', function (event, gameObjects) {
                     
                     _this.parchment.setVisible(false);
                     textCard.setVisible(false);
 
-                    // alpha: { value: 0, duration: 3000, delay:2000}
+                   
             });
         }        
     }
@@ -357,12 +364,22 @@ export class HudScene extends Phaser.Scene {
            
             if(this.fakePlayer.getCurrentHealth() <= 0 || this.player.getCurrentHealth() <= 0 ) // IF PLAYER OR ENEMY DIED
             {
-                // si player est  mort ???
+                if(this.player.getCurrentHealth() <= 0) // si player est  mort 
+                {
+                    var text_gameover = this.add.text(-200 / this.ratio , -400 / this.ratio, 'TA PERDU CONNARD !!!', {
+                        fontfamily : 'BIT',
+                        fontSize: '50px',
+                        fill: "red",
+                        align: "center"
 
-                // this._roundService.endBatlle();  
+                    });
+                   
+                    heroSprite.destroy();
+                }
+           
                 journeyX++;
                 this.createJourney(journeyX); // NEW JOURNEY
-                this.fakePlayer = new Enemy(this.cache.json.get("enemy")[journeyX][Utils.getRandomInt(this.cache.json.get("enemy")[journeyX].length - 1)]); // Add the enemy (n° day, 0/1)
+                this.fakePlayer = new Enemy(this.cache.json.get("enemy")[journeyX][Utils.getRandomInt(this.cache.json.get("enemy")[journeyX].length)]); // Add the enemy (n° day, 0/1)
                  enemyName = this.fakePlayer.getName();
                  enemyFrame = this.fakePlayer.getFrame();
                 this.createEnemy(enemyName,enemyFrame);   // NEW ENEMY or MERCHENT
@@ -393,7 +410,7 @@ export class HudScene extends Phaser.Scene {
                 // this._roundService.endBatlle();  
                 journeyX++;
                 this.createJourney(journeyX);
-                this.fakePlayer = new Enemy(this.cache.json.get("enemy")[journeyX][Utils.getRandomInt(this.cache.json.get("enemy")[journeyX].length - 1)]); // Add the enemy (n° day, 0/1)
+                this.fakePlayer = new Enemy(this.cache.json.get("enemy")[journeyX][Utils.getRandomInt(this.cache.json.get("enemy")[journeyX].length)]); // Add the enemy (n° day, 0/1)
                 enemyName = this.fakePlayer.getName();
                 enemyFrame = this.fakePlayer.getFrame();
                 this.createEnemy(enemyName,enemyFrame);  
