@@ -38,9 +38,9 @@ export class PreloadScene extends Phaser.Scene {
         this.load.spritesheet('Hobgoblin', 'assets/enemy/enemy_2.png',{ frameWidth: 600, frameHeight: 600 });
         this.load.spritesheet('Hobgoblin0', 'assets/enemy/enemy_12.png',{ frameWidth: 600, frameHeight: 600 });
 
-        this.load.spritesheet('boost_attack', 'assets/animations/boost_yellow.png',{ frameWidth: 600, frameHeight: 600 });
-        this.load.spritesheet('boost_armor', 'assets/animations/boost_green.png',{ frameWidth: 600, frameHeight: 600 });
-        this.load.spritesheet('boost_health', 'assets/animations/boost_red.png',{ frameWidth: 600, frameHeight: 600 });
+        this.load.spritesheet('boost_attack', 'assets/animations/boost_yellow.png',{ frameWidth: 500, frameHeight: 500 });
+        this.load.spritesheet('boost_armor', 'assets/animations/boost_green.png',{ frameWidth: 500, frameHeight: 500 });
+        this.load.spritesheet('boost_health', 'assets/animations/boost_red.png',{ frameWidth: 500, frameHeight: 500 });
 
         this.load.spritesheet('anim_attack_enemy', 'assets/animations/anim_attack_enemy.png',{ frameWidth: 500, frameHeight: 500 });
         this.load.spritesheet('anim_attack_hero', 'assets/animations/anim_attack_hero.png',{ frameWidth: 500, frameHeight: 500 });
@@ -59,6 +59,7 @@ export class PreloadScene extends Phaser.Scene {
         this.load.image("armor",'assets/images/armor.png');
         this.load.image("attack",'assets/images/attack.png');
         this.load.image("endround",'assets/images/FinTour.png');
+        this.load.image("hand",'assets/images/main.png');
 
         this.load.on('progress', (value : number) => {
             _this.loadingBar.setCrop(0, 0,525 * value, 900);

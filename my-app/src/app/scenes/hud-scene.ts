@@ -12,8 +12,9 @@ var attackHeroSprite;
 var rect;
 var graph;
 var lifeText;
-var armorText
-var attackText
+var armorText;
+var attackText;
+var handText;
 var journeyX = 0;
 var enemyName;
 var enemyFrame;
@@ -22,6 +23,9 @@ var animEnemy;
 var currentArmor=0;
 var waitShow=0;
 var animEnemyAttack;
+var saveCurrentArmor=0;
+var saveCurrentHealth=0;
+var saveCurrentAttack=0;
 
 export class HudScene extends Phaser.Scene {
 
@@ -119,6 +123,8 @@ export class HudScene extends Phaser.Scene {
         armor.setDisplaySize(60 / this.ratio, 49 / this.ratio);
         var attack = this.add.image(-920 / this.ratio , -300 / this.ratio , 'attack');
         attack.setDisplaySize(70 / this.ratio, 70 / this.ratio);
+        var hand = this.add.image(-920 / this.ratio , -200 / this.ratio , 'hand');
+        hand.setDisplaySize(70 / this.ratio, 57 / this.ratio);
 
 
           lifeText = this.add.text(-870 / this.ratio , -500 / this.ratio, ''+this.player.getCurrentHealth(), {
@@ -127,7 +133,7 @@ export class HudScene extends Phaser.Scene {
             fill: "white",
             align: "center"
         });
-         console.log(lifeText);
+         
          armorText = this.add.text(-870 / this.ratio , -400 / this.ratio, ''+this.player.getCurrentArmor(), {
             fontfamily : 'BIT',
             fontSize: '32px',
@@ -135,6 +141,12 @@ export class HudScene extends Phaser.Scene {
             align: "center"
         });
          attackText = this.add.text(-870 / this.ratio , -300 / this.ratio, ''+this.player.getCurrentAttack(), {
+            fontfamily : 'BIT',
+            fontSize: '32px',
+            fill: "white",
+            align: "center"
+        });
+        handText = this.add.text(-870 / this.ratio , -200 / this.ratio, ''+this.player.getCurrentActionPoint(), {
             fontfamily : 'BIT',
             fontSize: '32px',
             fill: "white",
@@ -155,6 +167,78 @@ export class HudScene extends Phaser.Scene {
                 _this._cardService.isPlayed(_this.player, (cardSprite as any).card);
                 currentArmor = this.player.getCurrentArmor();
                 cardSprite.destroy();
+                
+
+                if(saveCurrentArmor != this.player.getCurrentArmor())
+                {
+                    //boost_armor
+                    var configBoostArmor = {
+                        key: 'boostArmor',
+                        frames: this.anims.generateFrameNumbers("boost_armor", { start: 0, end: 12 }), 
+                        frameRate: 30,
+                     
+                    };
+            
+                    this.anims.create(configBoostArmor);
+            
+                    var boostArmor = this.add.sprite(-800 / this.ratio, 150 / this.ratio, "boost_armor");
+                    boostArmor.setDisplaySize(250 / this.ratio, 250 / this.ratio);
+                    boostArmor.anims.play('boostArmor');
+
+                    setTimeout(() => {
+                        boostArmor.destroy();
+                     }, 500);
+
+                }
+
+                if(saveCurrentHealth < this.player.getCurrentHealth())
+                {
+                    //boost_Health
+                    var configBoostHealth = {
+                        key: 'boostHealth',
+                        frames: this.anims.generateFrameNumbers("boost_health", { start: 0, end: 12 }), 
+                        frameRate: 30,
+                     
+                    };
+            
+                    this.anims.create(configBoostHealth);
+            
+                    var boostHealth = this.add.sprite(-800 / this.ratio, 150 / this.ratio, "boost_health");
+                    boostHealth.setDisplaySize(250 / this.ratio, 250 / this.ratio);
+                    boostHealth.anims.play('boostHealth');
+
+                    setTimeout(() => {
+                        boostHealth.destroy();
+                     }, 500);
+
+                }
+                if(saveCurrentAttack < this.player.getCurrentAttack())
+                {
+                    //boost_attack
+                    var configBoostAttack = {
+                        key: 'boostAttack',
+                        frames: this.anims.generateFrameNumbers("boost_attack", { start: 0, end: 12 }), 
+                        frameRate: 30,
+                     
+                    };
+            
+                    this.anims.create(configBoostAttack);
+            
+                    var boostAttack = this.add.sprite(-800 / this.ratio, 150 / this.ratio, "boost_attack");
+                    boostAttack.setDisplaySize(250 / this.ratio, 250 / this.ratio);
+                    boostAttack.anims.play('boostAttack');
+
+                    setTimeout(() => {
+                        boostAttack.destroy();
+                     }, 500);
+
+                }
+
+
+                saveCurrentArmor = this.player.getCurrentArmor();
+                saveCurrentHealth = this.player.getCurrentHealth();
+                saveCurrentAttack = this.player.getCurrentAttack();
+               
             });
         }
     }
@@ -212,14 +296,15 @@ export class HudScene extends Phaser.Scene {
     }
 
     private createEndRound(_this: this) {
-
+     
 
         var endRound = this.add.image(760 / this.ratio , 250 / this.ratio , 'endround');
         endRound.setDisplaySize(200 / this.ratio, 100 / this.ratio);
         endRound.setInteractive();
         endRound.on("pointerdown", ()=> {
-            this._roundService.endRoundPlayer(this.player,this.fakePlayer);
-
+            
+            this._roundService.endRoundPlayer(this.player,this.fakePlayer); // END ROUND PLAYER 
+           
             if(this.fakePlayer.getCurrentHealth() <= 0 || this.player.getCurrentHealth() <= 0 ) // IF PLAYER OR ENEMY DIED
             {
                 // si player est  mort ???
@@ -235,6 +320,9 @@ export class HudScene extends Phaser.Scene {
                 this.initCard  = -750;
                 this.deleteCards(); // DELETE HAND CARDS
                 this.addCardInHand(_this); // NEW HAND
+                saveCurrentArmor = this.player.getCurrentArmor();
+                saveCurrentHealth = this.player.getCurrentHealth();
+                saveCurrentAttack = this.player.getCurrentAttack();
                 return;
 
             }
@@ -263,6 +351,9 @@ export class HudScene extends Phaser.Scene {
                 this.initCard  = -750;
                 this.deleteCards();
                 this.addCardInHand(_this);
+                saveCurrentArmor = this.player.getCurrentArmor();
+                saveCurrentHealth = this.player.getCurrentHealth();
+                saveCurrentAttack = this.player.getCurrentAttack();
                 return;
            }
 
@@ -270,6 +361,9 @@ export class HudScene extends Phaser.Scene {
            this.initCard  = -750;
            this.deleteCards();
            this.addCardInHand(_this);
+           saveCurrentArmor = this.player.getCurrentArmor();
+           saveCurrentHealth = this.player.getCurrentHealth();
+           saveCurrentAttack = this.player.getCurrentAttack();
 
 
 
@@ -368,6 +462,7 @@ export class HudScene extends Phaser.Scene {
     lifeText.text = this.player.getCurrentHealth();
     armorText.text = this.player.getCurrentArmor();
     attackText.text = this.player.getCurrentAttack();
+    handText.text = this.player.getCurrentActionPoint();
 
     }
 
