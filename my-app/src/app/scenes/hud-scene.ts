@@ -69,7 +69,7 @@ export class HudScene extends Phaser.Scene {
 
         this.player = new Player(this.cache.json.get("player")); // Add the player
 
-        this.fakePlayer = new Enemy(this.cache.json.get("enemy")[journeyX][Utils.getRandomInt(this.cache.json.get("enemy")[journeyX].length - 1)]); // Add the enemy (n° day, 0/1)
+        this.fakePlayer = new Enemy(this.cache.json.get("enemy")[journeyX][Utils.getRandomInt(this.cache.json.get("enemy")[journeyX].length)]); // Add the enemy (n° day, 0/1)
          enemyName = this.fakePlayer.getName();
          enemyFrame = this.fakePlayer.getFrame();
 
@@ -362,7 +362,7 @@ export class HudScene extends Phaser.Scene {
                 // this._roundService.endBatlle();  
                 journeyX++;
                 this.createJourney(journeyX); // NEW JOURNEY
-                this.fakePlayer = new Enemy(this.cache.json.get("enemy")[journeyX][Utils.getRandomInt(this.cache.json.get("enemy")[journeyX].length - 1)]); // Add the enemy (n° day, 0/1)
+                this.fakePlayer = new Enemy(this.cache.json.get("enemy")[journeyX][Utils.getRandomInt(this.cache.json.get("enemy")[journeyX].length)]); // Add the enemy (n° day, 0/1)
                  enemyName = this.fakePlayer.getName();
                  enemyFrame = this.fakePlayer.getFrame();
                 this.createEnemy(enemyName,enemyFrame);   // NEW ENEMY or MERCHENT
@@ -393,7 +393,7 @@ export class HudScene extends Phaser.Scene {
                 // this._roundService.endBatlle();  
                 journeyX++;
                 this.createJourney(journeyX);
-                this.fakePlayer = new Enemy(this.cache.json.get("enemy")[journeyX][Utils.getRandomInt(this.cache.json.get("enemy")[journeyX].length - 1)]); // Add the enemy (n° day, 0/1)
+                this.fakePlayer = new Enemy(this.cache.json.get("enemy")[journeyX][Utils.getRandomInt(this.cache.json.get("enemy")[journeyX].length)]); // Add the enemy (n° day, 0/1)
                 enemyName = this.fakePlayer.getName();
                 enemyFrame = this.fakePlayer.getFrame();
                 this.createEnemy(enemyName,enemyFrame);  
