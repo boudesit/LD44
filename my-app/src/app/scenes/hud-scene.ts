@@ -166,6 +166,11 @@ export class HudScene extends Phaser.Scene {
             this.handCardSprites.push(sprite);
         }
         for (let cardSprite of this.handCardSprites) {
+
+            let text = this.add.text(0, -473 / _this.ratio, (cardSprite as any).card.description);
+            text.setVisible(false);
+
+
             cardSprite.on("pointerdown", () => {
                 _this._cardService.isPlayed(_this.player, (cardSprite as any).card);
                 currentArmor = this.player.getCurrentArmor();
@@ -260,14 +265,18 @@ export class HudScene extends Phaser.Scene {
                 saveCurrentAttack = this.player.getCurrentAttack();
                
             });
-            sprite.input.on('pointerover', function (event, gameObjects) {
+            cardSprite.on('pointerover', function (event, gameObjects) {
                     
-                    parchment.setVisible(true);
+                    _this.parchment.setVisible(true);
+                    text.setVisible(true);
+
                     // alpha: { value: 0, duration: 3000, delay:2000}
             });
-            sprite.input.on('pointerout', function (event, gameObjects) {
+            cardSprite.on('pointerout', function (event, gameObjects) {
                     
-                    parchment.setVisible(false);
+                    _this.parchment.setVisible(false);
+                    text.setVisible(false);
+
                     // alpha: { value: 0, duration: 3000, delay:2000}
             });
         }        
@@ -470,6 +479,7 @@ export class HudScene extends Phaser.Scene {
         spriteJourney.destroy();
     }
       spriteJourney = this.add.sprite(0 / this.ratio , -473 / this.ratio , 'journey',journey);
+      spriteJourney.setDisplaySize(1000 / this.ratio, 100 / this.ratio);
     }
 
     private deleteCards(){
