@@ -31,6 +31,13 @@ var saveCurrentHealth=0;
 var saveCurrentAttack=0;
 var parchment;
 var statutIsplayed;
+var bulleH;
+var bulle;
+var Option1;
+var Option2;
+var Option3;
+var OptionMerchant;
+var nb_deck;
 
 export class HudScene extends Phaser.Scene {
 
@@ -133,9 +140,8 @@ export class HudScene extends Phaser.Scene {
         armor.setDisplaySize(60 / this.ratio, 49 / this.ratio);
         var attack = this.add.image(-920 / this.ratio , -300 / this.ratio , 'attack');
         attack.setDisplaySize(70 / this.ratio, 70 / this.ratio);
-        var hand = this.add.image(-920 / this.ratio , -200 / this.ratio , 'hand');
+        var hand = this.add.image(-920 / this.ratio , -200 / this.ratio , 'hand'); 
         hand.setDisplaySize(70 / this.ratio, 57 / this.ratio);
-
 
           lifeText = this.add.text(-870 / this.ratio , -500 / this.ratio, ''+this.player.getCurrentHealth(), {
             fontfamily : 'BIT',
@@ -197,17 +203,38 @@ export class HudScene extends Phaser.Scene {
 
                 if(!statutIsplayed)
                 {
-                    var text = this.add.text(-200 / this.ratio , -400 / this.ratio, 'TA PLUS DE POINT CONNARD !!!', {
-                        fontfamily : 'BIT',
-                        fontSize: '32px',
-                        fill: "white",
-                        align: "center"
+                    if(this.player.getIsStuned())
+                    {
+                        var text = this.add.text(-200 / this.ratio , -400 / this.ratio, 'STTTTUUUUNNNNNN', {
+                            font : 'Arial',
+                            fontSize: '64px',
+                            fill: "white",
+                            align: "center"
+    
+                        });
+                         text.setVisible(true);
+                         setTimeout(() => {
+                            text.destroy();
+                         }, 1000);
+                        
 
-                    });
-                    setTimeout(() => {
-                        text.destroy();
-                     }, 500);
-                     return;
+                    }else{
+
+                        var text = this.add.text(-200 / this.ratio , -400 / this.ratio, 'You have no point of action !!!', {
+                            font : 'Britannic Bold',
+                            fontSize: '64px',
+                            fill: "white",
+                            align: "center"
+    
+                        });
+                        setTimeout(() => {
+                            text.destroy();
+                         }, 500);
+                         
+
+
+                    }
+                    return;
                 }else{
 
                     _this.parchment.setVisible(false);
@@ -340,9 +367,9 @@ export class HudScene extends Phaser.Scene {
         if(this.fakePlayer.getName() == "Merchant")
         {
             var marchentOption = this._merchantService.createOptions(this.cards);
-            var bulle = this.add.image(390 / this.ratio , -120 / this.ratio , 'bulle_merchant');
+            bulle = this.add.image(390 / this.ratio , -120 / this.ratio , 'bulle_merchant');
             bulle.setDisplaySize((700) / this.ratio, (600) / this.ratio);
-            this.add.text(170 / this.ratio , -350 / this.ratio, marchentOption.text , {
+            OptionMerchant = this.add.text(170 / this.ratio , -350 / this.ratio, marchentOption.text , {
             
                 fontfamily : 'Arial Black',
                 fontSize: '30px',
@@ -352,9 +379,9 @@ export class HudScene extends Phaser.Scene {
 
             });
 
-            var bulleH = this.add.image(-400 / this.ratio , -120 / this.ratio , 'bulle_hero');
+            bulleH = this.add.image(-400 / this.ratio , -120 / this.ratio , 'bulle_hero');
             bulleH.setDisplaySize((700) / this.ratio, (400) / this.ratio);
-            var Option1 = this.add.text(-650 / this.ratio , -200 / this.ratio, "Option : 1   -1 Health\n" , {
+             Option1 = this.add.text(-650 / this.ratio , -200 / this.ratio, "Option : 1   -1 Health\n" , {
                 fontfamily : 'Arial',
                 fontWeight : 'bold',
                 fontSize: '30px',
@@ -365,8 +392,9 @@ export class HudScene extends Phaser.Scene {
             Option1.setInteractive();
             Option1.on("pointerdown", () => { 
                 this._merchantService.chooseOption(this.player,marchentOption.options[0]);
+                Option1.destroy();
             });
-            var Option2 =  this.add.text(-650 / this.ratio , -150 / this.ratio, "Option : 2   -2 Health\n" , {
+             Option2 =  this.add.text(-650 / this.ratio , -150 / this.ratio, "Option : 2   -2 Health\n" , {
                 fontfamily : 'Arial',
                 fontWeight : 'bold',
                 fontSize: '30px',
@@ -377,8 +405,9 @@ export class HudScene extends Phaser.Scene {
             Option2.setInteractive();
             Option2.on("pointerdown", () => { 
                 this._merchantService.chooseOption(this.player,marchentOption.options[1]);
+                Option2.destroy();
             });
-            var Option3 = this.add.text(-650 / this.ratio , -100 / this.ratio, "Option : 3   -3 Health\n" , {
+             Option3 = this.add.text(-650 / this.ratio , -100 / this.ratio, "Option : 3   -3 Health\n" , {
                 fontfamily : 'Arial',
                 fontWeight : 'bold',
                 fontSize: '30px',
@@ -389,6 +418,8 @@ export class HudScene extends Phaser.Scene {
             Option3.setInteractive();
             Option3.on("pointerdown", () => { 
                 this._merchantService.chooseOption(this.player,marchentOption.options[2]);
+                Option3.destroy();
+
             });
 
         }
@@ -423,8 +454,17 @@ export class HudScene extends Phaser.Scene {
 
             this._roundService.endRoundPlayer(this.player,this.fakePlayer); // END ROUND PLAYER
 
-            if(this.fakePlayer.getCurrentHealth() <= 0 ) // IF PLAYER OR ENEMY DIED
+            if(this.fakePlayer.getCurrentHealth() <= 0 || this.fakePlayer.getName() === "Merchant") // IF PLAYER OR ENEMY DIED
             {
+                if (this.fakePlayer.getName() === "Merchant")
+                {
+                bulle.destroy();
+                bulleH.destroy();
+                OptionMerchant.destroy();
+                Option1.destroy();
+                Option2.destroy();
+                Option3.destroy();
+                }
                 if(this.player.getCurrentHealth() <= 0) // si player est  mort
                 {
                     var text_gameover = this.add.text(-200 / this.ratio , -400 / this.ratio, 'TA PERDU CONNARD !!!', {
@@ -467,8 +507,9 @@ export class HudScene extends Phaser.Scene {
              }, 2000);
            }
            this._roundService.endRoundEnemy(this.player,this.fakePlayer);
-           if(this.fakePlayer.getCurrentHealth() <= 0)
+           if(this.fakePlayer.getCurrentHealth() <= 0 || this.fakePlayer.getName() === "Merchant")
            {
+              
                // si player est  mort ???
 
                 // this._roundService.endBatlle();
@@ -591,8 +632,17 @@ export class HudScene extends Phaser.Scene {
 
     private createDeck(){
 
+        
+
         var deck = this.add.image(760 / this.ratio , 410 / this.ratio , 'deck');
         deck.setDisplaySize(200 / this.ratio, 200 / this.ratio);
+
+        nb_deck = this.add.text(800 / this.ratio , 450 / this.ratio, ''+this.player.getDeck().length, {
+            fontfamily : 'BIT',
+            fontSize: '32px',
+            fill: "white",
+            align: "center"
+        });
     }
 
     update() : void {
@@ -600,6 +650,7 @@ export class HudScene extends Phaser.Scene {
     lifeText.text = this.player.getCurrentHealth();
     armorText.text = this.player.getCurrentArmor();
     attackText.text = this.player.getCurrentAttack();
+    nb_deck.text = this.player.getDeck().length;
 
     if(statutIsplayed){
     handText.text = this.player.getCurrentActionPoint();
