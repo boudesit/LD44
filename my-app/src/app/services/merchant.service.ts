@@ -36,7 +36,15 @@ export class MerchantService {
       cost: 3
     });
 
-    return [option1, option2, option3];
+    let text = "Welcome to the Shop ! Here you can trade your life to get cards.";
+    text += "\n1 : " + option1.text;
+    text += "\n2 : " + option2.text;
+    text += "\n3 : " + option3.text;
+    text += "\nChoose carefully !";
+    return {
+      "text": text,
+      "options": [option1, option2, option3]
+    };
   }
 
   chooseOption(player: Player, option: MerchantOption) {
