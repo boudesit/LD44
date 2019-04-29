@@ -303,7 +303,7 @@ export class HudScene extends Phaser.Scene {
     private createEnemy(name : string, frame : number){     //Create automatick enemy from json (because different frame of sprite enemy)
 
    ///////////ATTENTION ICI PEUT SPAWN UN MARCHANT => CONDIFTION POUR AFFICHAGE
-
+    
         if (journeyX >0)
     {
         enemySprite.destroy();

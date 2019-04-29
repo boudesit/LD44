@@ -23,6 +23,7 @@ export class Enemy extends Character {
         this.currentHealth = jsonObj.maxHealth;
         this.currentAttack = 1;
         this.currentArmor = 0;
+    
 
     }
 
