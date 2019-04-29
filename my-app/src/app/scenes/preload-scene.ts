@@ -56,14 +56,6 @@ export class PreloadScene extends Phaser.Scene {
         this.load.spritesheet('Mino', 'assets/enemy/enemy_18.png',{ frameWidth: 600, frameHeight: 600 });
         this.load.spritesheet('Yogstot', 'assets/enemy/enemy_19.png',{ frameWidth: 600, frameHeight: 600 });
         
-        
-        
-        
-        
-        
-        
-        
-        this.load.spritesheet('Hobgoblin0', 'assets/enemy/enemy_12.png',{ frameWidth: 600, frameHeight: 600 });
         this.load.spritesheet('Merchant', 'assets/enemy/shop_1.png',{ frameWidth: 600, frameHeight: 600 });
 
             //Boost
@@ -138,6 +130,34 @@ export class PreloadScene extends Phaser.Scene {
         this.load.image("Carte_47",'assets/Cards/Carte_47.png');
         this.load.image("Carte_48",'assets/Cards/Carte_48.png');
         this.load.image("Carte_49",'assets/Cards/Carte_49.png');
+
+       //Music
+
+        this.load.audio('game', ['assets/music/game.mp3']);
+        this.load.audio('gametitle', ['assets/music/gametitle.mp3']);
+        this.load.audio('gameend', ['assets/music/gameend.mp3']);
+        this.load.audio('gameover', ['assets/music/gameover.mp3']);
+        this.load.audio('gameshop', ['assets/music/gameshop.mp3']);
+
+        this.load.audio('boost1', ['assets/music/boost1.mp3']);
+        this.load.audio('boost2', ['assets/music/boost2.mp3']);
+        this.load.audio('boost3', ['assets/music/boost3.mp3']);
+
+        this.load.audio('carte', ['assets/music/carte.mp3']);
+
+        this.load.audio('epee', ['assets/music/épée.mp3']);
+
+        this.load.audio('monster_attack', ['assets/music/monster_attack.mp3']);
+        this.load.audio('monster_cri', ['assets/music/monster_cri.mp3']);
+
+        this.load.audio('noselect', ['assets/music/noselect.mp3']);
+        this.load.audio('select', ['assets/music/select.mp3']);
+        
+        this.load.audio('poison', ['assets/music/poison.mp3']);
+
+        this.load.audio('stun', ['assets/music/stun.mp3']);
+
+
 
 
 
