@@ -59,6 +59,52 @@ export class HudScene extends Phaser.Scene {
 
   parchment: Phaser.GameObjects.Image;
 
+<<<<<<< HEAD
+=======
+    px : string;
+
+    
+
+    _cardService = new CardService();
+    _roundService = new RoundService();
+    _merchantService = new MerchantService();
+
+
+    constructor() {
+        super({
+            key : "HudScene"
+        })
+
+        this.ratio = Number(localStorage.getItem("resolution_ratio"));
+
+    }
+
+    create() : void {
+
+        if(!this.ratio) {
+            this.ratio = 1.875;
+        }
+
+        if(this.ratio == 1.00) {
+            this.px = "30px"
+        } else if(this.ratio == 1.50) {
+            this.px = "20px"
+
+        } else {
+            this.px = "16px"
+
+        }
+        let _this = this;
+
+        this.width = this.game.config.width as number;
+        this.height = this.game.config.height as number;
+
+        this.player = new Player(this.cache.json.get("player")); // Add the player
+
+        this.fakePlayer = new Enemy(this.cache.json.get("enemy")[journeyX][Utils.getRandomInt(this.cache.json.get("enemy")[journeyX].length)]); // Add the enemy (n° day, 0/1)
+         enemyName = this.fakePlayer.getName();
+         enemyFrame = this.fakePlayer.getFrame();
+>>>>>>> 2f2e89b3c833a2ca262f3b1241aaab18fb2a4f34
 
 
   _cardService = new CardService();
@@ -210,11 +256,17 @@ export class HudScene extends Phaser.Scene {
             var noselect = this.sound.add("noselect");
             noselect.play();
 
+<<<<<<< HEAD
             var text = this.add.text(-200 / this.ratio, -400 / this.ratio, 'STTTTUUUUNNNNNN', {
               font: 'Arial',
               fontSize: '64px',
               fill: "white",
               align: "center"
+=======
+                    }
+                    return;
+                } else {
+>>>>>>> 2f2e89b3c833a2ca262f3b1241aaab18fb2a4f34
 
             });
             text.setVisible(true);
@@ -440,6 +492,7 @@ export class HudScene extends Phaser.Scene {
 
     }
 
+<<<<<<< HEAD
     if (enemySprite) {
       enemySprite.destroy();
       animEnemy.destroy();
@@ -450,12 +503,72 @@ export class HudScene extends Phaser.Scene {
       frameRate: 6,
       repeat: -1
     };
+=======
+    private createEnemy(name : string, frame : number){     //Create automatick enemy from json (because different frame of sprite enemy)
+
+   ///////////ATTENTION ICI PEUT SPAWN UN MARCHANT => CONDIFTION POUR AFFICHAGE
+        if(this.fakePlayer.getName() == "Merchant")
+        {
+            var marchentOption = this._merchantService.createOptions(this.cards);
+            bulle = this.add.image(390 / this.ratio , -120 / this.ratio , 'bulle_merchant');
+            bulle.setDisplaySize((700) / this.ratio, (600) / this.ratio);
+            OptionMerchant = this.add.text(170 / this.ratio , -350 / this.ratio, marchentOption.text , {
+            
+                fontfamily : 'Arial Black',
+                fontSize: this.px,
+                fill: "black",
+                align: "center",
+                wordWrap: { width: 450 / this.ratio }
+>>>>>>> 2f2e89b3c833a2ca262f3b1241aaab18fb2a4f34
 
     animEnemy = this.anims.create(configEnemy);
     enemySprite = this.add.sprite(0 / this.ratio, 150 / this.ratio, name);
     enemySprite.setDisplaySize((enemySprite.width / 2) / this.ratio, (enemySprite.height / 2) / this.ratio);
     enemySprite.anims.play('enemy');
 
+<<<<<<< HEAD
+=======
+            bulleH = this.add.image(-400 / this.ratio , -120 / this.ratio , 'bulle_hero');
+            bulleH.setDisplaySize((700) / this.ratio, (400) / this.ratio);
+             Option1 = this.add.text(-650 / this.ratio , -200 / this.ratio, "Option : 1   -1 Health\n" , {
+                fontfamily : 'Arial',
+                fontWeight : 'bold',
+                fontSize: this.px,
+                fill: "purple",
+                align: "center",
+               // wordWrap: { width: 450 / this.ratio }
+            });
+            Option1.setInteractive();
+            Option1.on("pointerdown", () => { 
+                this._merchantService.chooseOption(this.player,marchentOption.options[0]);
+                Option1.destroy();
+            });
+             Option2 =  this.add.text(-650 / this.ratio , -150 / this.ratio, "Option : 2   -2 Health\n" , {
+                fontfamily : 'Arial',
+                fontWeight : 'bold',
+                fontSize: this.px,
+                fill: "black",
+                align: "center",
+               // wordWrap: { width: 450 / this.ratio }
+            });
+            Option2.setInteractive();
+            Option2.on("pointerdown", () => { 
+                this._merchantService.chooseOption(this.player,marchentOption.options[1]);
+                Option2.destroy();
+            });
+             Option3 = this.add.text(-650 / this.ratio , -100 / this.ratio, "Option : 3   -3 Health\n" , {
+                fontfamily : 'Arial',
+                fontWeight : 'bold',
+                fontSize: this.px,
+                fill: "black",
+                align: "center",
+               // wordWrap: { width: 450 / this.ratio }
+            });
+            Option3.setInteractive();
+            Option3.on("pointerdown", () => { 
+                this._merchantService.chooseOption(this.player,marchentOption.options[2]);
+                Option3.destroy();
+>>>>>>> 2f2e89b3c833a2ca262f3b1241aaab18fb2a4f34
 
   }
 
@@ -547,6 +660,7 @@ export class HudScene extends Phaser.Scene {
       this.scene.start("MainMenuScene");
     }
 
+<<<<<<< HEAD
     this._roundService.startRoundPlayer(this.player, this.fakePlayer);
     this.initCard = -750;
     this.deleteCards();
@@ -628,6 +742,94 @@ export class HudScene extends Phaser.Scene {
         
       }
     })
+=======
+    private createEndRound(_this: this) {  // END of ROUND + Event on click end turn
+
+        handText.text = this.player.getCurrentActionPoint();
+        var endRound = this.add.image(760 / this.ratio , 250 / this.ratio , 'endround');
+        endRound.setDisplaySize(200 / this.ratio, 100 / this.ratio);
+        endRound.setInteractive();
+        endRound.on("pointerdown", ()=> {
+
+            this._roundService.endRoundPlayer(this.player,this.fakePlayer); // END ROUND PLAYER
+
+            if(this.fakePlayer.getCurrentHealth() <= 0 || this.fakePlayer.getName() === "Merchant") {
+                
+                if (this.fakePlayer.getName() === "Merchant") {
+                    
+                    bulle.destroy();
+                    bulleH.destroy();
+                    OptionMerchant.destroy();
+                    Option1.destroy();
+                    Option2.destroy();
+                    Option3.destroy();
+                }
+
+                let text = this.add.text(0,0,"Day " + journeyX);
+
+                text.setVisible(false);
+
+                this.cameras.main.fadeOut(3000,1,1,1,() => {
+                }, this);
+
+                this.cameras.main.on("camerafadeoutcomplete", () => {
+                    text.setVisible(true);
+
+                    journeyX++;
+                    this.createJourney(journeyX); // NEW JOURNEY
+    
+                    this._roundService.initPlayerForBattle(this.player);
+    
+                    this.fakePlayer = new Enemy(this.cache.json.get("enemy")[journeyX][Utils.getRandomInt(this.cache.json.get("enemy")[journeyX].length)]); // Add the enemy (n° day, 0/1)
+                     enemyName = this.fakePlayer.getName();
+                     enemyFrame = this.fakePlayer.getFrame();
+                    this.createEnemy(enemyName,enemyFrame);   // NEW ENEMY or MERCHENT
+                    this._roundService.startRoundPlayer(this.player,this.fakePlayer); // START ROUND OF PLAYER
+                    this.initCard  = -750;
+                    this.deleteCards(); // DELETE HAND CARDS
+                    this.addCardInHand(_this); // NEW HAND
+                    saveCurrentArmor = this.player.getCurrentArmor();
+                    saveCurrentHealth = this.player.getCurrentHealth();
+                    saveCurrentAttack = this.player.getCurrentAttack();
+
+                    _this.cameras.main.fadeIn(3000,1,1,1,() => {}, this);
+                });
+                this.cameras.main.on("camerafadeincomplete", () => {
+                    text.setVisible(false);
+                });
+                
+
+                return;
+
+            } 
+
+
+           this._roundService.startRoundEnemy(this.player,this.fakePlayer);  // START ROUND OF ENEMY
+           this._roundService.roundEnemy(this.fakePlayer); // ROUND OF ENEMY
+
+            if (this.player.getCurrentHealth() <= 0) {
+                journeyX = 0;
+                this.scene.start("MainMenuScene");
+            }
+
+            var attackmp3 = this.sound.add("monster_attack");
+           
+            setTimeout(() => {
+             attackmp3.play();
+
+           if(this.fakePlayer.getCurrentAttack() > 0){  // SPRITE ATTACK ENEMY
+            setTimeout(() => {
+                this.attackEnemy()
+             }, 1500);
+             
+           }
+        }, 500);
+           this._roundService.endRoundEnemy(this.player,this.fakePlayer);
+           if(this.fakePlayer.getName() === "Merchant")
+           {
+              
+               // si player est  mort ???
+>>>>>>> 2f2e89b3c833a2ca262f3b1241aaab18fb2a4f34
 
   }
 
@@ -636,7 +838,23 @@ export class HudScene extends Phaser.Scene {
     var attackmp3 = this.sound.add("epee");
     attackmp3.play();
 
+<<<<<<< HEAD
     heroSprite.visible = false;
+=======
+                this.fakePlayer = new Enemy(this.cache.json.get("enemy")[journeyX][Utils.getRandomInt(this.cache.json.get("enemy")[journeyX].length)]); // Add the enemy (n° day, 0/1)
+                enemyName = this.fakePlayer.getName();
+                enemyFrame = this.fakePlayer.getFrame();
+                this.createEnemy(enemyName,enemyFrame);
+                this._roundService.startRoundPlayer(this.player,this.fakePlayer);
+                this.initCard  = -750;
+                this.deleteCards();
+                this.addCardInHand(_this);
+                saveCurrentArmor = this.player.getCurrentArmor();
+                saveCurrentHealth = this.player.getCurrentHealth();
+                saveCurrentAttack = this.player.getCurrentAttack();
+                return;
+           } 
+>>>>>>> 2f2e89b3c833a2ca262f3b1241aaab18fb2a4f34
 
     attackHeroSprite = this.add.sprite(-800 / this.ratio, 150 / this.ratio, 'hero_attack').setScale(1);
     attackHeroSprite.setDisplaySize(200 / this.ratio, 300 / this.ratio);
