@@ -475,29 +475,18 @@ export class HudScene extends Phaser.Scene {
 
             this._roundService.endRoundPlayer(this.player,this.fakePlayer); // END ROUND PLAYER
 
-            if(this.player.getCurrentHealth() <= 0 || this.fakePlayer.getCurrentHealth() <= 0 || this.fakePlayer.getName() === "Merchant") // IF PLAYER OR ENEMY DIED
-            {
-                if (this.fakePlayer.getName() === "Merchant")
-                {
-                bulle.destroy();
-                bulleH.destroy();
-                OptionMerchant.destroy();
-                Option1.destroy();
-                Option2.destroy();
-                Option3.destroy();
+            if(this.fakePlayer.getCurrentHealth() <= 0 || this.fakePlayer.getName() === "Merchant") {
+                
+                if (this.fakePlayer.getName() === "Merchant") {
+                    
+                    bulle.destroy();
+                    bulleH.destroy();
+                    OptionMerchant.destroy();
+                    Option1.destroy();
+                    Option2.destroy();
+                    Option3.destroy();
                 }
-                if(this.player.getCurrentHealth() <= 0) // si player est  mort
-                {
-                    var text_gameover = this.add.text(-200 / this.ratio , -400 / this.ratio, 'TA PERDU CONNARD !!!', {
-                        fontfamily : 'BIT',
-                        fontSize: '50px',
-                        fill: "red",
-                        align: "center"
 
-                    });
-
-                    heroSprite.destroy();
-                }
                 let text = this.add.text(0,0,"Day " + journeyX);
 
                 text.setVisible(false);
@@ -525,17 +514,19 @@ export class HudScene extends Phaser.Scene {
                     saveCurrentHealth = this.player.getCurrentHealth();
                     saveCurrentAttack = this.player.getCurrentAttack();
 
-                    _this.cameras.main.fadeIn(3000,1,1,1,() => {
-                        console.log("coucou");
-                    }, this);
-                })
+                    _this.cameras.main.fadeIn(3000,1,1,1,() => {}, this);
+                });
                 this.cameras.main.on("camerafadeincomplete", () => {
                     text.setVisible(false);
-                })
+                });
                 
 
                 return;
 
+            } 
+            if (this.player.getCurrentHealth() <= 0) {
+                journeyX = 0;
+                this.scene.start("MainMenuScene");
             }
 
            this._roundService.startRoundEnemy(this.player,this.fakePlayer);  // START ROUND OF ENEMY
@@ -546,7 +537,7 @@ export class HudScene extends Phaser.Scene {
             setTimeout(() => {
              attackmp3.play();
 
-           if(this.fakePlayer.getCurrentAttack() >0){  // SPRITE ATTACK ENEMY
+           if(this.fakePlayer.getCurrentAttack() > 0){  // SPRITE ATTACK ENEMY
             setTimeout(() => {
                 this.attackEnemy()
              }, 1500);
@@ -554,7 +545,7 @@ export class HudScene extends Phaser.Scene {
            }
         }, 500);
            this._roundService.endRoundEnemy(this.player,this.fakePlayer);
-           if(this.fakePlayer.getCurrentHealth() <= 0 || this.fakePlayer.getName() === "Merchant")
+           if(this.fakePlayer.getName() === "Merchant")
            {
               
                // si player est  mort ???
@@ -578,10 +569,7 @@ export class HudScene extends Phaser.Scene {
                 saveCurrentHealth = this.player.getCurrentHealth();
                 saveCurrentAttack = this.player.getCurrentAttack();
                 return;
-           } else if (this.player.getCurrentHealth() <= 0) {
-                journeyX = 0;
-                this.scene.start("MainMenuScene");
-           }
+           } 
 
 
 
