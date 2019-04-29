@@ -45,6 +45,8 @@ export class HudScene extends Phaser.Scene {
 
     handCardSprites : Phaser.GameObjects.Sprite[] = [];
 
+    parchment : Phaser.GameObjects.Image;
+
     _cardService = new CardService();
     _roundService = new RoundService();
 
@@ -91,10 +93,10 @@ export class HudScene extends Phaser.Scene {
         this.createDeck(); // Creat deck méthod
       
 
-        parchment = this.add.image(-350 / this.ratio , -100 / this.ratio , 'parchment');
-        parchment.setDisplaySize(350 / this.ratio, 200 / this.ratio);
-        parchment.alpha=0.8;
-        parchment.visible=false;
+        this.parchment = this.add.image(-350 / this.ratio , -100 / this.ratio , 'parchment');
+        this.parchment.setDisplaySize(350 / this.ratio, 200 / this.ratio);
+        this.parchment.alpha=0.8;
+        this.parchment.setVisible(false);
         
         this._roundService.startRoundPlayer(this.player, this.fakePlayer);
         this.addCardInHand(_this);
@@ -185,8 +187,6 @@ export class HudScene extends Phaser.Scene {
                     cardSprite.destroy(); 
                     
                 }
-                
-
                
                 if(saveCurrentArmor != this.player.getCurrentArmor())
                 {
@@ -255,20 +255,22 @@ export class HudScene extends Phaser.Scene {
                      }, 500);
 
                 }
-
-
                 saveCurrentArmor = this.player.getCurrentArmor();
                 saveCurrentHealth = this.player.getCurrentHealth();
                 saveCurrentAttack = this.player.getCurrentAttack();
                
             });
-            // sprite.input.on('pointerover', function (event, gameObjects) {
-                
-            //     parchment.visible=true;
-            //        // alpha: { value: 0, duration: 3000, delay:2000}
-            //     });
-        }
-        
+            sprite.input.on('pointerover', function (event, gameObjects) {
+                    
+                    parchment.setVisible(true);
+                    // alpha: { value: 0, duration: 3000, delay:2000}
+            });
+            sprite.input.on('pointerout', function (event, gameObjects) {
+                    
+                    parchment.setVisible(false);
+                    // alpha: { value: 0, duration: 3000, delay:2000}
+            });
+        }        
     }
 
     private createHero() {
