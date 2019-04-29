@@ -6,6 +6,8 @@ import { Enemy } from '../objects/enemy';
 import { RoundService } from '../services/round.service';
 import { Utils } from '../services/utils';
 import { MerchantService } from '../services/merchant.service';
+import { Options } from 'selenium-webdriver';
+import { OptionScene } from './options-scene';
 var sprite;
 var heroSprite;
 var enemySprite;
@@ -48,6 +50,8 @@ export class HudScene extends Phaser.Scene {
     handCardSprites : Phaser.GameObjects.Sprite[] = [];
 
     parchment : Phaser.GameObjects.Image;
+
+    
 
     _cardService = new CardService();
     _roundService = new RoundService();
@@ -335,9 +339,10 @@ export class HudScene extends Phaser.Scene {
    ///////////ATTENTION ICI PEUT SPAWN UN MARCHANT => CONDIFTION POUR AFFICHAGE
         if(this.fakePlayer.getName() == "Merchant")
         {
+            var marchentOption = this._merchantService.createOptions(this.cards);
             var bulle = this.add.image(390 / this.ratio , -120 / this.ratio , 'bulle_merchant');
             bulle.setDisplaySize((700) / this.ratio, (600) / this.ratio);
-            this.add.text(170 / this.ratio , -350 / this.ratio, this._merchantService.createOptions(this.cards).text , {
+            this.add.text(170 / this.ratio , -350 / this.ratio, marchentOption.text , {
             
                 fontfamily : 'Arial Black',
                 fontSize: '30px',
@@ -349,7 +354,7 @@ export class HudScene extends Phaser.Scene {
 
             var bulleH = this.add.image(-400 / this.ratio , -120 / this.ratio , 'bulle_hero');
             bulleH.setDisplaySize((700) / this.ratio, (400) / this.ratio);
-            this.add.text(-650 / this.ratio , -200 / this.ratio, "Option : 1   -1 Health\n" , {
+            var Option1 = this.add.text(-650 / this.ratio , -200 / this.ratio, "Option : 1   -1 Health\n" , {
                 fontfamily : 'Arial',
                 fontWeight : 'bold',
                 fontSize: '30px',
@@ -357,7 +362,11 @@ export class HudScene extends Phaser.Scene {
                 align: "center",
                // wordWrap: { width: 450 / this.ratio }
             });
-            this.add.text(-650 / this.ratio , -150 / this.ratio, "Option : 2   -2 Health\n" , {
+            Option1.setInteractive();
+            Option1.on("pointerdown", () => { 
+                this._merchantService.chooseOption(this.player,marchentOption.options[0]);
+            });
+            var Option2 =  this.add.text(-650 / this.ratio , -150 / this.ratio, "Option : 2   -2 Health\n" , {
                 fontfamily : 'Arial',
                 fontWeight : 'bold',
                 fontSize: '30px',
@@ -365,13 +374,21 @@ export class HudScene extends Phaser.Scene {
                 align: "center",
                // wordWrap: { width: 450 / this.ratio }
             });
-            this.add.text(-650 / this.ratio , -100 / this.ratio, "Option : 3   -3 Health\n" , {
+            Option2.setInteractive();
+            Option2.on("pointerdown", () => { 
+                this._merchantService.chooseOption(this.player,marchentOption.options[1]);
+            });
+            var Option3 = this.add.text(-650 / this.ratio , -100 / this.ratio, "Option : 3   -3 Health\n" , {
                 fontfamily : 'Arial',
                 fontWeight : 'bold',
                 fontSize: '30px',
                 fill: "black",
                 align: "center",
                // wordWrap: { width: 450 / this.ratio }
+            });
+            Option3.setInteractive();
+            Option3.on("pointerdown", () => { 
+                this._merchantService.chooseOption(this.player,marchentOption.options[2]);
             });
 
         }        
