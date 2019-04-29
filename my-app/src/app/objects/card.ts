@@ -36,6 +36,10 @@ export class Card {
         this.spriteUrl = jsonObj.spriteUrl;
     }
 
+    getCostCard() {
+        return this.cost;
+      }
+
     isPlayed(player : Player) {
         this._cardService.isPlayed(player, this);
     }    

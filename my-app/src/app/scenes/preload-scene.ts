@@ -31,20 +31,35 @@ export class PreloadScene extends Phaser.Scene {
         this.load.spritesheet('hero_idle', 'assets/sprites/hero_idle_sprite.png',{ frameWidth: 200, frameHeight: 300 });
         this.load.spritesheet('hero_attack', 'assets/sprites/hero_attack_sprite.png',{ frameWidth: 200, frameHeight: 300 });
         this.load.spritesheet('journey', 'assets/images/parcours.png',{ frameWidth: 1000, frameHeight: 100 });
+        this.load.spritesheet('parchment', 'assets/images/parchment.png',{ frameWidth: 350, frameHeight: 200 });
 
 
-        this.load.spritesheet('spider', 'assets/enemy/enemy_1.png',{ frameWidth: 600, frameHeight: 600 });
-        this.load.spritesheet('spider2', 'assets/enemy/enemy_11.png',{ frameWidth: 600, frameHeight: 600 });
-        this.load.spritesheet('Hobgoblin', 'assets/enemy/enemy_2.png',{ frameWidth: 600, frameHeight: 600 });
+            //Enemy
+        this.load.spritesheet('Spidy', 'assets/enemy/enemy_1.png',{ frameWidth: 600, frameHeight: 600 });
+        this.load.spritesheet('Frodo', 'assets/enemy/enemy_2.png',{ frameWidth: 600, frameHeight: 600 });
+        this.load.spritesheet('Razmo', 'assets/enemy/enemy_3.png',{ frameWidth: 600, frameHeight: 600 });
+        this.load.spritesheet('Cultiz', 'assets/enemy/enemy_4.png',{ frameWidth: 600, frameHeight: 600 });
+        this.load.spritesheet('Caspor', 'assets/enemy/enemy_5.png',{ frameWidth: 600, frameHeight: 600 });
+        this.load.spritesheet('Bigznoise', 'assets/enemy/enemy_6.png',{ frameWidth: 600, frameHeight: 600 });
+        this.load.spritesheet('Slid', 'assets/enemy/enemy_7.png',{ frameWidth: 600, frameHeight: 600 });
+        this.load.spritesheet('Coweird', 'assets/enemy/enemy_8.png',{ frameWidth: 600, frameHeight: 600 });
+        this.load.spritesheet('Chtoing', 'assets/enemy/enemy_9.png',{ frameWidth: 600, frameHeight: 600 });
+      
+       
+       
         this.load.spritesheet('Hobgoblin0', 'assets/enemy/enemy_12.png',{ frameWidth: 600, frameHeight: 600 });
+        this.load.spritesheet('merchant', 'assets/enemy/shop_1.png',{ frameWidth: 600, frameHeight: 600 });
 
+            //Boost
         this.load.spritesheet('boost_attack', 'assets/animations/boost_yellow.png',{ frameWidth: 500, frameHeight: 500 });
         this.load.spritesheet('boost_armor', 'assets/animations/boost_green.png',{ frameWidth: 500, frameHeight: 500 });
         this.load.spritesheet('boost_health', 'assets/animations/boost_red.png',{ frameWidth: 500, frameHeight: 500 });
 
+            //anim_attack
         this.load.spritesheet('anim_attack_enemy', 'assets/animations/anim_attack_enemy.png',{ frameWidth: 500, frameHeight: 500 });
         this.load.spritesheet('anim_attack_hero', 'assets/animations/anim_attack_hero.png',{ frameWidth: 500, frameHeight: 500 });
 
+            //Deck
         this.load.spritesheet('deck', 'assets/images/deck.png',{ frameWidth: 200, frameHeight: 200 });
        
 
