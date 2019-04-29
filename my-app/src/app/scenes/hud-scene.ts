@@ -78,6 +78,10 @@ export class HudScene extends Phaser.Scene {
 
     create() : void {
 
+        if(!this.ratio) {
+            this.ratio = 1.875;
+        }
+
         if(this.ratio == 1.00) {
             this.px = "30px"
         } else if(this.ratio == 1.50) {
