@@ -7,7 +7,7 @@ export class MerchantService {
   createOptions(cards: Card[]) {
     let option1 = new MerchantOption({
       text: "For a small part of your life, you can have a card.",
-      cards: [cards[Utils.getRandomInt(cards.length - 1)]],
+      cards: [cards[Utils.getRandomInt(cards.length)]],
       cardsHidden: false,
       cost: 1
     });
@@ -15,9 +15,9 @@ export class MerchantService {
     let option2 = new MerchantOption({
       text: "For a moderate part of your life, you can have three cards.",
       cards: [
-        cards[Utils.getRandomInt(cards.length - 1)],
-        cards[Utils.getRandomInt(cards.length - 1)],
-        cards[Utils.getRandomInt(cards.length - 1)]
+        cards[Utils.getRandomInt(cards.length)],
+        cards[Utils.getRandomInt(cards.length)],
+        cards[Utils.getRandomInt(cards.length)]
       ],
       cardsHidden: true,
       cost: 2
@@ -26,11 +26,11 @@ export class MerchantService {
     let option3 = new MerchantOption({
       text: "For a large part of your life, you can have five card.",
       cards: [
-        cards[Utils.getRandomInt(cards.length - 1)],
-        cards[Utils.getRandomInt(cards.length - 1)],
-        cards[Utils.getRandomInt(cards.length - 1)],
-        cards[Utils.getRandomInt(cards.length - 1)],
-        cards[Utils.getRandomInt(cards.length - 1)]
+        cards[Utils.getRandomInt(cards.length)],
+        cards[Utils.getRandomInt(cards.length)],
+        cards[Utils.getRandomInt(cards.length)],
+        cards[Utils.getRandomInt(cards.length)],
+        cards[Utils.getRandomInt(cards.length)]
       ],
       cardsHidden: true,
       cost: 3
