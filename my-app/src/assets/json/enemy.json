@@ -1,35 +1,59 @@
 [
   [
     {
-      "name": "spider",
-      "frame":7,
+      "name": "Spidy",
+      "frame": 7,
       "level": 1,
-      "text": "Mwahaha",
+      "text": "Shhh, Shhhhhhh",
       "maxHealth": 10,
       "currentHealth": 10,
       "currentAttack": 1,
       "currentArmor": 0,
       "actions": [
         {
-          "title": "Attack",
+          "title": "Attack poison",
           "attack": 1,
           "armor": 0,
           "heal": 0,
-          "effects": []
+          "effects": [
+            {
+              "type": "poison",
+              "target": "player",
+              "probability": 100,
+              "conditions": [],
+              "duration": 1,
+              "delay": 0,
+              "attack": null,
+              "armor": null,
+              "health": null
+            }
+          ]
         },
         {
-          "title": "Defense",
-          "attack": 0,
-          "armor": 2,
+          "title": "Attack stun",
+          "attack": 1,
+          "armor": 0,
           "heal": 0,
-          "effects": []
+          "effects": [
+            {
+              "type": "stun",
+              "target": "player",
+              "probability": 100,
+              "conditions": [],
+              "duration": 1,
+              "delay": 0,
+              "attack": null,
+              "armor": null,
+              "health": null
+            }
+          ]
         }
       ]
     },
     {
-      "name": "spider2",
+      "name": "Frodo",
       "level": 1,
-      "frame":7,
+      "frame": 7,
       "text": "Mwahaha",
       "maxHealth": 10,
       "currentHealth": 10,
@@ -37,72 +61,273 @@
       "currentArmor": 0,
       "actions": [
         {
-          "title": "Attack",
+          "title": "Attack stun",
           "attack": 1,
           "armor": 0,
           "heal": 0,
-          "effects": []
-        },
-        {
-          "title": "Defense",
-          "attack": 0,
-          "armor": 2,
-          "heal": 0,
-          "effects": []
+          "effects": [
+            {
+              "type": "stun",
+              "target": "player",
+              "probability": 100,
+              "conditions": [],
+              "duration": 1,
+              "delay": 0,
+              "attack": null,
+              "armor": null,
+              "health": null
+            }
+          ]
         }
       ]
     }
   ],
   [
     {
-      "name": "Hobgoblin",
+      "name": "Razmo",
       "level": 2,
-      "frame":6,
-      "text": "Mwahaha",
-      "maxHealth": 10,
-      "currentHealth": 10,
+      "frame": 6,
+      "text": "Skkkkrit, skkkrit, skkkkkkkkkRIT !!",
+      "maxHealth": 15,
+      "currentHealth": 15,
       "currentAttack": 1,
       "currentArmor": 0,
       "actions": [
         {
           "title": "Attack",
-          "attack": 1,
+          "attack": 3,
           "armor": 0,
-          "heal": 0,
-          "effects": []
-        },
-        {
-          "title": "Defense",
-          "attack": 0,
-          "armor": 2,
           "heal": 0,
           "effects": []
         }
       ]
     },
     {
-      "name": "Hobgoblin2",
+      "name": "Cultiz",
       "level": 2,
-      "frame":6,
-      "text": "Mwahaha",
-      "maxHealth": 10,
-      "currentHealth": 10,
+      "frame": 6,
+      "text": "Come with me, coooooome with me !",
+      "maxHealth": 15,
+      "currentHealth": 15,
       "currentAttack": 1,
       "currentArmor": 0,
       "actions": [
         {
-          "title": "Attack",
-          "attack": 1,
+          "title": "Attack stun",
+          "attack": 3,
           "armor": 0,
           "heal": 0,
-          "effects": []
+          "effects": [
+            {
+              "type": "stun",
+              "target": "player",
+              "probability": 100,
+              "conditions": [],
+              "duration": 1,
+              "delay": 0,
+              "attack": null,
+              "armor": null,
+              "health": null
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  [
+    {
+      "name": "Caspor",
+      "level": 3,
+      "frame": 6,
+      "text": "Beeeeh, err, i mean, booooooo",
+      "maxHealth": 20,
+      "currentHealth": 20,
+      "currentAttack": 1,
+      "currentArmor": 0,
+      "actions": [
+        {
+          "title": "Attack stun",
+          "attack": 5,
+          "armor": 0,
+          "heal": 0,
+          "effects": [
+            {
+              "type": "stun",
+              "target": "player",
+              "probability": 100,
+              "conditions": [],
+              "duration": 1,
+              "delay": 0,
+              "attack": null,
+              "armor": null,
+              "health": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Bigznoise",
+      "level": 3,
+      "frame": 6,
+      "text": "Hello kidddzzz, why are you doing in here ? Wanna some…magic ?",
+      "maxHealth": 20,
+      "currentHealth": 20,
+      "currentAttack": 1,
+      "currentArmor": 0,
+      "actions": [
+        {
+          "title": "Attack poison",
+          "attack": 5,
+          "armor": 0,
+          "heal": 0,
+          "effects": [
+            {
+              "type": "poison",
+              "target": "player",
+              "probability": 100,
+              "conditions": [],
+              "duration": 1,
+              "delay": 0,
+              "attack": null,
+              "armor": null,
+              "health": null
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  [
+    {"name": "Slid",
+      "level": 4,
+      "frame": 6,
+      "text": "Sssssssz, Ssssszzzz ?",
+      "maxHealth": 25,
+      "currentHealth": 25,
+      "currentAttack": 1,
+      "currentArmor": 0,
+      "actions": [
+        {
+          "title": "Attack poison",
+          "attack": 5,
+          "armor": 0,
+          "heal": 0,
+          "effects": [
+            {
+              "type": "poison",
+              "target": "player",
+              "probability": 100,
+              "conditions": [],
+              "duration": 1,
+              "delay": 0,
+              "attack": null,
+              "armor": null,
+              "health": null
+            }
+          ]
         },
         {
-          "title": "Defense",
-          "attack": 0,
-          "armor": 2,
+          "title": "Attack stun",
+          "attack": 5,
+          "armor": 0,
           "heal": 0,
-          "effects": []
+          "effects": [
+            {
+              "type": "stun",
+              "target": "player",
+              "probability": 100,
+              "conditions": [],
+              "duration": 1,
+              "delay": 0,
+              "attack": null,
+              "armor": null,
+              "health": null
+            }
+          ]
+        }
+      ]
+      },
+    {
+      "name": "Coweird",
+      "level": 4,
+      "frame": 6,
+      "text": "Moooooooooh",
+      "maxHealth": 25,
+      "currentHealth": 25,
+      "currentAttack": 1,
+      "currentArmor": 0,
+      "actions": [
+        {
+          "title": "Attack stun",
+          "attack": 5,
+          "armor": 0,
+          "heal": 0,
+          "effects": [
+            {
+              "type": "stun",
+              "target": "player",
+              "probability": 100,
+              "conditions": [],
+              "duration": 1,
+              "delay": 0,
+              "attack": null,
+              "armor": null,
+              "health": null
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  [
+    {
+      "name": "Chtoing",
+      "level": 5,
+      "frame": 6,
+      "text": "Gnfh…R'lehhhh",
+      "maxHealth": 30,
+      "currentHealth": 30,
+      "currentAttack": 1,
+      "currentArmor": 0,
+      "actions": [
+        {
+          "title": "Attack poison",
+          "attack": 7,
+          "armor": 0,
+          "heal": 0,
+          "effects": [
+            {
+              "type": "poison",
+              "target": "player",
+              "probability": 100,
+              "conditions": [],
+              "duration": 1,
+              "delay": 0,
+              "attack": null,
+              "armor": null,
+              "health": null
+            }
+          ]
+        },
+        {
+          "title": "Attack stun",
+          "attack": 7,
+          "armor": 0,
+          "heal": 0,
+          "effects": [
+            {
+              "type": "stun",
+              "target": "player",
+              "probability": 100,
+              "conditions": [],
+              "duration": 1,
+              "delay": 0,
+              "attack": null,
+              "armor": null,
+              "health": null
+            }
+          ]
         }
       ]
     }
