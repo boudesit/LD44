@@ -38,6 +38,7 @@ var Option2;
 var Option3;
 var OptionMerchant;
 var nb_deck;
+var endturn_clicked : boolean = false;
 
 export class HudScene extends Phaser.Scene {
 
@@ -439,7 +440,7 @@ export class HudScene extends Phaser.Scene {
 
     }
 
-    if (journeyX > 0) {
+    if (enemySprite) {
       enemySprite.destroy();
       animEnemy.destroy();
     }
@@ -460,45 +461,36 @@ export class HudScene extends Phaser.Scene {
 
   private createEndRoundEnemy(_this: this) {
     this._roundService.endRoundPlayer(this.player, this.fakePlayer); // END ROUND PLAYER
-    if (this.player.getCurrentHealth() <= 0 || this.fakePlayer.getCurrentHealth() <= 0) {
-      if (this.player.getCurrentHealth() <= 0) // si player est  mort
-      {
-        var text_gameover = this.add.text(-200 / this.ratio, -400 / this.ratio, 'TA PERDU CONNARD !!!', {
-          fontfamily: 'BIT',
-          fontSize: '50px',
-          fill: "red",
-          align: "center"
-
-        });
-
-        heroSprite.destroy();
-      }
+    if (this.fakePlayer.getCurrentHealth() <= 0) {
+    console.log(this);
+    console.log(journeyX);
       let text = this.add.text(0, 0, "Day " + journeyX);
 
       text.setVisible(false);
 
-      this.cameras.main.fadeOut(3000, 1, 1, 1, () => {
-      }, this);
+      this.cameras.main.fadeOut(3000, 1, 1, 1, () => {}, this);
+      setTimeout(() => {
+       
+        
+      this.fakePlayer = new Enemy(this.cache.json.get("enemy")[journeyX][Utils.getRandomInt(this.cache.json.get("enemy")[journeyX].length)]); // Add the enemy (n° day, 0/1)
+      enemyName = this.fakePlayer.getName();
+      enemyFrame = this.fakePlayer.getFrame();
+      this.createEnemy(enemyName, enemyFrame);   // NEW ENEMY or MERCHENT
+      this._roundService.startRoundPlayer(this.player, this.fakePlayer); // START ROUND OF PLAYER
+      this.initCard = -750;
+      this.deleteCards(); // DELETE HAND CARDS
+      this.addCardInHand(_this); // NEW HAND
+      saveCurrentArmor = this.player.getCurrentArmor();
+      saveCurrentHealth = this.player.getCurrentHealth();
+      saveCurrentAttack = this.player.getCurrentAttack();
+      journeyX++;
+      this.createJourney(journeyX); // NEW JOURNEY
+      endturn_clicked = false;
 
+    }, 3000);
       this.cameras.main.on("camerafadeoutcomplete", () => {
         text.setVisible(true);
-
-        journeyX++;
-        this.createJourney(journeyX); // NEW JOURNEY
-
         this._roundService.initPlayerForBattle(this.player);
-
-        this.fakePlayer = new Enemy(this.cache.json.get("enemy")[journeyX][Utils.getRandomInt(this.cache.json.get("enemy")[journeyX].length)]); // Add the enemy (n° day, 0/1)
-        enemyName = this.fakePlayer.getName();
-        enemyFrame = this.fakePlayer.getFrame();
-        this.createEnemy(enemyName, enemyFrame);   // NEW ENEMY or MERCHENT
-        this._roundService.startRoundPlayer(this.player, this.fakePlayer); // START ROUND OF PLAYER
-        this.initCard = -750;
-        this.deleteCards(); // DELETE HAND CARDS
-        this.addCardInHand(_this); // NEW HAND
-        saveCurrentArmor = this.player.getCurrentArmor();
-        saveCurrentHealth = this.player.getCurrentHealth();
-        saveCurrentAttack = this.player.getCurrentAttack();
 
         _this.cameras.main.fadeIn(3000, 1, 1, 1, () => { }, this);
       });
@@ -506,6 +498,9 @@ export class HudScene extends Phaser.Scene {
         text.setVisible(false);
       });
       return;
+    }else if (this.player.getCurrentHealth() <= 0) {
+      journeyX = 0;
+      this.scene.start("MainMenuScene");
     }
 
     this._roundService.startRoundEnemy(this.player, this.fakePlayer);  // START ROUND OF ENEMY
@@ -521,16 +516,14 @@ export class HudScene extends Phaser.Scene {
           this.attackEnemy()
         }, 1500);
 
+      }else{
+        endturn_clicked = false;
       }
 
     }, 500);
     this._roundService.endRoundEnemy(this.player, this.fakePlayer);
 
     if (this.fakePlayer.getCurrentHealth() <= 0) {
-
-      // si player est  mort ???
-
-      // this._roundService.endBatlle();
 
       journeyX++;
       this.createJourney(journeyX);
@@ -579,26 +572,32 @@ export class HudScene extends Phaser.Scene {
 
     this.cameras.main.fadeOut(3000, 1, 1, 1, () => {
     }, this);
+    setTimeout(() => {
+    journeyX++;
+    this.createJourney(journeyX); // NEW JOURNEY
+    
+    this._roundService.initPlayerForBattle(this.player);
+
+    this.fakePlayer = new Enemy(this.cache.json.get("enemy")[journeyX][Utils.getRandomInt(this.cache.json.get("enemy")[journeyX].length)]); // Add the enemy (n° day, 0/1)
+    enemyName = this.fakePlayer.getName();
+    enemyFrame = this.fakePlayer.getFrame();
+    this.createEnemy(enemyName, enemyFrame);   // NEW ENEMY or MERCHENT
+    this._roundService.startRoundPlayer(this.player, this.fakePlayer); // START ROUND OF PLAYER
+    this.initCard = -750;
+    this.deleteCards(); // DELETE HAND CARDS
+    this.addCardInHand(_this); // NEW HAND
+    saveCurrentArmor = this.player.getCurrentArmor();
+    saveCurrentHealth = this.player.getCurrentHealth();
+    saveCurrentAttack = this.player.getCurrentAttack();
+    endturn_clicked = false;
+  }, 3000);
 
     this.cameras.main.on("camerafadeoutcomplete", () => {
       text.setVisible(true);
 
-      journeyX++;
-      this.createJourney(journeyX); // NEW JOURNEY
+      
 
-      this._roundService.initPlayerForBattle(this.player);
-
-      this.fakePlayer = new Enemy(this.cache.json.get("enemy")[journeyX][Utils.getRandomInt(this.cache.json.get("enemy")[journeyX].length)]); // Add the enemy (n° day, 0/1)
-      enemyName = this.fakePlayer.getName();
-      enemyFrame = this.fakePlayer.getFrame();
-      this.createEnemy(enemyName, enemyFrame);   // NEW ENEMY or MERCHENT
-      this._roundService.startRoundPlayer(this.player, this.fakePlayer); // START ROUND OF PLAYER
-      this.initCard = -750;
-      this.deleteCards(); // DELETE HAND CARDS
-      this.addCardInHand(_this); // NEW HAND
-      saveCurrentArmor = this.player.getCurrentArmor();
-      saveCurrentHealth = this.player.getCurrentHealth();
-      saveCurrentAttack = this.player.getCurrentAttack();
+     
 
       _this.cameras.main.fadeIn(3000, 1, 1, 1, () => { }, this);
     });
@@ -610,17 +609,23 @@ export class HudScene extends Phaser.Scene {
 
   private createEndRound(_this: this) {  // END of ROUND + Event on click end turn
 
+    
     handText.text = this.player.getCurrentActionPoint();
     var endRound = this.add.image(760 / this.ratio, 250 / this.ratio, 'endround');
     endRound.setDisplaySize(200 / this.ratio, 100 / this.ratio);
     endRound.setInteractive();
     endRound.on("pointerdown", () => {
+      if(!endturn_clicked)
+      {
+        endturn_clicked = true;
 
-      if (this.fakePlayer.getName() !== "Merchant") {
-        this.createEndRoundEnemy(this);
+        if (this.fakePlayer.getName() !== "Merchant") {
+          this.createEndRoundEnemy(this);
 
-      } else {
-        this.createEndRoundMerchant(this);
+        } else {
+          this.createEndRoundMerchant(this);
+        }
+        
       }
     })
 
@@ -665,10 +670,6 @@ export class HudScene extends Phaser.Scene {
 
   private attackEnemy() {
 
-
-    //  setTimeout(() => {
-
-
     enemySprite.x -= 200;
     setTimeout(() => {
       enemySprite.x += 200;
@@ -689,6 +690,7 @@ export class HudScene extends Phaser.Scene {
 
     setTimeout(() => {
       damageHero.destroy();
+      endturn_clicked = false;
     }, 1200);
 
     // }, 1500);
