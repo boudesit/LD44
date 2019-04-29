@@ -159,6 +159,7 @@ export class HudScene extends Phaser.Scene {
     }
 
     private addCardInHand(_this: this) {  // Add card + Event on click card
+        this.initCard = -750;
         for (let handCard of this.player.getHand()) {
             sprite = this.add.sprite((this.initCard += 250) / this.ratio, 400 / this.ratio, handCard.spriteUrl) as any;
             sprite.setDisplaySize(200 / this.ratio, 200 / this.ratio);
@@ -172,7 +173,6 @@ export class HudScene extends Phaser.Scene {
                 x: -470 / this.ratio,
                 y: -140 / this.ratio,
                 text: (cardSprite as any).card.description,
-                //origin: { x: 0.5, y: 0.5 },
                 style: {
                     font: 'bold 16px Arial',
                     fill: 'black',
@@ -331,7 +331,21 @@ export class HudScene extends Phaser.Scene {
     private createEnemy(name : string, frame : number){     //Create automatick enemy from json (because different frame of sprite enemy)
 
    ///////////ATTENTION ICI PEUT SPAWN UN MARCHANT => CONDIFTION POUR AFFICHAGE
-    
+        if(this.fakePlayer.getName() == "Merchant")
+        {
+            var bulle = this.add.image(370 / this.ratio , -80 / this.ratio , 'bulle_merchant');
+            bulle.setDisplaySize((700) / this.ratio, (400) / this.ratio);
+            this.add.text(130 / this.ratio , -200 / this.ratio, 'Je suis le marchant !\n Veuillez faire un choix ta vie contre des cartes:\n Choix 1 : blablabla \n Choix 2 : blablabla \n Choix 3 : blablabla \n Choisissez bien !!', {
+                fontfamily : 'Arial',
+                fontWeight : 'bold',
+                fontSize: '30px',
+                fill: "black",
+                align: "center",
+                wordWrap: { width: 450 / this.ratio }
+
+            });
+        }        
+
         if (journeyX >0)
     {
         enemySprite.destroy();
@@ -362,7 +376,7 @@ export class HudScene extends Phaser.Scene {
             
             this._roundService.endRoundPlayer(this.player,this.fakePlayer); // END ROUND PLAYER 
            
-            if(this.fakePlayer.getCurrentHealth() <= 0 || this.player.getCurrentHealth() <= 0 ) // IF PLAYER OR ENEMY DIED
+            if(this.fakePlayer.getCurrentHealth() <= 0 ) // IF PLAYER OR ENEMY DIED
             {
                 if(this.player.getCurrentHealth() <= 0) // si player est  mort 
                 {
@@ -403,7 +417,7 @@ export class HudScene extends Phaser.Scene {
              }, 2000);   
            }
            this._roundService.endRoundEnemy(this.player,this.fakePlayer);
-           if(this.player.getCurrentHealth() <= 0 || this.fakePlayer.getCurrentHealth() <= 0)
+           if(this.fakePlayer.getCurrentHealth() <= 0)
            {
                // si player est  mort ???
 
@@ -422,6 +436,9 @@ export class HudScene extends Phaser.Scene {
                 saveCurrentHealth = this.player.getCurrentHealth();
                 saveCurrentAttack = this.player.getCurrentAttack();
                 return;
+           } else if (this.player.getCurrentHealth() <= 0) {
+                journeyX = 0;
+                this.scene.start("MainMenuScene");
            }
 
            this._roundService.startRoundPlayer(this.player,this.fakePlayer);

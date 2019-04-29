@@ -32,6 +32,7 @@ export class PreloadScene extends Phaser.Scene {
         this.load.spritesheet('hero_attack', 'assets/sprites/hero_attack_sprite.png',{ frameWidth: 200, frameHeight: 300 });
         this.load.spritesheet('journey', 'assets/images/parcours.png',{ frameWidth: 1000, frameHeight: 100 });
         this.load.spritesheet('parchment', 'assets/Cards/carte_texte.png',{ frameWidth: 350, frameHeight: 200 });
+        this.load.spritesheet('bulle_merchant', 'assets/animations/bulle_hero.png',{ frameWidth: 700, frameHeight: 600 });
 
 
             //Enemy

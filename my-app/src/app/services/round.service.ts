@@ -36,7 +36,7 @@ export class RoundService {
   }
 
   roundEnemy(enemy: Enemy) {
-    let action = enemy.actions[Utils.getRandomInt(enemy.actions.length - 1)];
+    let action = enemy.actions[Utils.getRandomInt(enemy.actions.length)];
     this.enemyActionService.isUsed(enemy, action);
   }
 

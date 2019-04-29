@@ -2,6 +2,8 @@ export class Menu  {
 
     menu : Phaser.GameObjects.Text;
 
+    alreadyStart : boolean = false;
+
     constructor(scene , x : number, y : number, text : string, sceneToLoad : string) {
         
         this.menu = scene.add.text(x , y, text, { color: 'grey', opacity : 0.0 } );
@@ -31,7 +33,12 @@ export class Menu  {
         if(sceneToLoad) {
             
             this.menu.on('pointerdown', function(){
-                scene.scene.start(sceneToLoad);
+                if(scene.scene.isActive(sceneToLoad)) {
+
+                    scene.scene.restart(sceneToLoad);
+                } else {
+                    scene.scene.start(sceneToLoad);
+                }
             });
         }
 
