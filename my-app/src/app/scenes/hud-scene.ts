@@ -184,7 +184,7 @@ export class HudScene extends Phaser.Scene {
                 
                 if(!statutIsplayed)
                 {
-                    var text = this.add.text(-200 / this.ratio , 300 / this.ratio, 'TA PLUS DE POINT CONNARD !!!', {
+                    var text = this.add.text(-200 / this.ratio , -400 / this.ratio, 'TA PLUS DE POINT CONNARD !!!', {
                         fontfamily : 'BIT',
                         fontSize: '32px',
                         fill: "white",
