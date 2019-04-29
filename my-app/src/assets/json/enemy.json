@@ -53,7 +53,7 @@
     {
       "name": "Frodo",
       "level": 1,
-      "frame": 7,
+      "frame": 6,
       "text": "Mwahaha",
       "maxHealth": 10,
       "currentHealth": 10,
@@ -86,7 +86,7 @@
     {
       "name": "Razmo",
       "level": 2,
-      "frame": 6,
+      "frame": 7,
       "text": "Skkkkrit, skkkrit, skkkkkkkkkRIT !!",
       "maxHealth": 15,
       "currentHealth": 15,
@@ -105,7 +105,7 @@
     {
       "name": "Cultiz",
       "level": 2,
-      "frame": 6,
+      "frame": 7,
       "text": "Come with me, coooooome with me !",
       "maxHealth": 15,
       "currentHealth": 15,
