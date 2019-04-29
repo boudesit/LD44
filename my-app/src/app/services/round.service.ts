@@ -5,11 +5,19 @@ import { Effect } from '../objects/effect';
 import { EffectCondition } from '../objects/effectCondition';
 import { EnemyActionService } from '../services/enemyAction.service'
 
-import {Utils} from './utils';
+import { Utils } from './utils';
 
 export class RoundService {
 
   enemyActionService: EnemyActionService = new EnemyActionService();
+
+  initPlayerForBattle(player: Player) {
+    player.setCurrentActionPoint(player.getMaxActionPoint());
+    player.setCurrentHealth(player.getMaxHealth());
+    player.setDeck(Utils.shuffle(player.getDeck().concat(player.getDiscard().concat(player.getHand()))));
+    player.setDiscard([]);
+    player.setHand([]);
+  }
 
   startRoundPlayer(player: Player, enemy: Enemy) {
     console.log(player);
@@ -48,7 +56,7 @@ export class RoundService {
 }
 
 function draw(player: Player, n: number) {
-  while(player.getHand().length > 0){
+  while (player.getHand().length > 0) {
     player.getDiscard().push(player.getHand().pop());
   }
 
@@ -86,7 +94,7 @@ function applyEffects(character1: Character, character2: Character) {
         if (effect.type === 'protect') {
           character1.setIsProtected(true);
         }
-        if (effect.type === 'poison' && ! character1.getIsImmune()) {
+        if (effect.type === 'poison' && !character1.getIsImmune()) {
           let poisonDamage = (character2.getCurrentAttack() - character1.getCurrentArmor()) / 2;
           character1.setCurrentHealth(character1.getCurrentHealth() - poisonDamage);
         }
@@ -129,41 +137,41 @@ function inflictEffects(player: Player, enemy: Enemy, effects: Effect[]) {
 }
 
 function areConditionsFullfiled(player: Player, enemy: Enemy, conditions: EffectCondition[]) {
-   if(conditions.length > 0) {
-    for(let condition of conditions) {
-      if(condition.type === 'state' && condition.caracteristic === 'stun') {
-        if((condition.target === 'enemy' && !enemy.getIsStuned())
-        || (condition.target === 'player' && !player.getIsStuned())){
+  if (conditions.length > 0) {
+    for (let condition of conditions) {
+      if (condition.type === 'state' && condition.caracteristic === 'stun') {
+        if ((condition.target === 'enemy' && !enemy.getIsStuned())
+          || (condition.target === 'player' && !player.getIsStuned())) {
           return false;
         }
       }
-      if(condition.type === 'state' && condition.caracteristic === 'immune') {
-        if((condition.target === 'enemy' && !enemy.getIsImmune())
-        || (condition.target === 'player' && !player.getIsImmune())){
+      if (condition.type === 'state' && condition.caracteristic === 'immune') {
+        if ((condition.target === 'enemy' && !enemy.getIsImmune())
+          || (condition.target === 'player' && !player.getIsImmune())) {
           return false;
         }
       }
-      if(condition.type === 'state' && condition.caracteristic === 'protected') {
-        if((condition.target === 'enemy' && !enemy.getIsProtected())
-        || (condition.target === 'player' && !player.getIsProtected())){
+      if (condition.type === 'state' && condition.caracteristic === 'protected') {
+        if ((condition.target === 'enemy' && !enemy.getIsProtected())
+          || (condition.target === 'player' && !player.getIsProtected())) {
           return false;
         }
       }
-      if(condition.type === 'stats' && condition.caracteristic === 'attack') {
-        if((condition.target === 'enemy' && !(enemy.getCurrentAttack() > condition.value))
-        || (condition.target === 'player' && !(player.getCurrentAttack() > condition.value))){
+      if (condition.type === 'stats' && condition.caracteristic === 'attack') {
+        if ((condition.target === 'enemy' && !(enemy.getCurrentAttack() > condition.value))
+          || (condition.target === 'player' && !(player.getCurrentAttack() > condition.value))) {
           return false;
         }
       }
-      if(condition.type === 'stats' && condition.caracteristic === 'armor') {
-        if((condition.target === 'enemy' && !(enemy.getCurrentArmor() > condition.value))
-        || (condition.target === 'player' && !(player.getCurrentArmor() > condition.value))){
+      if (condition.type === 'stats' && condition.caracteristic === 'armor') {
+        if ((condition.target === 'enemy' && !(enemy.getCurrentArmor() > condition.value))
+          || (condition.target === 'player' && !(player.getCurrentArmor() > condition.value))) {
           return false;
         }
       }
-      if(condition.type === 'stats' && condition.caracteristic === 'health') {
-        if((condition.target === 'enemy' && !(enemy.getCurrentHealth() > condition.value))
-        || (condition.target === 'player' && !(player.getCurrentHealth() > condition.value))){
+      if (condition.type === 'stats' && condition.caracteristic === 'health') {
+        if ((condition.target === 'enemy' && !(enemy.getCurrentHealth() > condition.value))
+          || (condition.target === 'player' && !(player.getCurrentHealth() > condition.value))) {
           return false;
         }
       }
