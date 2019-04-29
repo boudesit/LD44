@@ -91,7 +91,10 @@ export class HudScene extends Phaser.Scene {
         for(let cardObj of this.cache.json.get("cards")) {
             this.cards.push(cardObj);
         }
-
+        
+        var theme = this.sound.add("game");
+        theme.play('',{loop : true});
+       
         this.deck = this._cardService.createDeck(this.cards);
 
         this.player.setDeck(this.deck);
@@ -205,6 +208,9 @@ export class HudScene extends Phaser.Scene {
                 {
                     if(this.player.getIsStuned())
                     {
+                        var noselect = this.sound.add("noselect");
+                        noselect.play();
+                       
                         var text = this.add.text(-200 / this.ratio , -400 / this.ratio, 'STTTTUUUUNNNNNN', {
                             font : 'Arial',
                             fontSize: '64px',
@@ -219,6 +225,8 @@ export class HudScene extends Phaser.Scene {
                         
 
                     }else{
+                        var noselect2 = this.sound.add("noselect");
+                        noselect2.play();
 
                         var text = this.add.text(-200 / this.ratio , -400 / this.ratio, 'You have no point of action !!!', {
                             font : 'Britannic Bold',
@@ -237,6 +245,9 @@ export class HudScene extends Phaser.Scene {
                     return;
                 }else{
 
+                    var cardmp3 = this.sound.add("carte");
+                    cardmp3.play();
+
                     _this.parchment.setVisible(false);
                     textCard.setVisible(false);
                     cardSprite.destroy();
@@ -246,6 +257,9 @@ export class HudScene extends Phaser.Scene {
                 if(saveCurrentArmor != this.player.getCurrentArmor())
                 {
                     //boost_armor
+                    var armormp3 = this.sound.add("boost1");
+                    armormp3.play();
+
                     var configBoostArmor = {
                         key: 'boostArmor',
                         frames: this.anims.generateFrameNumbers("boost_armor", { start: 0, end: 10 }),
@@ -269,6 +283,10 @@ export class HudScene extends Phaser.Scene {
                 if(saveCurrentHealth < this.player.getCurrentHealth())
                 {
                     //boost_Health
+
+                    var healthmp3 = this.sound.add("boost2");
+                    healthmp3.play();
+
                     var configBoostHealth = {
                         key: 'boostHealth',
                         frames: this.anims.generateFrameNumbers("boost_health", { start: 0, end: 10 }),
@@ -291,6 +309,9 @@ export class HudScene extends Phaser.Scene {
                 if(saveCurrentAttack < this.player.getCurrentAttack())
                 {
                     //boost_attack
+                    var attackmp3 = this.sound.add("boost3");
+                    attackmp3.play();
+
                     var configBoostAttack = {
                         key: 'boostAttack',
                         frames: this.anims.generateFrameNumbers("boost_attack", { start: 0, end: 10 }),
@@ -501,11 +522,18 @@ export class HudScene extends Phaser.Scene {
            this._roundService.startRoundEnemy(this.player,this.fakePlayer);  // START ROUND OF ENEMY
            this._roundService.roundEnemy(this.fakePlayer); // ROUND OF ENEMY
 
+            var attackmp3 = this.sound.add("monster_attack");
+           
+            setTimeout(() => {
+             attackmp3.play();
+
            if(this.fakePlayer.getCurrentAttack() >0){  // SPRITE ATTACK ENEMY
             setTimeout(() => {
                 this.attackEnemy()
-             }, 2000);
+             }, 1500);
+             
            }
+        }, 500);
            this._roundService.endRoundEnemy(this.player,this.fakePlayer);
            if(this.fakePlayer.getCurrentHealth() <= 0 || this.fakePlayer.getName() === "Merchant")
            {
@@ -553,6 +581,9 @@ export class HudScene extends Phaser.Scene {
 
      private attackHero(){
 
+        var attackmp3 = this.sound.add("epee");
+        attackmp3.play();
+        
         heroSprite.visible = false;
 
         attackHeroSprite = this.add.sprite(-800 / this.ratio, 150 / this.ratio, 'hero_attack').setScale(1);
@@ -586,6 +617,11 @@ export class HudScene extends Phaser.Scene {
     }
 
     private attackEnemy(){
+
+       
+      //  setTimeout(() => {
+           
+
         enemySprite.x -= 200;
         setTimeout(() => {
             enemySprite.x += 200;
@@ -608,6 +644,7 @@ export class HudScene extends Phaser.Scene {
             damageHero.destroy();
          }, 1200);
 
+       // }, 1500);
     }
 
     private createJourney(journey : number){
