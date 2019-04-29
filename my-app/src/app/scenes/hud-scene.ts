@@ -94,13 +94,13 @@ export class HudScene extends Phaser.Scene {
         this.createEndRound(_this); // Creat end round méthod
         this.createJourney(journeyX); //Update journey
         this.createDeck(); // Creat deck méthod
-      
+
 
         this.parchment = this.add.image(-350 / this.ratio , -100 / this.ratio , 'parchment');
         this.parchment.setDisplaySize(350 / this.ratio, 200 / this.ratio);
         this.parchment.alpha=0.8;
         this.parchment.setVisible(false);
-        
+
         this._roundService.startRoundPlayer(this.player, this.fakePlayer);
         this.addCardInHand(_this);
     }
@@ -139,7 +139,7 @@ export class HudScene extends Phaser.Scene {
             fill: "white",
             align: "center"
         });
-         
+
          armorText = this.add.text(-870 / this.ratio , -400 / this.ratio, ''+this.player.getCurrentArmor(), {
             fontfamily : 'BIT',
             fontSize: '32px',
@@ -190,7 +190,7 @@ export class HudScene extends Phaser.Scene {
             cardSprite.on("pointerdown", () => {
                 statutIsplayed = _this._cardService.isPlayed(_this.player, (cardSprite as any).card);
                 currentArmor = this.player.getCurrentArmor();
-                
+
                 if(!statutIsplayed)
                 {
                     var text = this.add.text(-200 / this.ratio , -400 / this.ratio, 'TA PLUS DE POINT CONNARD !!!', {
@@ -199,7 +199,7 @@ export class HudScene extends Phaser.Scene {
                         fill: "white",
                         align: "center"
 
-                    });           
+                    });
                     setTimeout(() => {
                         text.destroy();
                      }, 500);
@@ -208,22 +208,22 @@ export class HudScene extends Phaser.Scene {
 
                     _this.parchment.setVisible(false);
                     textCard.setVisible(false);
-                    cardSprite.destroy(); 
-                    
+                    cardSprite.destroy();
+
                 }
-               
+
                 if(saveCurrentArmor != this.player.getCurrentArmor())
                 {
                     //boost_armor
                     var configBoostArmor = {
                         key: 'boostArmor',
-                        frames: this.anims.generateFrameNumbers("boost_armor", { start: 0, end: 10 }), 
+                        frames: this.anims.generateFrameNumbers("boost_armor", { start: 0, end: 10 }),
                         frameRate: 30,
-                     
+
                     };
-            
+
                     this.anims.create(configBoostArmor);
-            
+
                     var boostArmor = this.add.sprite(-800 / this.ratio, 150 / this.ratio, "boost_armor");
                     boostArmor.setDisplaySize(250 / this.ratio, 250 / this.ratio);
                     boostArmor.alpha = 0.5;
@@ -240,13 +240,13 @@ export class HudScene extends Phaser.Scene {
                     //boost_Health
                     var configBoostHealth = {
                         key: 'boostHealth',
-                        frames: this.anims.generateFrameNumbers("boost_health", { start: 0, end: 10 }), 
+                        frames: this.anims.generateFrameNumbers("boost_health", { start: 0, end: 10 }),
                         frameRate: 30,
-                     
+
                     };
-            
+
                     this.anims.create(configBoostHealth);
-            
+
                     var boostHealth = this.add.sprite(-800 / this.ratio, 150 / this.ratio, "boost_health");
                     boostHealth.setDisplaySize(250 / this.ratio, 250 / this.ratio);
                     boostHealth.alpha = 0.5;
@@ -262,13 +262,13 @@ export class HudScene extends Phaser.Scene {
                     //boost_attack
                     var configBoostAttack = {
                         key: 'boostAttack',
-                        frames: this.anims.generateFrameNumbers("boost_attack", { start: 0, end: 10 }), 
+                        frames: this.anims.generateFrameNumbers("boost_attack", { start: 0, end: 10 }),
                         frameRate: 30,
-                     
+
                     };
-            
+
                     this.anims.create(configBoostAttack);
-            
+
                     var boostAttack = this.add.sprite(-800 / this.ratio, 150 / this.ratio, "boost_attack");
                     boostAttack.setDisplaySize(250 / this.ratio, 250 / this.ratio);
                     boostAttack.alpha = 0.5;
@@ -282,23 +282,23 @@ export class HudScene extends Phaser.Scene {
                 saveCurrentArmor = this.player.getCurrentArmor();
                 saveCurrentHealth = this.player.getCurrentHealth();
                 saveCurrentAttack = this.player.getCurrentAttack();
-               
+
             });
             cardSprite.on('pointerover', function (event, gameObjects) {
-                    
+
                     _this.parchment.setVisible(true);
                     textCard.setVisible(true);
 
-                   
+
             });
             cardSprite.on('pointerout', function (event, gameObjects) {
-                    
+
                     _this.parchment.setVisible(false);
                     textCard.setVisible(false);
 
-                   
+
             });
-        }        
+        }
     }
 
     private createHero() {
@@ -338,7 +338,7 @@ export class HudScene extends Phaser.Scene {
             var bulle = this.add.image(390 / this.ratio , -120 / this.ratio , 'bulle_merchant');
             bulle.setDisplaySize((700) / this.ratio, (600) / this.ratio);
             this.add.text(170 / this.ratio , -350 / this.ratio, this._merchantService.createOptions(this.cards).text , {
-            
+
                 fontfamily : 'Arial Black',
                 fontSize: '30px',
                 fill: "black",
@@ -374,7 +374,7 @@ export class HudScene extends Phaser.Scene {
                // wordWrap: { width: 450 / this.ratio }
             });
 
-        }        
+        }
 
         if (journeyX >0)
     {
@@ -397,18 +397,18 @@ export class HudScene extends Phaser.Scene {
     }
 
     private createEndRound(_this: this) {  // END of ROUND + Event on click end turn
-     
+
         handText.text = this.player.getCurrentActionPoint();
         var endRound = this.add.image(760 / this.ratio , 250 / this.ratio , 'endround');
         endRound.setDisplaySize(200 / this.ratio, 100 / this.ratio);
         endRound.setInteractive();
         endRound.on("pointerdown", ()=> {
-            
-            this._roundService.endRoundPlayer(this.player,this.fakePlayer); // END ROUND PLAYER 
-           
+
+            this._roundService.endRoundPlayer(this.player,this.fakePlayer); // END ROUND PLAYER
+
             if(this.fakePlayer.getCurrentHealth() <= 0 ) // IF PLAYER OR ENEMY DIED
             {
-                if(this.player.getCurrentHealth() <= 0) // si player est  mort 
+                if(this.player.getCurrentHealth() <= 0) // si player est  mort
                 {
                     var text_gameover = this.add.text(-200 / this.ratio , -400 / this.ratio, 'TA PERDU CONNARD !!!', {
                         fontfamily : 'BIT',
@@ -417,12 +417,15 @@ export class HudScene extends Phaser.Scene {
                         align: "center"
 
                     });
-                   
+
                     heroSprite.destroy();
                 }
-           
+
                 journeyX++;
                 this.createJourney(journeyX); // NEW JOURNEY
+
+                this._roundService.initPlayerForBattle(this.player);
+
                 this.fakePlayer = new Enemy(this.cache.json.get("enemy")[journeyX][Utils.getRandomInt(this.cache.json.get("enemy")[journeyX].length)]); // Add the enemy (n° day, 0/1)
                  enemyName = this.fakePlayer.getName();
                  enemyFrame = this.fakePlayer.getFrame();
@@ -440,24 +443,27 @@ export class HudScene extends Phaser.Scene {
 
            this._roundService.startRoundEnemy(this.player,this.fakePlayer);  // START ROUND OF ENEMY
            this._roundService.roundEnemy(this.fakePlayer); // ROUND OF ENEMY
-           
+
            if(this.fakePlayer.getCurrentAttack() >0){  // SPRITE ATTACK ENEMY
             setTimeout(() => {
                 this.attackEnemy()
-             }, 2000);   
+             }, 2000);
            }
            this._roundService.endRoundEnemy(this.player,this.fakePlayer);
            if(this.fakePlayer.getCurrentHealth() <= 0)
            {
                // si player est  mort ???
 
-                // this._roundService.endBatlle();  
+                // this._roundService.endBatlle();
                 journeyX++;
                 this.createJourney(journeyX);
+
+                this._roundService.initPlayerForBattle(this.player);
+
                 this.fakePlayer = new Enemy(this.cache.json.get("enemy")[journeyX][Utils.getRandomInt(this.cache.json.get("enemy")[journeyX].length)]); // Add the enemy (n° day, 0/1)
                 enemyName = this.fakePlayer.getName();
                 enemyFrame = this.fakePlayer.getFrame();
-                this.createEnemy(enemyName,enemyFrame);  
+                this.createEnemy(enemyName,enemyFrame);
                 this._roundService.startRoundPlayer(this.player,this.fakePlayer);
                 this.initCard  = -750;
                 this.deleteCards();
@@ -488,7 +494,7 @@ export class HudScene extends Phaser.Scene {
     }
 
      private attackHero(){
-        
+
         heroSprite.visible = false;
 
         attackHeroSprite = this.add.sprite(-800 / this.ratio, 150 / this.ratio, 'hero_attack').setScale(1);
@@ -547,7 +553,7 @@ export class HudScene extends Phaser.Scene {
     }
 
     private createJourney(journey : number){
-         
+
     if (journeyX >0)
     {
         spriteJourney.destroy();
