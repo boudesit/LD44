@@ -255,7 +255,7 @@ export class HudScene extends Phaser.Scene {
 
                     }
                     return;
-                }else{
+                } else {
 
                     var cardmp3 = this.sound.add("carte");
                     cardmp3.play();
@@ -536,13 +536,15 @@ export class HudScene extends Phaser.Scene {
                 return;
 
             } 
+
+
+           this._roundService.startRoundEnemy(this.player,this.fakePlayer);  // START ROUND OF ENEMY
+           this._roundService.roundEnemy(this.fakePlayer); // ROUND OF ENEMY
+
             if (this.player.getCurrentHealth() <= 0) {
                 journeyX = 0;
                 this.scene.start("MainMenuScene");
             }
-
-           this._roundService.startRoundEnemy(this.player,this.fakePlayer);  // START ROUND OF ENEMY
-           this._roundService.roundEnemy(this.fakePlayer); // ROUND OF ENEMY
 
             var attackmp3 = this.sound.add("monster_attack");
            
