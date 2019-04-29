@@ -1,7 +1,7 @@
 [
   {
     "id": "1",
-    "title": "",
+    "title": "Hit !",
     "description": "This turn, gives you 1 attack.",
     "cost": 1,
     "effects": [],
@@ -14,7 +14,7 @@
   },
   {
     "id": "2",
-    "title": "",
+    "title": "Heal !",
     "description": "This turn, gives you 1 health.",
     "cost": 1,
     "effects": [],
@@ -27,7 +27,7 @@
   },
   {
     "id": "3",
-    "title": "",
+    "title": "Block ! ",
     "description": "This turn, gives you 1 armor.",
     "cost": 1,
     "effects": [],
@@ -40,7 +40,7 @@
   },
   {
     "id": "4",
-    "title": "Attack ++",
+    "title": "Hit Hit !",
     "description": "This turn, gives you 2 attack.",
     "cost": 2,
     "effects": [],
@@ -53,7 +53,7 @@
   },
   {
     "id": "5",
-    "title": "Life ++",
+    "title": "Heal Heal !",
     "description": "This turn, gives you 2 health.",
     "cost": 2,
     "effects": [],
@@ -66,7 +66,7 @@
   },
   {
     "id": "6",
-    "title": "Armor ++",
+    "title": "Block ! Block !",
     "description": "This turn, gives you 2 armor.",
     "cost": 2,
     "effects": [],
@@ -79,7 +79,7 @@
   },
   {
     "id": "7",
-    "title": "Attack +++",
+    "title": "Hit ! Hit ! Hit harder !",
     "description": "This turn, gives you 3 attack.",
     "cost": 3,
     "effects": [],
@@ -92,7 +92,7 @@
   },
   {
     "id": "8",
-    "title": "Life +++",
+    "title": "Heal ! Heal ! Heal better !",
     "description": "This turn, gives you 3 health.",
     "cost": 3,
     "effects": [],
@@ -105,7 +105,7 @@
   },
   {
     "id": "9",
-    "title": "Armor +++",
+    "title": "Block ! Block ! Block stronger !",
     "description": "This turn, gives you 3 armor.",
     "cost": 3,
     "effects": [],
@@ -118,7 +118,7 @@
   },
   {
     "id": "10",
-    "title": "Attack + life +",
+    "title": "Scratch !",
     "description": "This turn, your opponent becomes poisoned ",
     "cost": 2,
     "effects": [
@@ -143,7 +143,7 @@
   },
   {
     "id": "11",
-    "title": "Attack + armor +",
+    "title": "Prepare for battle",
     "description": "Gives you 1 attack this turn and 1 armor the next one.",
     "cost": 2,
     "effects": [
@@ -153,7 +153,7 @@
         "probability": 100,
         "conditions": [],
         "duration": 1,
-        "delay": 1,
+        "delay": 0,
         "attack": 0,
         "armor": 1,
         "health": 0
@@ -168,8 +168,8 @@
   },
   {
     "id": "12",
-    "title": "Life + armor +",
-    "description": "If you have at least X attack points, you opponent becomes stunned 1 turn.",
+    "title": "Fear me !",
+    "description": "If you have at least 5 attack points, you opponent becomes stunned 1 turn.",
     "cost": 2,
     "effects": [
       {
@@ -200,7 +200,7 @@
   },
   {
     "id": "13",
-    "title": "like + armor ++",
+    "title": "Enjoy the weakness",
     "description": "If your opponent is stunned, gives you 1 attack the next turn.",
     "cost": 3,
     "effects": [
@@ -217,9 +217,9 @@
           }
         ],
         "duration": 1,
-        "delay": 1,
-        "attack": 0,
-        "armor": 1,
+        "delay": 0,
+        "attack": 1,
+        "armor": 0,
         "health": 0
       }
     ],
@@ -232,7 +232,7 @@
   },
   {
     "id": "14",
-    "title": "Atack + Life ++  armor +",
+    "title": "Shielded !",
     "description": "For the next two turns, you take half damages",
     "cost": 3,
     "effects": [
@@ -257,8 +257,8 @@
   },
   {
     "id": "15",
-    "title": "Attack ++  life + Armor ++",
-    "description": "You have 66% chance to become immune this turn.",
+    "title": "Emergency",
+    "description": "You have 66% chance to become immune next turn.",
     "cost": 5,
     "effects": [
       {
@@ -282,7 +282,7 @@
   },
   {
     "id": "16",
-    "title": "Attack ++++",
+    "title": "That card is poisoooon",
     "description": "Your opponent is poisoned for 2 turns.",
     "cost": 5,
     "effects": [
@@ -291,7 +291,7 @@
         "target": "enemy",
         "probability": 100,
         "conditions": [],
-        "duration": 1,
+        "duration": 2,
         "delay": 0,
         "attack": null,
         "armor": null,
@@ -307,7 +307,7 @@
   },
   {
     "id": "17",
-    "title": "Attack +++++",
+    "title": "I'm about to end this man's whole barrier",
     "description": "You get 3 attack and have 50% change to get 2 next turn.",
     "cost": 5,
     "effects": [
@@ -332,7 +332,7 @@
   },
   {
     "id": "18",
-    "title": "Life +++  Armor +++",
+    "title": "You're shivering, aren't you ?",
     "description": "Your opponent is stunned and poisoned for 1 turn.",
     "cost": 5,
     "effects": [
@@ -368,10 +368,11 @@
   },
   {
     "id": "19",
-    "title": "Attack +  Armor ++++",
+    "title": "And my armor !",
     "description": "Give you 1 armor next turn.",
     "cost": 5,
-    "effects": [{
+    "effects": [
+      {
         "type": "boost",
         "target": "player",
         "probability": 100,
@@ -381,7 +382,8 @@
         "attack": 0,
         "armor": 1,
         "health": 0
-      }],
+      }
+    ],
     "attack": 1,
     "armor": 4,
     "heal": 0,
@@ -391,10 +393,11 @@
   },
   {
     "id": "20",
-    "title": "Life +++++  Armor +",
-    "description": "Give you 3 attack next turn",
-    "cost": 4,
-    "effects": [{
+    "title": "Get Ready !",
+    "description": "Next turn, you will have 3 attack points",
+    "cost": 5,
+    "effects": [
+      {
         "type": "boost",
         "target": "player",
         "probability": 100,
@@ -404,9 +407,10 @@
         "attack": 3,
         "armor": 0,
         "health": 0
-      }],
+      }
+    ],
     "attack": 0,
-    "armor": 1,
+    "armor": 2,
     "heal": 5,
     "score": 0,
     "merchantCost": 0,
@@ -414,10 +418,11 @@
   },
   {
     "id": "21",
-    "title": "",
-    "description": "Your opponent has + 1 attack the next turn.",
+    "title": "Prepare for battle !",
+    "description": "Your opponent has + 1 attack point the next turn.",
     "cost": 1,
-    "effects": [{
+    "effects": [
+      {
         "type": "boost",
         "target": "enemy",
         "probability": 100,
@@ -427,7 +432,8 @@
         "attack": 1,
         "armor": 0,
         "health": 0
-      }],
+      }
+    ],
     "attack": 1,
     "armor": 1,
     "heal": 0,
@@ -437,10 +443,11 @@
   },
   {
     "id": "22",
-    "title": "",
-    "description": "Gives your opponent and yourself  2 more health.",
+    "title": "Spark the life ",
+    "description": "Gives your opponent and yourself 2 health points.",
     "cost": 1,
-    "effects": [{
+    "effects": [
+      {
         "type": "boost",
         "target": "enemy",
         "probability": 100,
@@ -449,10 +456,11 @@
         "delay": 0,
         "attack": 0,
         "armor": 0,
-        "health": 1
-      }],
+        "health": 2
+      }
+    ],
     "attack": 0,
-    "armor": 1,
+    "armor": 0,
     "heal": 2,
     "score": 0,
     "merchantCost": 0,
@@ -460,10 +468,11 @@
   },
   {
     "id": "23",
-    "title": "",
+    "title": "I just bliked…",
     "description": "You take 2 damages the next turn",
     "cost": 2,
-    "effects": [{
+    "effects": [
+      {
         "type": "boost",
         "target": "player",
         "probability": 100,
@@ -473,7 +482,8 @@
         "attack": 0,
         "armor": 0,
         "health": -2
-      }],
+      }
+    ],
     "attack": 2,
     "armor": 0,
     "heal": 0,
@@ -483,10 +493,11 @@
   },
   {
     "id": "24",
-    "title": "",
+    "title": " Eeeeer",
     "description": "you become poisoned for 1 turn",
     "cost": 2,
-    "effects": [{
+    "effects": [
+      {
         "type": "poison",
         "target": "player",
         "probability": 100,
@@ -496,7 +507,8 @@
         "attack": null,
         "armor": null,
         "health": null
-      }],
+      }
+    ],
     "attack": 0,
     "armor": 1,
     "heal": 2,
@@ -506,33 +518,36 @@
   },
   {
     "id": "25",
-    "title": "",
-    "description": "Gives you 3 health, then you'll lose 3 health in 2 turns",
+    "title": "Despair Energy",
+    "description": "Gives you 3 health points, then you'll lose 3 health points 2 turns from now",
     "cost": 2,
-    "effects": [{
+    "effects": [
+      {
         "type": "boost",
         "target": "player",
         "probability": 100,
         "conditions": [],
         "duration": 1,
         "delay": 2,
-        "attack": 3,
+        "attack": 0,
         "armor": 0,
-        "health": -2
-      }],
+        "health": -3
+      }
+    ],
     "attack": 0,
     "armor": 0,
-    "heal": 2,
+    "heal": 3,
     "score": 0,
     "merchantCost": 0,
     "spriteUrl": "Carte_25"
   },
   {
     "id": "26",
-    "title": "",
-    "description": "Gives 2 attack to your opponent",
+    "title": "Take that !",
+    "description": "Gives 2 attack points to your opponent",
     "cost": 2,
-    "effects": [{
+    "effects": [
+      {
         "type": "boost",
         "target": "enemy",
         "probability": 100,
@@ -542,7 +557,8 @@
         "attack": 2,
         "armor": 0,
         "health": 0
-      }],
+      }
+    ],
     "attack": 1,
     "armor": 1,
     "heal": 1,
@@ -552,10 +568,11 @@
   },
   {
     "id": "27",
-    "title": "",
+    "title": "Toastyyy! ",
     "description": "50 % chance for your opponent to deal 5 more damage this turn",
     "cost": 3,
-    "effects": [{
+    "effects": [
+      {
         "type": "boost",
         "target": "enemy",
         "probability": 50,
@@ -565,7 +582,8 @@
         "attack": 5,
         "armor": 0,
         "health": 0
-      }],
+      }
+    ],
     "attack": 1,
     "armor": 2,
     "heal": 2,
@@ -575,8 +593,8 @@
   },
   {
     "id": "28",
-    "title": "",
-    "description": "Increases your attack by 4 but decreases your life AND you armor by 2 ",
+    "title": "Berzerk",
+    "description": "Increases your attack by 4 points but decreases your health AND you armor by 2 points",
     "cost": 3,
     "effects": [],
     "attack": 4,
@@ -588,38 +606,43 @@
   },
   {
     "id": "29",
-    "title": "",
+    "title": "Price to pay",
     "description": "If your opponent is stunned, you become poisoned for 2 turns.",
-    "cost": 4,
-    "effects": [{
+    "cost": 3,
+    "effects": [
+      {
         "type": "poison",
         "target": "player",
         "probability": 100,
-        "conditions": [{
+        "conditions": [
+          {
             "target": "enemy",
             "type": "state",
             "caracteristic": "stun",
             "value": null
-          }],
+          }
+        ],
         "duration": 2,
         "delay": 0,
         "attack": null,
         "armor": null,
         "health": null
-      }],
-    "attack": 0,
-    "armor": 1,
-    "heal": 5,
+      }
+    ],
+    "attack": 2,
+    "armor": 2,
+    "heal": 0,
     "score": 0,
     "merchantCost": 0,
     "spriteUrl": "Carte_29"
   },
   {
     "id": "30",
-    "title": "",
+    "title": "Sooty",
     "description": "You have 50% chance to miss your next attack",
     "cost": 4,
-    "effects": [{
+    "effects": [
+      {
         "type": "boost",
         "target": "player",
         "probability": 50,
@@ -629,20 +652,22 @@
         "attack": -100,
         "armor": 0,
         "health": 0
-      }],
+      }
+    ],
     "attack": 4,
     "armor": -3,
-    "heal": 0,
+    "heal": 1,
     "score": 0,
     "merchantCost": 0,
     "spriteUrl": "Carte_30"
   },
   {
     "id": "31",
-    "title": "",
+    "title": "Bong!",
     "description": "You get stunned the next turn",
     "cost": 4,
-    "effects": [{
+    "effects": [
+      {
         "type": "stun",
         "target": "player",
         "probability": 100,
@@ -652,7 +677,8 @@
         "attack": null,
         "armor": null,
         "health": null
-      }],
+      }
+    ],
     "attack": 0,
     "armor": 2,
     "heal": 3,
@@ -662,10 +688,11 @@
   },
   {
     "id": "32",
-    "title": "",
+    "title": "Hemophilius",
     "description": "If your opponent hits you this turn, you'll take 3 more damages",
     "cost": 3,
-    "effects": [{
+    "effects": [
+      {
         "type": "boost",
         "target": "enemy",
         "probability": 100,
@@ -675,20 +702,22 @@
         "attack": 3,
         "armor": 0,
         "health": 0
-      }],
+      }
+    ],
     "attack": 3,
     "armor": 2,
-    "heal": -4,
+    "heal": -3,
     "score": 0,
     "merchantCost": 0,
     "spriteUrl": "Carte_32"
   },
   {
     "id": "33",
-    "title": "",
+    "title": "Blindfolded",
     "description": "You have 60% chance to miss next turn.",
     "cost": 4,
-    "effects": [{
+    "effects": [
+      {
         "type": "boost",
         "target": "player",
         "probability": 60,
@@ -698,7 +727,8 @@
         "attack": -100,
         "armor": 0,
         "health": 0
-      }],
+      }
+    ],
     "attack": 5,
     "armor": -2,
     "heal": -1,
@@ -708,10 +738,11 @@
   },
   {
     "id": "34",
-    "title": "",
+    "title": "An opening ",
     "description": "You loose 2 armor points this turn, and the next one too.",
     "cost": 4,
-    "effects": [{
+    "effects": [
+      {
         "type": "boost",
         "target": "player",
         "probability": 100,
@@ -721,7 +752,8 @@
         "attack": 0,
         "armor": -2,
         "health": 0
-      }],
+      }
+    ],
     "attack": 5,
     "armor": -2,
     "heal": 0,
@@ -731,10 +763,11 @@
   },
   {
     "id": "35",
-    "title": "",
-    "description": "For the next 3 turns, you loose 1 health and 2 armor",
+    "title": "On your side !",
+    "description": "For the next 3 turns, you loose 1 health point and 2 armor points",
     "cost": 4,
-    "effects": [{
+    "effects": [
+      {
         "type": "boost",
         "target": "player",
         "probability": 100,
@@ -744,7 +777,8 @@
         "attack": 0,
         "armor": -2,
         "health": -1
-      }],
+      }
+    ],
     "attack": 4,
     "armor": 1,
     "heal": 2,
@@ -754,7 +788,7 @@
   },
   {
     "id": "36",
-    "title": "",
+    "title": "Oupsy !",
     "description": "Nothing happened",
     "cost": 0,
     "effects": [],
@@ -767,10 +801,11 @@
   },
   {
     "id": "37",
-    "title": "",
-    "description": "50 % chance to increase your attack by 3, 50 % chance to decrease your attack by 3 next turn.",
+    "title": "For the glory ! Or for the pity…",
+    "description": "50 % chance to increase your attack by 3 points next turn, 50 % chance to decrease your attack by 3 next turn.",
     "cost": 5,
-    "effects": [{
+    "effects": [
+      {
         "type": "boost",
         "target": "player",
         "probability": 50,
@@ -780,7 +815,8 @@
         "attack": 3,
         "armor": 0,
         "health": 0
-      },{
+      },
+      {
         "type": "boost",
         "target": "player",
         "probability": 50,
@@ -790,7 +826,8 @@
         "attack": -3,
         "armor": 0,
         "health": 0
-      }],
+      }
+    ],
     "attack": 0,
     "armor": 2,
     "heal": 4,
@@ -800,10 +837,11 @@
   },
   {
     "id": "38",
-    "title": "",
+    "title": "Tough tough",
     "description": "Have a 60% change to stun you next turn.",
     "cost": 5,
-    "effects": [{
+    "effects": [
+      {
         "type": "stun",
         "target": "player",
         "probability": 60,
@@ -813,7 +851,8 @@
         "attack": null,
         "armor": null,
         "health": null
-      }],
+      }
+    ],
     "attack": 4,
     "armor": 4,
     "heal": 4,
@@ -823,10 +862,11 @@
   },
   {
     "id": "39",
-    "title": "",
-    "description": "Give your oponent +3 attack for the next 3 turns.",
+    "title": "Last chance",
+    "description": "Give your oponent +3 attack points for the next 3 turns.",
     "cost": 5,
-    "effects": [{
+    "effects": [
+      {
         "type": "boost",
         "target": "enemy",
         "probability": 100,
@@ -836,7 +876,8 @@
         "attack": 3,
         "armor": 0,
         "health": 0
-      }],
+      }
+    ],
     "attack": 5,
     "armor": 5,
     "heal": 0,
@@ -846,10 +887,11 @@
   },
   {
     "id": "40",
-    "title": "",
+    "title": "Coin flip",
     "description": "If you play this card, you have 50% chance to win this fight immediatly. And 50% to lose.",
     "cost": 5,
-    "effects": [{
+    "effects": [
+      {
         "type": "boost",
         "target": "enemy",
         "probability": 50,
@@ -859,7 +901,8 @@
         "attack": 100,
         "armor": 0,
         "health": 0
-      },{
+      },
+      {
         "type": "boost",
         "target": "enemy",
         "probability": 50,
@@ -869,7 +912,8 @@
         "attack": 0,
         "armor": 0,
         "health": -100
-      }],
+      }
+    ],
     "attack": 0,
     "armor": 0,
     "heal": 0,
@@ -879,10 +923,33 @@
   },
   {
     "id": "41",
-    "title": "",
-    "description": "Nothing happened",
+    "title": "Friendship is magic",
+    "description": "75 % chance to deal 2 extra damages for you and your opponent on your next turn",
     "cost": 0,
-    "effects": [],
+    "effects": [
+      {
+        "type": "boost",
+        "target": "player",
+        "probability": 75,
+        "conditions": [],
+        "duration": 1,
+        "delay": 0,
+        "attack": 2,
+        "armor": 0,
+        "health": 0
+      },
+      {
+        "type": "boost",
+        "target": "enemy",
+        "probability": 75,
+        "conditions": [],
+        "duration": 1,
+        "delay": 0,
+        "attack": 2,
+        "armor": 0,
+        "health": 0
+      }
+    ],
     "attack": 0,
     "armor": 0,
     "heal": 0,
@@ -892,10 +959,11 @@
   },
   {
     "id": "42",
-    "title": "",
+    "title": "Sblah Sblah !",
     "description": "Your opponent become stunned for this turn",
     "cost": 2,
-    "effects": [{
+    "effects": [
+      {
         "type": "stun",
         "target": "enemy",
         "probability": 100,
@@ -905,7 +973,8 @@
         "attack": null,
         "armor": null,
         "health": null
-      }],
+      }
+    ],
     "attack": 0,
     "armor": 0,
     "heal": 0,
@@ -915,10 +984,11 @@
   },
   {
     "id": "43",
-    "title": "",
+    "title": "Footloose",
     "description": "You have 50% chance to avoid attacks this turn.",
     "cost": 2,
-    "effects": [{
+    "effects": [
+      {
         "type": "boost",
         "target": "enemy",
         "probability": 50,
@@ -928,7 +998,8 @@
         "attack": -100,
         "armor": 0,
         "health": 0
-      }],
+      }
+    ],
     "attack": 0,
     "armor": 0,
     "heal": 0,
@@ -938,10 +1009,11 @@
   },
   {
     "id": "44",
-    "title": "",
+    "title": "Taste my medicine !",
     "description": "Gives you 100 % chance to poisoned your opponent this turn.",
     "cost": 2,
-    "effects": [{
+    "effects": [
+      {
         "type": "poison",
         "target": "enemy",
         "probability": 100,
@@ -951,7 +1023,8 @@
         "attack": null,
         "armor": null,
         "health": null
-      }],
+      }
+    ],
     "attack": 0,
     "armor": 0,
     "heal": 0,
@@ -961,7 +1034,7 @@
   },
   {
     "id": "45",
-    "title": "",
+    "title": "That's developers's fault",
     "description": "This card does nothing",
     "cost": 0,
     "effects": [],
@@ -974,10 +1047,11 @@
   },
   {
     "id": "46",
-    "title": "",
+    "title": "Envenom",
     "description": "Your opponent and you both become poisoned for the next 2 turns.",
     "cost": 2,
-    "effects": [{
+    "effects": [
+      {
         "type": "poison",
         "target": "player",
         "probability": 100,
@@ -987,7 +1061,8 @@
         "attack": null,
         "armor": null,
         "health": null
-      },{
+      },
+      {
         "type": "poison",
         "target": "enemy",
         "probability": 100,
@@ -997,7 +1072,8 @@
         "attack": null,
         "armor": null,
         "health": null
-      }],
+      }
+    ],
     "attack": 0,
     "armor": 0,
     "heal": 0,
@@ -1007,10 +1083,22 @@
   },
   {
     "id": "47",
-    "title": "",
-    "description": "This card does nothing",
+    "title": "Serum",
+    "description": "For the next 2 turns, your are immune to the poison",
     "cost": 0,
-    "effects": [],
+    "effects": [
+      {
+        "type": "immune",
+        "target": "player",
+        "probability": 100,
+        "conditions": [],
+        "duration": 2,
+        "delay": 0,
+        "attack": null,
+        "armor": null,
+        "health": null
+      }
+    ],
     "attack": 0,
     "armor": 0,
     "heal": 0,
@@ -1020,10 +1108,11 @@
   },
   {
     "id": "48",
-    "title": "",
+    "title": "Stomp !",
     "description": "You have a 50% chance to get stunned, and a 50% change to stun your opponent.",
-    "cost": 2,
-    "effects": [{
+    "cost": 3,
+    "effects": [
+      {
         "type": "stun",
         "target": "player",
         "probability": 50,
@@ -1033,7 +1122,8 @@
         "attack": null,
         "armor": null,
         "health": null
-      },{
+      },
+      {
         "type": "stun",
         "target": "enemy",
         "probability": 50,
@@ -1043,7 +1133,8 @@
         "attack": null,
         "armor": null,
         "health": null
-      }],
+      }
+    ],
     "attack": 0,
     "armor": 0,
     "heal": 0,
@@ -1053,10 +1144,11 @@
   },
   {
     "id": "49",
-    "title": "",
+    "title": "Mi-mi-mi-misssss",
     "description": "Your next attack and your opponent's have 33 % chance to miss.",
     "cost": 2,
-    "effects": [{
+    "effects": [
+      {
         "type": "boost",
         "target": "player",
         "probability": 33,
@@ -1066,7 +1158,8 @@
         "attack": -100,
         "armor": 0,
         "health": 0
-      },{
+      },
+      {
         "type": "boost",
         "target": "enemy",
         "probability": 33,
@@ -1076,7 +1169,44 @@
         "attack": -100,
         "armor": 0,
         "health": 0
-      }],
+      }
+    ],
+    "attack": 0,
+    "armor": 0,
+    "heal": 0,
+    "score": 0,
+    "merchantCost": 0,
+    "spriteUrl": "Carte_49"
+  },
+  {
+    "id": "50",
+    "title": "Doge ! I mean, do-dge !",
+    "description": "Your opponent and you have 75% chance to avoid the next hit.",
+    "cost": 2,
+    "effects": [
+      {
+        "type": "boost",
+        "target": "player",
+        "probability": 75,
+        "conditions": [],
+        "duration": 1,
+        "delay": 0,
+        "attack": -100,
+        "armor": 0,
+        "health": 0
+      },
+      {
+        "type": "boost",
+        "target": "enemy",
+        "probability": 75,
+        "conditions": [],
+        "duration": 1,
+        "delay": 0,
+        "attack": -100,
+        "armor": 0,
+        "health": 0
+      }
+    ],
     "attack": 0,
     "armor": 0,
     "heal": 0,
