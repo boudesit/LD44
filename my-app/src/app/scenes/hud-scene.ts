@@ -5,6 +5,7 @@ import { readPatchedData } from '@angular/core/src/render3/util';
 import { Enemy } from '../objects/enemy';
 import { RoundService } from '../services/round.service';
 import { Utils } from '../services/utils';
+import { MerchantService } from '../services/merchant.service';
 var sprite;
 var heroSprite;
 var enemySprite;
@@ -50,6 +51,7 @@ export class HudScene extends Phaser.Scene {
 
     _cardService = new CardService();
     _roundService = new RoundService();
+    _merchantService = new MerchantService();
 
 
     constructor() {
@@ -333,17 +335,21 @@ export class HudScene extends Phaser.Scene {
    ///////////ATTENTION ICI PEUT SPAWN UN MARCHANT => CONDIFTION POUR AFFICHAGE
         if(this.fakePlayer.getName() == "Merchant")
         {
-            var bulle = this.add.image(370 / this.ratio , -80 / this.ratio , 'bulle_merchant');
-            bulle.setDisplaySize((700) / this.ratio, (400) / this.ratio);
-            this.add.text(130 / this.ratio , -200 / this.ratio, 'Je suis le marchant !\n Veuillez faire un choix ta vie contre des cartes:\n Choix 1 : blablabla \n Choix 2 : blablabla \n Choix 3 : blablabla \n Choisissez bien !!', {
-                fontfamily : 'Arial',
-                fontWeight : 'bold',
-                fontSize: '30px',
-                fill: "black",
-                align: "center",
-                wordWrap: { width: 450 / this.ratio }
+            var bulle = this.add.image(390 / this.ratio , -120 / this.ratio , 'bulle_merchant');
+            bulle.setDisplaySize((700) / this.ratio, (600) / this.ratio);
+            // this.add.text(170 / this.ratio , -300 / this.ratio, ''+this._merchantService.createOptions(this.cards).text "";
+            // , {
+            //     fontfamily : 'Arial',
+            //     fontWeight : 'bold',
+            //     fontSize: '30px',
+            //     fill: "black",
+            //     align: "center",
+            //     wordWrap: { width: 450 / this.ratio }
 
-            });
+            // });
+
+            var bulleH = this.add.image(-400 / this.ratio , -120 / this.ratio , 'bulle_hero');
+            bulleH.setDisplaySize((700) / this.ratio, (600) / this.ratio);
         }        
 
         if (journeyX >0)
