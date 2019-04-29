@@ -168,13 +168,20 @@ export class HudScene extends Phaser.Scene {
         }
         for (let cardSprite of this.handCardSprites) {
 
-            let textCard = this.add.text(-460 / _this.ratio, -140 / _this.ratio, (cardSprite as any).card.description, {
-                fontfamily : 'BIT',
-                fontSize: '16px',
-                fill: "black",
-                align: "center"
-
+            let textCard = this.make.text({
+                x: -470 / this.ratio,
+                y: -140 / this.ratio,
+                text: (cardSprite as any).card.description,
+                //origin: { x: 0.5, y: 0.5 },
+                style: {
+                    font: 'bold 16px Arial',
+                    fill: 'black',
+                    textAlign : 'center',
+                    wordWrap: { width: 280 / this.ratio }
+                }
             });
+
+
             textCard.setVisible(false);
 
 
