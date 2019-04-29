@@ -56,7 +56,7 @@ export class Player extends Character {
   }
 
   getCurrentActionPoint() {
-    return this.maxActionPoint;
+    return this.currentActionPoint;
   }
 
   setCurrentActionPoint(currentActionPoint: number) {

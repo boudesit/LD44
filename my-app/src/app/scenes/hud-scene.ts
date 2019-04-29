@@ -7,13 +7,26 @@ import { RoundService } from '../services/round.service';
 import { Utils } from '../services/utils';
 var sprite;
 var heroSprite;
+var enemySprite;
 var attackHeroSprite;
 var rect;
 var graph;
 var lifeText;
-var armorText
-var attackText
+var armorText;
+var attackText;
+var handText;
 var journeyX = 0;
+var enemyName;
+var enemyFrame;
+var spriteJourney ;
+var animEnemy;
+var currentArmor=0;
+var waitShow=0;
+var animEnemyAttack;
+var saveCurrentArmor=0;
+var saveCurrentHealth=0;
+var saveCurrentAttack=0;
+
 export class HudScene extends Phaser.Scene {
 
 
@@ -53,8 +66,8 @@ export class HudScene extends Phaser.Scene {
         this.player = new Player(this.cache.json.get("player")); // Add the player
 
         this.fakePlayer = new Enemy(this.cache.json.get("enemy")[journeyX][Utils.getRandomInt(this.cache.json.get("enemy")[journeyX].length - 1)]); // Add the enemy (n° day, 0/1)
-        var enemyName = this.fakePlayer.getName();
-        var enemyFrame = this.fakePlayer.getFrame();
+         enemyName = this.fakePlayer.getName();
+         enemyFrame = this.fakePlayer.getFrame();
 
         this.cards = new Array<Card>();
 
@@ -71,10 +84,10 @@ export class HudScene extends Phaser.Scene {
         this.createBackground(); // Creat background méthod
         this.createProgressbar(); // Creat progreess bar méthod
         this.createHero(); // Creat Hero méthod
-        this.createEnemy(); // Creat Hero méthod
+        this.createEnemy(enemyName,enemyFrame); // Creat Hero méthod
         this.createEndRound(_this); // Creat end round méthod
         this.createJourney(journeyX); //Update journey
-
+        this.createDeck(); // Creat deck méthod
         // rect = new Phaser.Geom.Rectangle(-150/ _this.ratio, 100/_this.ratio, 350 / _this.ratio, 150 / _this.ratio);
         // graph = this.add.graphics({ fillStyle: { color: 0x0060FF } });
         // graph.fillRectShape(rect);
@@ -110,6 +123,8 @@ export class HudScene extends Phaser.Scene {
         armor.setDisplaySize(60 / this.ratio, 49 / this.ratio);
         var attack = this.add.image(-920 / this.ratio , -300 / this.ratio , 'attack');
         attack.setDisplaySize(70 / this.ratio, 70 / this.ratio);
+        var hand = this.add.image(-920 / this.ratio , -200 / this.ratio , 'hand');
+        hand.setDisplaySize(70 / this.ratio, 57 / this.ratio);
 
 
           lifeText = this.add.text(-870 / this.ratio , -500 / this.ratio, ''+this.player.getCurrentHealth(), {
@@ -118,7 +133,7 @@ export class HudScene extends Phaser.Scene {
             fill: "white",
             align: "center"
         });
-         console.log(lifeText);
+         
          armorText = this.add.text(-870 / this.ratio , -400 / this.ratio, ''+this.player.getCurrentArmor(), {
             fontfamily : 'BIT',
             fontSize: '32px',
@@ -126,6 +141,12 @@ export class HudScene extends Phaser.Scene {
             align: "center"
         });
          attackText = this.add.text(-870 / this.ratio , -300 / this.ratio, ''+this.player.getCurrentAttack(), {
+            fontfamily : 'BIT',
+            fontSize: '32px',
+            fill: "white",
+            align: "center"
+        });
+        handText = this.add.text(-870 / this.ratio , -200 / this.ratio, ''+this.player.getCurrentActionPoint(), {
             fontfamily : 'BIT',
             fontSize: '32px',
             fill: "white",
@@ -144,7 +165,80 @@ export class HudScene extends Phaser.Scene {
         for (let cardSprite of this.handCardSprites) {
             cardSprite.on("pointerdown", () => {
                 _this._cardService.isPlayed(_this.player, (cardSprite as any).card);
+                currentArmor = this.player.getCurrentArmor();
                 cardSprite.destroy();
+                
+
+                if(saveCurrentArmor != this.player.getCurrentArmor())
+                {
+                    //boost_armor
+                    var configBoostArmor = {
+                        key: 'boostArmor',
+                        frames: this.anims.generateFrameNumbers("boost_armor", { start: 0, end: 12 }), 
+                        frameRate: 30,
+                     
+                    };
+            
+                    this.anims.create(configBoostArmor);
+            
+                    var boostArmor = this.add.sprite(-800 / this.ratio, 150 / this.ratio, "boost_armor");
+                    boostArmor.setDisplaySize(250 / this.ratio, 250 / this.ratio);
+                    boostArmor.anims.play('boostArmor');
+
+                    setTimeout(() => {
+                        boostArmor.destroy();
+                     }, 500);
+
+                }
+
+                if(saveCurrentHealth < this.player.getCurrentHealth())
+                {
+                    //boost_Health
+                    var configBoostHealth = {
+                        key: 'boostHealth',
+                        frames: this.anims.generateFrameNumbers("boost_health", { start: 0, end: 12 }), 
+                        frameRate: 30,
+                     
+                    };
+            
+                    this.anims.create(configBoostHealth);
+            
+                    var boostHealth = this.add.sprite(-800 / this.ratio, 150 / this.ratio, "boost_health");
+                    boostHealth.setDisplaySize(250 / this.ratio, 250 / this.ratio);
+                    boostHealth.anims.play('boostHealth');
+
+                    setTimeout(() => {
+                        boostHealth.destroy();
+                     }, 500);
+
+                }
+                if(saveCurrentAttack < this.player.getCurrentAttack())
+                {
+                    //boost_attack
+                    var configBoostAttack = {
+                        key: 'boostAttack',
+                        frames: this.anims.generateFrameNumbers("boost_attack", { start: 0, end: 12 }), 
+                        frameRate: 30,
+                     
+                    };
+            
+                    this.anims.create(configBoostAttack);
+            
+                    var boostAttack = this.add.sprite(-800 / this.ratio, 150 / this.ratio, "boost_attack");
+                    boostAttack.setDisplaySize(250 / this.ratio, 250 / this.ratio);
+                    boostAttack.anims.play('boostAttack');
+
+                    setTimeout(() => {
+                        boostAttack.destroy();
+                     }, 500);
+
+                }
+
+
+                saveCurrentArmor = this.player.getCurrentArmor();
+                saveCurrentHealth = this.player.getCurrentHealth();
+                saveCurrentAttack = this.player.getCurrentAttack();
+               
             });
         }
     }
@@ -178,54 +272,98 @@ export class HudScene extends Phaser.Scene {
 
     }
 
-    private createEnemy(){
+    private createEnemy(name : string, frame : number){     //Create automatick enemy from json (because different frame of sprite enemy)
 
+        if (journeyX >0)
+    {
+        enemySprite.destroy();
+        animEnemy.destroy();
+    }
         var configEnemy = {
             key: 'enemy',
-            frames: this.anims.generateFrameNumbers('enemy', { start: 0, end: 2 }),
-            frameRate: 5,
+            frames: this.anims.generateFrameNumbers(name, { start: 0, end: frame }),  //end: frame = nb frame of enemy sprite name = enemy random
+            frameRate: 6,
             repeat : -1
-            //yoyo : true
-
         };
-        this.anims.create(configEnemy);
 
-        heroSprite = this.add.sprite(-800 / this.ratio, 150 / this.ratio, 'hero_idle').setScale(1);
-        heroSprite.setDisplaySize(200 / this.ratio, 300 / this.ratio);
-        heroSprite.anims.play('hero');
+        animEnemy =this.anims.create(configEnemy);
+
+        enemySprite = this.add.sprite(0 / this.ratio, 150 / this.ratio, name);
+        enemySprite.setDisplaySize((enemySprite.width/2) / this.ratio, (enemySprite.height/2) / this.ratio);
+        enemySprite.anims.play('enemy');
 
 
     }
-    private createEndRound(_this: this) {
 
+    private createEndRound(_this: this) {
+     
 
         var endRound = this.add.image(760 / this.ratio , 250 / this.ratio , 'endround');
         endRound.setDisplaySize(200 / this.ratio, 100 / this.ratio);
         endRound.setInteractive();
         endRound.on("pointerdown", ()=> {
-
-            this._roundService.endRoundPlayer(this.player,this.fakePlayer);
-
-            if(this.fakePlayer.getCurrentHealth() <= 0 || this.player.getCurrentHealth() <= 0 )
+            
+            this._roundService.endRoundPlayer(this.player,this.fakePlayer); // END ROUND PLAYER 
+           
+            if(this.fakePlayer.getCurrentHealth() <= 0 || this.player.getCurrentHealth() <= 0 ) // IF PLAYER OR ENEMY DIED
             {
-                // this._roundService.endBatlle();
+                // si player est  mort ???
+
+                // this._roundService.endBatlle();  
+                journeyX++;
+                this.createJourney(journeyX); // NEW JOURNEY
+                this.fakePlayer = new Enemy(this.cache.json.get("enemy")[journeyX][Utils.getRandomInt(this.cache.json.get("enemy")[journeyX].length - 1)]); // Add the enemy (n° day, 0/1)
+                 enemyName = this.fakePlayer.getName();
+                 enemyFrame = this.fakePlayer.getFrame();
+                this.createEnemy(enemyName,enemyFrame);   // NEW ENEMY
+                this._roundService.startRoundPlayer(this.player,this.fakePlayer); // START ROUND OF PLAYER
+                this.initCard  = -750;
+                this.deleteCards(); // DELETE HAND CARDS
+                this.addCardInHand(_this); // NEW HAND
+                saveCurrentArmor = this.player.getCurrentArmor();
+                saveCurrentHealth = this.player.getCurrentHealth();
+                saveCurrentAttack = this.player.getCurrentAttack();
                 return;
 
             }
 
-           this._roundService.startRoundEnemy(this.player,this.fakePlayer);
-           this._roundService.roundEnemy(this.fakePlayer);
+           this._roundService.startRoundEnemy(this.player,this.fakePlayer);  // START ROUND OF ENEMY
+           this._roundService.roundEnemy(this.fakePlayer); // ROUND OF ENEMY
+           
+           if(this.fakePlayer.getCurrentAttack() >0){  // SPRITE ATTACK ENEMY
+            setTimeout(() => {
+                this.attackEnemy()
+             }, 2000);   
+           }
            this._roundService.endRoundEnemy(this.player,this.fakePlayer);
            if(this.player.getCurrentHealth() <= 0 || this.fakePlayer.getCurrentHealth() <= 0)
            {
-               // this._roundService.endBatlle();
-               return;
+               // si player est  mort ???
+
+                // this._roundService.endBatlle();  
+                journeyX++;
+                this.createJourney(journeyX);
+                this.fakePlayer = new Enemy(this.cache.json.get("enemy")[journeyX][Utils.getRandomInt(this.cache.json.get("enemy")[journeyX].length - 1)]); // Add the enemy (n° day, 0/1)
+                enemyName = this.fakePlayer.getName();
+                enemyFrame = this.fakePlayer.getFrame();
+                this.createEnemy(enemyName,enemyFrame);  
+                this._roundService.startRoundPlayer(this.player,this.fakePlayer);
+                this.initCard  = -750;
+                this.deleteCards();
+                this.addCardInHand(_this);
+                saveCurrentArmor = this.player.getCurrentArmor();
+                saveCurrentHealth = this.player.getCurrentHealth();
+                saveCurrentAttack = this.player.getCurrentAttack();
+                return;
            }
 
            this._roundService.startRoundPlayer(this.player,this.fakePlayer);
            this.initCard  = -750;
            this.deleteCards();
            this.addCardInHand(_this);
+           saveCurrentArmor = this.player.getCurrentArmor();
+           saveCurrentHealth = this.player.getCurrentHealth();
+           saveCurrentAttack = this.player.getCurrentAttack();
 
 
 
@@ -236,7 +374,7 @@ export class HudScene extends Phaser.Scene {
     }
 
      private attackHero(){
-
+        
         heroSprite.visible = false;
 
         attackHeroSprite = this.add.sprite(-800 / this.ratio, 150 / this.ratio, 'hero_attack').setScale(1);
@@ -250,11 +388,57 @@ export class HudScene extends Phaser.Scene {
             attackHeroSprite.visible = false;
          }, 1000);
 
+         var configEnemyAnim = {
+            key: 'enemyDamage',
+            frames: this.anims.generateFrameNumbers("anim_attack_enemy", { start: 0, end: 11 }),  //end: frame = nb frame of enemy sprite name = enemy random
+            frameRate: 30,
+            //repeat : -1
+        };
+
+        animEnemyAttack =this.anims.create(configEnemyAnim);
+
+        var damage = this.add.sprite(0 / this.ratio, 150 / this.ratio, "anim_attack_enemy");
+        damage.setDisplaySize(250 / this.ratio, 250 / this.ratio);
+        damage.anims.play('enemyDamage');
+
+        setTimeout(() => {
+            damage.destroy();
+         }, 1200);
+
+    }
+
+    private attackEnemy(){
+        enemySprite.x -= 200;
+        setTimeout(() => {
+            enemySprite.x += 200;
+         }, 1000);
+
+         var configHeroAnim = {
+            key: 'heroDamage',
+            frames: this.anims.generateFrameNumbers("anim_attack_hero", { start: 0, end: 11 }),  //end: frame = nb frame of enemy sprite name = enemy random
+            frameRate: 30,
+            //repeat : -1
+        };
+
+        var animHeroAttack =this.anims.create(configHeroAnim);
+
+        var damageHero = this.add.sprite(-800 / this.ratio, 150 / this.ratio, "anim_attack_hero");
+        damageHero.setDisplaySize(250 / this.ratio, 250 / this.ratio);
+        damageHero.anims.play('heroDamage');
+
+        setTimeout(() => {
+            damageHero.destroy();
+         }, 1200);
+
     }
 
     private createJourney(journey : number){
-
-      this.add.sprite(0 / this.ratio , -473 / this.ratio , 'journey',journey);
+         
+    if (journeyX >0)
+    {
+        spriteJourney.destroy();
+    }
+      spriteJourney = this.add.sprite(0 / this.ratio , -473 / this.ratio , 'journey',journey);
     }
 
     private deleteCards(){
@@ -267,12 +451,18 @@ export class HudScene extends Phaser.Scene {
 
     }
 
+    private createDeck(){
+
+        var deck = this.add.image(760 / this.ratio , 410 / this.ratio , 'deck');
+        deck.setDisplaySize(200 / this.ratio, 200 / this.ratio);
+    }
+
     update() : void {
 
     lifeText.text = this.player.getCurrentHealth();
     armorText.text = this.player.getCurrentArmor();
     attackText.text = this.player.getCurrentAttack();
-
+    handText.text = this.player.getCurrentActionPoint();
 
     }
 
