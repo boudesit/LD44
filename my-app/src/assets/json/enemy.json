@@ -5,21 +5,21 @@
       "frame": 7,
       "level": 1,
       "text": "Shhh, Shhhhhhh",
-      "maxHealth": 10,
-      "currentHealth": 10,
+      "maxHealth": 8,
+      "currentHealth": 8,
       "currentAttack": 1,
       "currentArmor": 0,
       "actions": [
         {
           "title": "Attack poison",
-          "attack": 1,
+          "attack": 0,
           "armor": 0,
           "heal": 0,
           "effects": [
             {
               "type": "poison",
               "target": "player",
-              "probability": 100,
+              "probability": 3,
               "conditions": [],
               "duration": 1,
               "delay": 0,
@@ -31,14 +31,14 @@
         },
         {
           "title": "Attack stun",
-          "attack": 1,
+          "attack": 0,
           "armor": 0,
           "heal": 0,
           "effects": [
             {
               "type": "stun",
               "target": "player",
-              "probability": 100,
+              "probability": 3,
               "conditions": [],
               "duration": 1,
               "delay": 0,
@@ -69,7 +69,7 @@
             {
               "type": "stun",
               "target": "player",
-              "probability": 100,
+              "probability": 6,
               "conditions": [],
               "duration": 1,
               "delay": 0,
@@ -88,15 +88,15 @@
       "level": 2,
       "frame": 7,
       "text": "Skkkkrit, skkkrit, skkkkkkkkkRIT !!",
-      "maxHealth": 15,
-      "currentHealth": 15,
+      "maxHealth": 12,
+      "currentHealth": 12,
       "currentAttack": 1,
       "currentArmor": 0,
       "actions": [
         {
           "title": "Attack",
-          "attack": 3,
-          "armor": 0,
+          "attack": 1,
+          "armor": 2,
           "heal": 0,
           "effects": []
         }
@@ -107,21 +107,21 @@
       "level": 2,
       "frame": 7,
       "text": "Come with me, coooooome with me !",
-      "maxHealth": 15,
-      "currentHealth": 15,
+      "maxHealth": 13,
+      "currentHealth": 13,
       "currentAttack": 1,
       "currentArmor": 0,
       "actions": [
         {
           "title": "Attack stun",
-          "attack": 3,
-          "armor": 0,
-          "heal": 0,
+          "attack": 1,
+          "armor": 3,
+          "heal": 1,
           "effects": [
             {
               "type": "stun",
               "target": "player",
-              "probability": 100,
+              "probability": 10,
               "conditions": [],
               "duration": 1,
               "delay": 0,
@@ -144,21 +144,21 @@
       "level": 3,
       "frame": 10,
       "text": "Beeeeh, err, i mean, booooooo",
-      "maxHealth": 20,
-      "currentHealth": 20,
+      "maxHealth": 18,
+      "currentHealth": 18,
       "currentAttack": 1,
       "currentArmor": 0,
       "actions": [
         {
           "title": "Attack stun",
-          "attack": 5,
-          "armor": 0,
-          "heal": 0,
+          "attack": 2,
+          "armor": 1,
+          "heal": 2,
           "effects": [
             {
               "type": "stun",
               "target": "player",
-              "probability": 100,
+              "probability": 13,
               "conditions": [],
               "duration": 1,
               "delay": 0,
@@ -175,21 +175,21 @@
       "level": 3,
       "frame": 7,
       "text": "Hello kidddzzz, why are you doing in here ? Wanna some…magic ?",
-      "maxHealth": 20,
-      "currentHealth": 20,
+      "maxHealth": 22,
+      "currentHealth": 22,
       "currentAttack": 1,
       "currentArmor": 0,
       "actions": [
         {
           "title": "Attack poison",
-          "attack": 5,
-          "armor": 0,
-          "heal": 0,
+          "attack": 2,
+          "armor": 1,
+          "heal": 2,
           "effects": [
             {
               "type": "poison",
               "target": "player",
-              "probability": 100,
+              "probability": 18,
               "conditions": [],
               "duration": 1,
               "delay": 0,
@@ -218,14 +218,14 @@
       "actions": [
         {
           "title": "Attack poison",
-          "attack": 5,
-          "armor": 0,
-          "heal": 0,
+          "attack": 3,
+          "armor": 3,
+          "heal": 2,
           "effects": [
             {
               "type": "poison",
               "target": "player",
-              "probability": 100,
+              "probability": 10,
               "conditions": [],
               "duration": 1,
               "delay": 0,
@@ -237,14 +237,14 @@
         },
         {
           "title": "Attack stun",
-          "attack": 5,
-          "armor": 0,
-          "heal": 0,
+          "attack": 3,
+          "armor": 3,
+          "heal": 2,
           "effects": [
             {
               "type": "stun",
               "target": "player",
-              "probability": 100,
+              "probability": 10,
               "conditions": [],
               "duration": 1,
               "delay": 0,
@@ -261,21 +261,21 @@
       "level": 4,
       "frame": 14,
       "text": "Moooooooooh",
-      "maxHealth": 25,
-      "currentHealth": 25,
+      "maxHealth": 27,
+      "currentHealth": 27,
       "currentAttack": 1,
       "currentArmor": 0,
       "actions": [
         {
           "title": "Attack stun",
-          "attack": 5,
-          "armor": 0,
+          "attack": 3,
+          "armor": 5,
           "heal": 0,
           "effects": [
             {
               "type": "stun",
               "target": "player",
-              "probability": 100,
+              "probability": 14,
               "conditions": [],
               "duration": 1,
               "delay": 0,
@@ -305,14 +305,14 @@
       "actions": [
         {
           "title": "Attack poison",
-          "attack": 7,
-          "armor": 0,
+          "attack": 3,
+          "armor": 3,
           "heal": 0,
           "effects": [
             {
               "type": "poison",
               "target": "player",
-              "probability": 100,
+              "probability": 15,
               "conditions": [],
               "duration": 1,
               "delay": 0,
@@ -324,14 +324,14 @@
         },
         {
           "title": "Attack stun",
-          "attack": 7,
-          "armor": 0,
+          "attack": 3,
+          "armor": 3,
           "heal": 0,
           "effects": [
             {
               "type": "stun",
               "target": "player",
-              "probability": 100,
+              "probability": 15,
               "conditions": [],
               "duration": 1,
               "delay": 0,
@@ -354,21 +354,21 @@
       "frame": 7,
       "level": 6,
       "text": "Fresh flesh, fresh flesh, fresh flesh ",
-      "maxHealth": 10,
-      "currentHealth": 10,
+      "maxHealth": 40,
+      "currentHealth": 40,
       "currentAttack": 1,
       "currentArmor": 0,
       "actions": [
         {
           "title": "Attack poison",
-          "attack": 1,
-          "armor": 0,
-          "heal": 0,
+          "attack": 4,
+          "armor": 5,
+          "heal": 2,
           "effects": [
             {
               "type": "poison",
               "target": "player",
-              "probability": 100,
+              "probability": 25,
               "conditions": [],
               "duration": 1,
               "delay": 0,
@@ -380,14 +380,14 @@
         },
         {
           "title": "Attack stun",
-          "attack": 1,
-          "armor": 0,
-          "heal": 0,
+          "attack": 4,
+          "armor": 5,
+          "heal": 2,
           "effects": [
             {
               "type": "stun",
               "target": "player",
-              "probability": 100,
+              "probability": 25,
               "conditions": [],
               "duration": 1,
               "delay": 0,
@@ -404,21 +404,21 @@
       "level": 6,
       "frame": 6,
       "text": "Be sure that this won't be a simple scratch !",
-      "maxHealth": 10,
-      "currentHealth": 10,
+      "maxHealth": 45,
+      "currentHealth": 45,
       "currentAttack": 1,
       "currentArmor": 0,
       "actions": [
         {
           "title": "Attack stun",
-          "attack": 1,
-          "armor": 0,
-          "heal": 0,
+          "attack": 3,
+          "armor": 10,
+          "heal": 4,
           "effects": [
             {
               "type": "stun",
               "target": "player",
-              "probability": 100,
+              "probability": 28,
               "conditions": [],
               "duration": 1,
               "delay": 0,
@@ -441,17 +441,27 @@
       "level": 7,
       "frame": 7,
       "text": "SKRAT SKRAT SKRAT",
-      "maxHealth": 15,
-      "currentHealth": 15,
+      "maxHealth": 35,
+      "currentHealth": 35,
       "currentAttack": 1,
       "currentArmor": 0,
       "actions": [
         {
-          "title": "Attack",
-          "attack": 3,
-          "armor": 0,
-          "heal": 0,
-          "effects": []
+          "title": "Attack poison",
+          "attack": 5,
+          "armor": 2,
+          "heal": 4,
+          "effects": [{
+              "type": "poison",
+              "target": "player",
+              "probability": 35,
+              "conditions": [],
+              "duration": 1,
+              "delay": 0,
+              "attack": null,
+              "armor": null,
+              "health": null
+            }]
         }
       ]
     },
@@ -460,21 +470,21 @@
       "level": 7,
       "frame": 7,
       "text": "Time to wake up, master…",
-      "maxHealth": 15,
-      "currentHealth": 15,
+      "maxHealth": 50,
+      "currentHealth": 50,
       "currentAttack": 1,
       "currentArmor": 0,
       "actions": [
         {
-          "title": "Attack stun",
-          "attack": 3,
-          "armor": 0,
-          "heal": 0,
+          "title": "Attack poison",
+          "attack": 5,
+          "armor": 5,
+          "heal": 3,
           "effects": [
             {
-              "type": "stun",
+              "type": "poison",
               "target": "player",
-              "probability": 100,
+              "probability": 33,
               "conditions": [],
               "duration": 1,
               "delay": 0,
@@ -497,21 +507,21 @@
       "level": 8,
       "frame": 10,
       "text": "…let me come…LET ME COME",
-      "maxHealth": 20,
-      "currentHealth": 20,
+      "maxHealth": 52,
+      "currentHealth": 52,
       "currentAttack": 1,
       "currentArmor": 0,
       "actions": [
         {
           "title": "Attack stun",
-          "attack": 5,
-          "armor": 0,
-          "heal": 0,
+          "attack": 6,
+          "armor": 3,
+          "heal": 2,
           "effects": [
             {
               "type": "stun",
               "target": "player",
-              "probability": 100,
+              "probability": 33,
               "conditions": [],
               "duration": 1,
               "delay": 0,
@@ -528,21 +538,21 @@
       "level": 8,
       "frame": 7,
       "text": "I've got plenty of balloons…To kill you !",
-      "maxHealth": 20,
-      "currentHealth": 20,
+      "maxHealth": 52,
+      "currentHealth": 52,
       "currentAttack": 1,
       "currentArmor": 0,
       "actions": [
         {
           "title": "Attack poison",
-          "attack": 5,
-          "armor": 0,
-          "heal": 0,
+          "attack": 6,
+          "armor": 7,
+          "heal": 4,
           "effects": [
             {
               "type": "poison",
               "target": "player",
-              "probability": 100,
+              "probability": 38,
               "conditions": [],
               "duration": 1,
               "delay": 0,
@@ -564,40 +574,21 @@
       "level": 9,
       "frame": 12,
       "text": "….........",
-      "maxHealth": 25,
-      "currentHealth": 25,
+      "maxHealth": 50,
+      "currentHealth": 50,
       "currentAttack": 1,
       "currentArmor": 0,
       "actions": [
         {
           "title": "Attack poison",
-          "attack": 5,
-          "armor": 0,
-          "heal": 0,
+          "attack": 4,
+          "armor": 5,
+          "heal": 5,
           "effects": [
             {
               "type": "poison",
               "target": "player",
-              "probability": 100,
-              "conditions": [],
-              "duration": 1,
-              "delay": 0,
-              "attack": null,
-              "armor": null,
-              "health": null
-            }
-          ]
-        },
-        {
-          "title": "Attack stun",
-          "attack": 5,
-          "armor": 0,
-          "heal": 0,
-          "effects": [
-            {
-              "type": "stun",
-              "target": "player",
-              "probability": 100,
+              "probability": 66,
               "conditions": [],
               "duration": 1,
               "delay": 0,
@@ -614,21 +605,21 @@
       "level": 9,
       "frame": 14,
       "text": "Smash, Hash, let's started to crash !",
-      "maxHealth": 25,
-      "currentHealth": 25,
+      "maxHealth": 58,
+      "currentHealth": 58,
       "currentAttack": 1,
       "currentArmor": 0,
       "actions": [
         {
           "title": "Attack stun",
-          "attack": 5,
-          "armor": 0,
+          "attack": 7,
+          "armor": 8,
           "heal": 0,
           "effects": [
             {
               "type": "stun",
               "target": "player",
-              "probability": 100,
+              "probability": 45,
               "conditions": [],
               "duration": 1,
               "delay": 0,
