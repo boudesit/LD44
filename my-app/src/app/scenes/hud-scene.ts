@@ -337,19 +337,43 @@ export class HudScene extends Phaser.Scene {
         {
             var bulle = this.add.image(390 / this.ratio , -120 / this.ratio , 'bulle_merchant');
             bulle.setDisplaySize((700) / this.ratio, (600) / this.ratio);
-            // this.add.text(170 / this.ratio , -300 / this.ratio, ''+this._merchantService.createOptions(this.cards).text "";
-            // , {
-            //     fontfamily : 'Arial',
-            //     fontWeight : 'bold',
-            //     fontSize: '30px',
-            //     fill: "black",
-            //     align: "center",
-            //     wordWrap: { width: 450 / this.ratio }
+            this.add.text(170 / this.ratio , -350 / this.ratio, this._merchantService.createOptions(this.cards).text , {
+            
+                fontfamily : 'Arial Black',
+                fontSize: '30px',
+                fill: "black",
+                align: "center",
+                wordWrap: { width: 450 / this.ratio }
 
-            // });
+            });
 
             var bulleH = this.add.image(-400 / this.ratio , -120 / this.ratio , 'bulle_hero');
-            bulleH.setDisplaySize((700) / this.ratio, (600) / this.ratio);
+            bulleH.setDisplaySize((700) / this.ratio, (400) / this.ratio);
+            this.add.text(-650 / this.ratio , -200 / this.ratio, "Option : 1   -1 Health\n" , {
+                fontfamily : 'Arial',
+                fontWeight : 'bold',
+                fontSize: '30px',
+                fill: "purple",
+                align: "center",
+               // wordWrap: { width: 450 / this.ratio }
+            });
+            this.add.text(-650 / this.ratio , -150 / this.ratio, "Option : 2   -2 Health\n" , {
+                fontfamily : 'Arial',
+                fontWeight : 'bold',
+                fontSize: '30px',
+                fill: "black",
+                align: "center",
+               // wordWrap: { width: 450 / this.ratio }
+            });
+            this.add.text(-650 / this.ratio , -100 / this.ratio, "Option : 3   -3 Health\n" , {
+                fontfamily : 'Arial',
+                fontWeight : 'bold',
+                fontSize: '30px',
+                fill: "black",
+                align: "center",
+               // wordWrap: { width: 450 / this.ratio }
+            });
+
         }        
 
         if (journeyX >0)
