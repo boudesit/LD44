@@ -45,6 +45,8 @@ export class HudScene extends Phaser.Scene {
 
     handCardSprites : Phaser.GameObjects.Sprite[] = [];
 
+    parchment : Phaser.GameObjects.Image;
+
     _cardService = new CardService();
     _roundService = new RoundService();
 
@@ -91,10 +93,10 @@ export class HudScene extends Phaser.Scene {
         this.createDeck(); // Creat deck méthod
       
 
-        parchment = this.add.image(-350 / this.ratio , -100 / this.ratio , 'parchment');
-        parchment.setDisplaySize(350 / this.ratio, 200 / this.ratio);
-        parchment.alpha=0.8;
-        parchment.visible=false;
+        this.parchment = this.add.image(-350 / this.ratio , -100 / this.ratio , 'parchment');
+        this.parchment.setDisplaySize(350 / this.ratio, 200 / this.ratio);
+        this.parchment.alpha=0.8;
+        this.parchment.setVisible(false);
         
         this._roundService.startRoundPlayer(this.player, this.fakePlayer);
         this.addCardInHand(_this);
@@ -164,6 +166,11 @@ export class HudScene extends Phaser.Scene {
             this.handCardSprites.push(sprite);
         }
         for (let cardSprite of this.handCardSprites) {
+
+            let text = this.add.text(0, -473 / _this.ratio, (cardSprite as any).card.description);
+            text.setVisible(false);
+
+
             cardSprite.on("pointerdown", () => {
                 _this._cardService.isPlayed(_this.player, (cardSprite as any).card);
                 currentArmor = this.player.getCurrentArmor();
@@ -185,8 +192,6 @@ export class HudScene extends Phaser.Scene {
                     cardSprite.destroy(); 
                     
                 }
-                
-
                
                 if(saveCurrentArmor != this.player.getCurrentArmor())
                 {
@@ -255,20 +260,26 @@ export class HudScene extends Phaser.Scene {
                      }, 500);
 
                 }
-
-
                 saveCurrentArmor = this.player.getCurrentArmor();
                 saveCurrentHealth = this.player.getCurrentHealth();
                 saveCurrentAttack = this.player.getCurrentAttack();
                
             });
-            // sprite.input.on('pointerover', function (event, gameObjects) {
-                
-            //     parchment.visible=true;
-            //        // alpha: { value: 0, duration: 3000, delay:2000}
-            //     });
-        }
-        
+            cardSprite.on('pointerover', function (event, gameObjects) {
+                    
+                    _this.parchment.setVisible(true);
+                    text.setVisible(true);
+
+                    // alpha: { value: 0, duration: 3000, delay:2000}
+            });
+            cardSprite.on('pointerout', function (event, gameObjects) {
+                    
+                    _this.parchment.setVisible(false);
+                    text.setVisible(false);
+
+                    // alpha: { value: 0, duration: 3000, delay:2000}
+            });
+        }        
     }
 
     private createHero() {
@@ -468,6 +479,7 @@ export class HudScene extends Phaser.Scene {
         spriteJourney.destroy();
     }
       spriteJourney = this.add.sprite(0 / this.ratio , -473 / this.ratio , 'journey',journey);
+      spriteJourney.setDisplaySize(1000 / this.ratio, 100 / this.ratio);
     }
 
     private deleteCards(){

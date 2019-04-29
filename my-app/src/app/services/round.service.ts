@@ -12,6 +12,8 @@ export class RoundService {
   enemyActionService: EnemyActionService = new EnemyActionService();
 
   startRoundPlayer(player: Player, enemy: Enemy) {
+    console.log(player);
+    console.log(enemy);
     draw(player, 5);
     player.setCurrentActionPoint(player.getMaxActionPoint());
     resetStats(player);
@@ -25,6 +27,10 @@ export class RoundService {
   }
 
   startRoundEnemy(player: Player, enemy: Enemy) {
+    console.log(player);
+
+    console.log(enemy);
+
     resetStats(enemy);
     applyEffects(enemy, player);
   }
