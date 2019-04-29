@@ -58,6 +58,8 @@ export class HudScene extends Phaser.Scene {
 
     parchment : Phaser.GameObjects.Image;
 
+    px : string;
+
     
 
     _cardService = new CardService();
@@ -75,6 +77,16 @@ export class HudScene extends Phaser.Scene {
     }
 
     create() : void {
+
+        if(this.ratio == 1.00) {
+            this.px = "30px"
+        } else if(this.ratio == 1.50) {
+            this.px = "20px"
+
+        } else {
+            this.px = "16px"
+
+        }
         let _this = this;
 
         this.width = this.game.config.width as number;
@@ -393,7 +405,7 @@ export class HudScene extends Phaser.Scene {
             OptionMerchant = this.add.text(170 / this.ratio , -350 / this.ratio, marchentOption.text , {
             
                 fontfamily : 'Arial Black',
-                fontSize: '30px',
+                fontSize: this.px,
                 fill: "black",
                 align: "center",
                 wordWrap: { width: 450 / this.ratio }
@@ -405,7 +417,7 @@ export class HudScene extends Phaser.Scene {
              Option1 = this.add.text(-650 / this.ratio , -200 / this.ratio, "Option : 1   -1 Health\n" , {
                 fontfamily : 'Arial',
                 fontWeight : 'bold',
-                fontSize: '30px',
+                fontSize: this.px,
                 fill: "purple",
                 align: "center",
                // wordWrap: { width: 450 / this.ratio }
@@ -418,7 +430,7 @@ export class HudScene extends Phaser.Scene {
              Option2 =  this.add.text(-650 / this.ratio , -150 / this.ratio, "Option : 2   -2 Health\n" , {
                 fontfamily : 'Arial',
                 fontWeight : 'bold',
-                fontSize: '30px',
+                fontSize: this.px,
                 fill: "black",
                 align: "center",
                // wordWrap: { width: 450 / this.ratio }
@@ -431,7 +443,7 @@ export class HudScene extends Phaser.Scene {
              Option3 = this.add.text(-650 / this.ratio , -100 / this.ratio, "Option : 3   -3 Health\n" , {
                 fontfamily : 'Arial',
                 fontWeight : 'bold',
-                fontSize: '30px',
+                fontSize: this.px,
                 fill: "black",
                 align: "center",
                // wordWrap: { width: 450 / this.ratio }
