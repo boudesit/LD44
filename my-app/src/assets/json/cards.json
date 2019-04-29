@@ -10,7 +10,7 @@
     "heal": 0,
     "score": 0,
     "merchantCost": 0,
-    "spriteUrl": ""
+    "spriteUrl": "Carte_1"
   },
   {
     "id": "2",
@@ -23,7 +23,7 @@
     "heal": 1,
     "score": 0,
     "merchantCost": 0,
-    "spriteUrl": ""
+    "spriteUrl": "Carte_2"
   },
   {
     "id": "3",
@@ -36,7 +36,7 @@
     "heal": 0,
     "score": 0,
     "merchantCost": 0,
-    "spriteUrl": ""
+    "spriteUrl": "Carte_3"
   },
   {
     "id": "4",
@@ -49,7 +49,7 @@
     "heal": 0,
     "score": 0,
     "merchantCost": 0,
-    "spriteUrl": ""
+    "spriteUrl": "Carte_4"
   },
   {
     "id": "5",
@@ -62,7 +62,7 @@
     "heal": 2,
     "score": 0,
     "merchantCost": 0,
-    "spriteUrl": ""
+    "spriteUrl": "Carte_5"
   },
   {
     "id": "6",
@@ -75,7 +75,7 @@
     "heal": 0,
     "score": 0,
     "merchantCost": 0,
-    "spriteUrl": ""
+    "spriteUrl": "Carte_6"
   },
   {
     "id": "7",
@@ -88,7 +88,7 @@
     "heal": 0,
     "score": 0,
     "merchantCost": 0,
-    "spriteUrl": ""
+    "spriteUrl": "Carte_7"
   },
   {
     "id": "8",
@@ -101,7 +101,7 @@
     "heal": 3,
     "score": 0,
     "merchantCost": 0,
-    "spriteUrl": ""
+    "spriteUrl": "Carte_8"
   },
   {
     "id": "9",
@@ -114,7 +114,7 @@
     "heal": 0,
     "score": 0,
     "merchantCost": 0,
-    "spriteUrl": ""
+    "spriteUrl": "Carte_9"
   },
   {
     "id": "10",
@@ -139,7 +139,7 @@
     "heal": 1,
     "score": 0,
     "merchantCost": 0,
-    "spriteUrl": ""
+    "spriteUrl": "Carte_10"
   },
   {
     "id": "11",
@@ -164,7 +164,7 @@
     "heal": 0,
     "score": 0,
     "merchantCost": 0,
-    "spriteUrl": ""
+    "spriteUrl": "Carte_11"
   },
   {
     "id": "12",
@@ -196,7 +196,7 @@
     "heal": 1,
     "score": 0,
     "merchantCost": 0,
-    "spriteUrl": ""
+    "spriteUrl": "Carte_12"
   },
   {
     "id": "13",
@@ -228,7 +228,7 @@
     "heal": 1,
     "score": 0,
     "merchantCost": 0,
-    "spriteUrl": ""
+    "spriteUrl": "Carte_13"
   },
   {
     "id": "14",
@@ -253,7 +253,7 @@
     "heal": 2,
     "score": 0,
     "merchantCost": 0,
-    "spriteUrl": ""
+    "spriteUrl": "Carte_14"
   },
   {
     "id": "15",
@@ -278,7 +278,7 @@
     "heal": 1,
     "score": 0,
     "merchantCost": 0,
-    "spriteUrl": ""
+    "spriteUrl": "Carte_15"
   },
   {
     "id": "16",
@@ -303,7 +303,7 @@
     "heal": 1,
     "score": 0,
     "merchantCost": 0,
-    "spriteUrl": ""
+    "spriteUrl": "Carte_16"
   },
   {
     "id": "17",
@@ -328,7 +328,7 @@
     "heal": 0,
     "score": 0,
     "merchantCost": 0,
-    "spriteUrl": ""
+    "spriteUrl": "Carte_17"
   },
   {
     "id": "18",
@@ -364,7 +364,7 @@
     "heal": 1,
     "score": 0,
     "merchantCost": 0,
-    "spriteUrl": ""
+    "spriteUrl": "Carte_18"
   },
   {
     "id": "19",
@@ -387,7 +387,7 @@
     "heal": 0,
     "score": 0,
     "merchantCost": 0,
-    "spriteUrl": ""
+    "spriteUrl": "Carte_19"
   },
   {
     "id": "20",
@@ -410,7 +410,7 @@
     "heal": 5,
     "score": 0,
     "merchantCost": 0,
-    "spriteUrl": ""
+    "spriteUrl": "Carte_20"
   },
   {
     "id": "21",
@@ -433,7 +433,7 @@
     "heal": 0,
     "score": 0,
     "merchantCost": 0,
-    "spriteUrl": ""
+    "spriteUrl": "Carte_21"
   },
   {
     "id": "22",
@@ -456,7 +456,7 @@
     "heal": 2,
     "score": 0,
     "merchantCost": 0,
-    "spriteUrl": ""
+    "spriteUrl": "Carte_22"
   },
   {
     "id": "23",
@@ -479,7 +479,7 @@
     "heal": 0,
     "score": 0,
     "merchantCost": 0,
-    "spriteUrl": ""
+    "spriteUrl": "Carte_23"
   },
   {
     "id": "24",
@@ -502,7 +502,7 @@
     "heal": 2,
     "score": 0,
     "merchantCost": 0,
-    "spriteUrl": ""
+    "spriteUrl": "Carte_24"
   },
   {
     "id": "25",
@@ -525,7 +525,7 @@
     "heal": 2,
     "score": 0,
     "merchantCost": 0,
-    "spriteUrl": ""
+    "spriteUrl": "Carte_25"
   },
   {
     "id": "26",
@@ -548,7 +548,7 @@
     "heal": 1,
     "score": 0,
     "merchantCost": 0,
-    "spriteUrl": ""
+    "spriteUrl": "Carte_26"
   },
   {
     "id": "27",
@@ -571,7 +571,7 @@
     "heal": 2,
     "score": 0,
     "merchantCost": 0,
-    "spriteUrl": ""
+    "spriteUrl": "Carte_27"
   },
   {
     "id": "28",
@@ -584,7 +584,7 @@
     "heal": -2,
     "score": 0,
     "merchantCost": 0,
-    "spriteUrl": ""
+    "spriteUrl": "Carte_28"
   },
   {
     "id": "29",
@@ -612,7 +612,7 @@
     "heal": 5,
     "score": 0,
     "merchantCost": 0,
-    "spriteUrl": ""
+    "spriteUrl": "Carte_29"
   },
   {
     "id": "30",
@@ -635,7 +635,7 @@
     "heal": 0,
     "score": 0,
     "merchantCost": 0,
-    "spriteUrl": ""
+    "spriteUrl": "Carte_30"
   },
   {
     "id": "31",
@@ -658,7 +658,7 @@
     "heal": 3,
     "score": 0,
     "merchantCost": 0,
-    "spriteUrl": ""
+    "spriteUrl": "Carte_31"
   },
   {
     "id": "32",
@@ -681,7 +681,7 @@
     "heal": -4,
     "score": 0,
     "merchantCost": 0,
-    "spriteUrl": ""
+    "spriteUrl": "Carte_32"
   },
   {
     "id": "33",
@@ -704,7 +704,7 @@
     "heal": -1,
     "score": 0,
     "merchantCost": 0,
-    "spriteUrl": ""
+    "spriteUrl": "Carte_33"
   },
   {
     "id": "34",
@@ -727,7 +727,7 @@
     "heal": 0,
     "score": 0,
     "merchantCost": 0,
-    "spriteUrl": ""
+    "spriteUrl": "Carte_34"
   },
   {
     "id": "35",
@@ -750,7 +750,7 @@
     "heal": 2,
     "score": 0,
     "merchantCost": 0,
-    "spriteUrl": ""
+    "spriteUrl": "Carte_35"
   },
   {
     "id": "36",
@@ -763,7 +763,7 @@
     "heal": 0,
     "score": 0,
     "merchantCost": 0,
-    "spriteUrl": ""
+    "spriteUrl": "Carte_36"
   },
   {
     "id": "37",
@@ -796,7 +796,7 @@
     "heal": 4,
     "score": 0,
     "merchantCost": 0,
-    "spriteUrl": ""
+    "spriteUrl": "Carte_37"
   },
   {
     "id": "38",
@@ -819,7 +819,7 @@
     "heal": 4,
     "score": 0,
     "merchantCost": 0,
-    "spriteUrl": ""
+    "spriteUrl": "Carte_38"
   },
   {
     "id": "39",
@@ -842,7 +842,7 @@
     "heal": 0,
     "score": 0,
     "merchantCost": 0,
-    "spriteUrl": ""
+    "spriteUrl": "Carte_39"
   },
   {
     "id": "40",
@@ -875,7 +875,7 @@
     "heal": 0,
     "score": 0,
     "merchantCost": 0,
-    "spriteUrl": ""
+    "spriteUrl": "Carte_40"
   },
   {
     "id": "41",
@@ -888,7 +888,7 @@
     "heal": 0,
     "score": 0,
     "merchantCost": 0,
-    "spriteUrl": ""
+    "spriteUrl": "Carte_41"
   },
   {
     "id": "42",
@@ -911,7 +911,7 @@
     "heal": 0,
     "score": 0,
     "merchantCost": 0,
-    "spriteUrl": ""
+    "spriteUrl": "Carte_42"
   },
   {
     "id": "43",
@@ -934,7 +934,7 @@
     "heal": 0,
     "score": 0,
     "merchantCost": 0,
-    "spriteUrl": ""
+    "spriteUrl": "Carte_43"
   },
   {
     "id": "44",
@@ -957,7 +957,7 @@
     "heal": 0,
     "score": 0,
     "merchantCost": 0,
-    "spriteUrl": ""
+    "spriteUrl": "Carte_44"
   },
   {
     "id": "45",
@@ -970,7 +970,7 @@
     "heal": 0,
     "score": 0,
     "merchantCost": 0,
-    "spriteUrl": ""
+    "spriteUrl": "Carte_45"
   },
   {
     "id": "46",
@@ -1003,7 +1003,7 @@
     "heal": 0,
     "score": 0,
     "merchantCost": 0,
-    "spriteUrl": ""
+    "spriteUrl": "Carte_46"
   },
   {
     "id": "47",
@@ -1016,7 +1016,7 @@
     "heal": 0,
     "score": 0,
     "merchantCost": 0,
-    "spriteUrl": ""
+    "spriteUrl": "Carte_47"
   },
   {
     "id": "48",
@@ -1049,7 +1049,7 @@
     "heal": 0,
     "score": 0,
     "merchantCost": 0,
-    "spriteUrl": ""
+    "spriteUrl": "Carte_48"
   },
   {
     "id": "49",
@@ -1082,6 +1082,6 @@
     "heal": 0,
     "score": 0,
     "merchantCost": 0,
-    "spriteUrl": ""
+    "spriteUrl": "Carte_50"
   }
 ]
