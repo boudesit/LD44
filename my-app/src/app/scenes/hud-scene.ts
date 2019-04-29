@@ -27,6 +27,7 @@ var saveCurrentArmor=0;
 var saveCurrentHealth=0;
 var saveCurrentAttack=0;
 var parchment;
+var statutIsplayed;
 
 export class HudScene extends Phaser.Scene {
 
@@ -167,15 +168,21 @@ export class HudScene extends Phaser.Scene {
         }
         for (let cardSprite of this.handCardSprites) {
 
-            let text = this.add.text(0, -473 / _this.ratio, (cardSprite as any).card.description);
-            text.setVisible(false);
+            let textCard = this.add.text(-460 / _this.ratio, -140 / _this.ratio, (cardSprite as any).card.description, {
+                fontfamily : 'BIT',
+                fontSize: '16px',
+                fill: "black",
+                align: "center"
+
+            });
+            textCard.setVisible(false);
 
 
             cardSprite.on("pointerdown", () => {
-                _this._cardService.isPlayed(_this.player, (cardSprite as any).card);
+                statutIsplayed = _this._cardService.isPlayed(_this.player, (cardSprite as any).card);
                 currentArmor = this.player.getCurrentArmor();
                 
-                if( _this._cardService.isPlayed(_this.player, (cardSprite as any).card) == false)
+                if(!statutIsplayed)
                 {
                     var text = this.add.text(-200 / this.ratio , 300 / this.ratio, 'TA PLUS DE POINT CONNARD !!!', {
                         fontfamily : 'BIT',
@@ -189,6 +196,9 @@ export class HudScene extends Phaser.Scene {
                      }, 500);
                      return;
                 }else{
+
+                    _this.parchment.setVisible(false);
+                    textCard.setVisible(false);
                     cardSprite.destroy(); 
                     
                 }
@@ -268,14 +278,14 @@ export class HudScene extends Phaser.Scene {
             cardSprite.on('pointerover', function (event, gameObjects) {
                     
                     _this.parchment.setVisible(true);
-                    text.setVisible(true);
+                    textCard.setVisible(true);
 
                     // alpha: { value: 0, duration: 3000, delay:2000}
             });
             cardSprite.on('pointerout', function (event, gameObjects) {
                     
                     _this.parchment.setVisible(false);
-                    text.setVisible(false);
+                    textCard.setVisible(false);
 
                     // alpha: { value: 0, duration: 3000, delay:2000}
             });
@@ -337,7 +347,7 @@ export class HudScene extends Phaser.Scene {
 
     private createEndRound(_this: this) {  // END of ROUND + Event on click end turn
      
-
+        handText.text = this.player.getCurrentActionPoint();
         var endRound = this.add.image(760 / this.ratio , 250 / this.ratio , 'endround');
         endRound.setDisplaySize(200 / this.ratio, 100 / this.ratio);
         endRound.setInteractive();
@@ -503,8 +513,10 @@ export class HudScene extends Phaser.Scene {
     lifeText.text = this.player.getCurrentHealth();
     armorText.text = this.player.getCurrentArmor();
     attackText.text = this.player.getCurrentAttack();
-    handText.text = this.player.getCurrentActionPoint();
 
+    if(statutIsplayed){
+    handText.text = this.player.getCurrentActionPoint();
+    }
     // if(sprite.input.pointerOver())
     // {
 
